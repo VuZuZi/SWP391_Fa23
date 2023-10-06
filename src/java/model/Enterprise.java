@@ -5,7 +5,6 @@
 package model;
 
 import java.util.ArrayList;
-import java.util.Date;
 
 /**
  *
@@ -23,18 +22,22 @@ public class Enterprise {
 
     public Enterprise() {
     }
-    
-    public Enterprise(String EnterpriseAccount, String EnterpriseName, String EnterprisePassword, String Phone, String Taxcode, String Place, String EnterpriseDesc) {
-        this.EnterpriseID = newEnterID();
+
+    public Enterprise(String EnterpriseAccount, String EnterprisePassword) {
+        this.EnterpriseID = newID();
         this.EnterpriseAccount = EnterpriseAccount;
-        this.EnterpriseName = EnterpriseName;
         this.EnterprisePassword = EnterprisePassword;
-        this.Phone = Phone;
-        this.Taxcode = Taxcode;
-        this.Place = Place;
-        this.EnterpriseDesc = EnterpriseDesc;
+    }
+
+    public Enterprise(String EnterpriseID, String EnterpriseAccount, String EnterprisePassword) {
+        this.EnterpriseID = EnterpriseID;
+        this.EnterpriseAccount = EnterpriseAccount;
+        this.EnterprisePassword = EnterprisePassword;
     }
     
+    
+    
+
     public Enterprise(String EnterpriseID, String EnterpriseAccount, String EnterpriseName, String EnterprisePassword, String Phone, String Taxcode, String Place, String EnterpriseDesc) {
         this.EnterpriseID = EnterpriseID;
         this.EnterpriseAccount = EnterpriseAccount;
@@ -110,40 +113,36 @@ public class Enterprise {
         this.EnterpriseDesc = EnterpriseDesc;
     }
     
-    public String newEnterID(){
-        if(EnterpriseDB.getListEnterprise().isEmpty())
-            return "Enterprise100";
-        ArrayList<Enterprise> listEnterprise  = EnterpriseDB.getListEnterprise();
-        for( Enterprise enterprise : listEnterprise){
-            String numID = enterprise.getEnterpriseID().substring(10);
-            String nextID = "Enterprise"+ (Integer.parseInt(numID)+1);
+    public String newID(){
+        if(EnterpriseDB.getListEnter().isEmpty())
+            return "enterprise100";
+        ArrayList<Enterprise> listEnter  = EnterpriseDB.getListEnter();
+        for( Enterprise enter : listEnter){
+            String numID = enter.getEnterpriseID().substring(10);
+            String nextID = "enterprise"+ (Integer.parseInt(numID)+1);
             if( !isDupplicatedID(nextID)){
                 return nextID;
             }
         }
         return null;
     }
-    
     public boolean isDupplicatedID(String id){
-        ArrayList<Enterprise> listEnterprise = EnterpriseDB.getListEnterprise();
-        for( Enterprise enterprise : listEnterprise){
-            if(enterprise.getEnterpriseID().equals(id)) return true;
+        ArrayList<Enterprise> listEnter = EnterpriseDB.getListEnter();
+        for( Enterprise enter : listEnter){
+            if(enter.getEnterpriseID().equals(id)) return true;
         }
         return false;
     }
+    
     public boolean isDupplicatedAccount() {
-        ArrayList<Enterprise> listEnterprise =  EnterpriseDB.getListEnterprise();
-        for (Enterprise enterprise : listEnterprise) {
-            if (enterprise.getEnterpriseAccount().equals(this.EnterpriseAccount)) return true;
+        ArrayList<Enterprise> listEnter = EnterpriseDB.getListEnter();
+        for( Enterprise enter : listEnter) {
+            if(enter.getEnterpriseID().equals(this.EnterpriseAccount)) return true;
         }
         return false;
     }
     
     public int addNew(){
         return EnterpriseDB.addNewEnter(this);
-    }
-    
-    public Enterprise login(String acc , String pass){
-        return EnterpriseDB.login(acc, pass);
     }
 }
