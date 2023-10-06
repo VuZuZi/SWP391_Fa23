@@ -138,18 +138,21 @@
                                         <input type="password" id="password-login" class="form-control" name="password-login" placeholder="Password">
                                     </div>
                                 </div>
-                                <div class="w-50 text-left">
-                                    <label class="checkbox-wrap checkbox-primary mb-0">Remember Me
-                                        <input type="checkbox" name="remember" value="on" checked>
-                                        <span class="checkmark"></span>
+                                <div class="col-xs-12">
+                                    <label class="checkbox-wrap checkbox-primary mb-0">
+                                        <input type="checkbox" name="remember" value="on" checked> Remember Me
+                                        <span class="checkmark"></span>                                        
                                     </label>
+                                    <a class="col" href="ForgotPassword.jsp">Forgot Password ?</a>
                                 </div>
-
                                 <div class="row form-group">
-                                    <div class="col-md-12">
-                                        <input type="submit" value="Log In" class="btn px-4 btn-primary text-white">
+                                    <div class="col-md-12" style="text-align: center;">
+                                        <input type="submit" name="action" value="login" class="btn px-4 btn-primary text-white">
+                                        <p class="or text-center fz-12px">Hoặc đăng nhập bằng</p>
+                                        <button class="loginBtn loginBtn--facebook"><a style="color:white;" href=""> Login with Facebook</a></button>
+                                        <button class="loginBtn loginBtn--google"><a style="color:white;" href="https://accounts.google.com/o/oauth2/auth?scope=profile+email&redirect_uri=http://localhost:8080/SWP_Project/LoginGoogleServlet&response_type=code&client_id=311060052304-v29rma73e6ji73uaroul7b4nft79iods.apps.googleusercontent.com&approval_prompt=force" > Login with Google</a></button>
                                     </div>
-                                </div>
+                                </div>                                
                             </form>
                         </div>
                     </div>

@@ -25,10 +25,17 @@ public class Users {
     private String Gender;
     private java.sql.Date UserDOB;
     private String UserSkills;
+    private String OTP; 
+    private String activationFlag;
+    private String verificationToken;
+    private String signupFlag;
+    private String profilePic;
+    private String UserFbId;
+    private String UserGmailId;
     
     public Users(){}
 
-    public Users(String UserAccount, String UserName, String UserPassword, String Phone, String Gender, String UserDOB, String UserSkills) {
+    public Users(String UserAccount, String UserName, String UserPassword, String Phone, String Gender, String UserDOB, String UserSkills, String OTP) {
         this.UserID = newID();
         this.UserAccount = UserAccount;
         this.UserName = UserName;
@@ -37,6 +44,7 @@ public class Users {
         this.Gender = Gender;
         this.UserDOB = formatDate(UserID);
         this.UserSkills = UserSkills;
+        this.OTP = OTP;
     }
     
     public Users(String UserAccount, String UserName, String UserPassword, String Phone, String Gender, java.sql.Date UserDOB, String UserSkills) {
@@ -48,6 +56,7 @@ public class Users {
         this.Gender = Gender;
         this.UserDOB = UserDOB;
         this.UserSkills = UserSkills;
+        this.OTP = OTP;
     }
 
     public Users(String UserID,String UserAccount, String UserName, String UserPassword, String Phone, String Gender, java.sql.Date UserDOB, String UserSkills) {
@@ -59,6 +68,7 @@ public class Users {
         this.Gender = Gender;
         this.UserDOB = UserDOB;
         this.UserSkills = UserSkills;
+        this.OTP = OTP;
     }
 
     public String getUserID() {
@@ -159,11 +169,7 @@ public class Users {
         }
         return false;
     }
-    
-    public int addNew(){
-        return UserDB.addNewUser(this);
-    }
-
+        
     @Override
     public String toString() {
         return "Users{" + "UserID=" + UserID + ", UserAccount=" + UserAccount + ", UserName=" + UserName + ", UserPassword=" + UserPassword + ", Phone=" + Phone + ", Gender=" + Gender + ", UserDOB=" + UserDOB + ", UserSkills=" + UserSkills + '}';
@@ -180,7 +186,101 @@ public class Users {
         return result;
     }
     
-    public Users login (String acc,String pass){
-        return UserDB.login(acc, pass);
+    /**
+     * @return the OTP
+     */
+    public String getOTP() {
+        return OTP;
+    }
+
+    /**
+     * @param OTP the OTP to set
+     */
+    public void setOTP(String OTP) {
+        this.OTP = OTP;
+    }
+
+    /**
+     * @return the activationFlag
+     */
+    public String getActivationFlag() {
+        return activationFlag;
+    }
+
+    /**
+     * @param activationFlag the activationFlag to set
+     */
+    public void setActivationFlag(String activationFlag) {
+        this.activationFlag = activationFlag;
+    }
+
+    /**
+     * @return the verificationToken
+     */
+    public String getVerificationToken() {
+        return verificationToken;
+    }
+
+    /**
+     * @param verificationToken the verificationToken to set
+     */
+    public void setVerificationToken(String verificationToken) {
+        this.verificationToken = verificationToken;
+    }
+
+    /**
+     * @return the signupFlag
+     */
+    public String getSignupFlag() {
+        return signupFlag;
+    }
+
+    /**
+     * @param signupFlag the signupFlag to set
+     */
+    public void setSignupFlag(String signupFlag) {
+        this.signupFlag = signupFlag;
+    }
+
+    /**
+     * @return the profilePic
+     */
+    public String getProfilePic() {
+        return profilePic;
+    }
+
+    /**
+     * @param profilePic the profilePic to set
+     */
+    public void setProfilePic(String profilePic) {
+        this.profilePic = profilePic;
+    }
+
+    /**
+     * @return the UserFbId
+     */
+    public String getUserFbId() {
+        return UserFbId;
+    }
+
+    /**
+     * @param UserFbId the UserFbId to set
+     */
+    public void setUserFbId(String UserFbId) {
+        this.UserFbId = UserFbId;
+    }
+
+    /**
+     * @return the UsergmailId
+     */
+    public String getUserGmailId() {
+        return UserGmailId;
+    }
+
+    /**
+     * @param UserGmailId the UsergmailId to set
+     */
+    public void setUserGmailId(String UserGmailId) {
+        this.UserGmailId = UserGmailId;
     }
 }

@@ -7,17 +7,20 @@ package controller;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
-import javax.servlet.http.Cookie;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import model.Users;
+
 
 /**
  *
- * @author ASUS
+ * @author Anh4Lan
  */
-public class LoginUser extends HttpServlet {
+@WebServlet(name = "VerifyServlet", urlPatterns = {"/verify"})
+public class VerifyServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -31,15 +34,15 @@ public class LoginUser extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
+        try ( PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet LoginUser</title>");            
+            out.println("<title>Servlet VerifyServlet</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet LoginUser at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet VerifyServlet at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -57,7 +60,7 @@ public class LoginUser extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.getRequestDispatcher("login.jsp").forward(request, response);
+        doPost(request, response);
     }
 
     /**
@@ -71,26 +74,26 @@ public class LoginUser extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-//        String uName = request.getParameter("account-login").trim();
-//        String pass = request.getParameter("password-login").trim();
-//        // remember me?
-//        String remember  = request.getParameter("remember");
-//        if(remember.equals("on")){
-//            response.addCookie(new Cookie("account",uName));
-//            response.addCookie(new Cookie("password", pass));
-//        }
-//        //end remember me
-//        Users u = new Users().login(uName, pass);
-//        if(u != null){
-//            request.getSession().setAttribute("user", u);
-//            request.getRequestDispatcher("login.jsp").forward(request, response);
-//        }
-//        
-////        request.setAttribute("notic", "Login fail. Username or password is wrong!");
-////        request.setAttribute("link", "login.jsp");
-////        request.setAttribute("subLink", "Relogin");
-//        request.getRequestDispatcher("main.jsp").forward(request, response);
-   }
+        response.setContentType("text/html;charset=UTF-8");
+        try (PrintWriter out = response.getWriter()) {
+            String enteredOTP = request.getParameter("otp");
+            
+            // Lấy mã OTP đã lưu trong session sau khi gửi qua email
+            HttpSession session = request.getSession();
+            String sentOTP = (String) session.getAttribute("otp");
+
+            if (sentOTP != null && sentOTP.equals(enteredOTP)) {
+                // Xác thực thành công
+                // Cập nhật trạng thái xác thực trong cơ sở dữ liệu (nếu cần)
+                // Redirect hoặc hiển thị thông báo thành công
+                out.println("<html><body><h1>OTP Verified Successfully!</h1></body></html>");
+            } else {
+                // Xác thực thất bại
+                // Redirect hoặc hiển thị thông báo thất bại
+                out.println("<html><body><h1>OTP Verification Failed. Please try again.</h1></body></html>");
+            }
+        }
+    }
 
     /**
      * Returns a short description of the servlet.

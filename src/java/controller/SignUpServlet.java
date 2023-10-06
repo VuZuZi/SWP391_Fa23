@@ -15,6 +15,11 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.mail.*;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
+import java.util.Properties;
+import java.util.Random;
 import model.Users;
 
 /**
@@ -107,10 +112,8 @@ public class SignUpServlet extends HttpServlet {
             request.getRequestDispatcher("SignUp.jsp").forward(request, response);
             return;
         }
-        
-        id = u.addNew();
-        
-        
+                
+//        id = u.addNew();
         
         request.setAttribute("notic", "Sign up successfully");
         request.setAttribute("link ", "login.jsp");
@@ -156,4 +159,5 @@ public class SignUpServlet extends HttpServlet {
         }
         return result;
     }
+        
 }

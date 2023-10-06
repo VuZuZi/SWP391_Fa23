@@ -3,10 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/Chuyên%20Ngành%202/PRO/NetBeansProjects/SWP_Project/src/java/model/UserDB.java</file>
-            <file>file:/D:/Chuyên%20Ngành%202/PRO/NetBeansProjects/SWP_Project/src/java/controller/LoginUser.java</file>
-            <file>file:/D:/Chuyên%20Ngành%202/PRO/NetBeansProjects/SWP_Project/src/java/model/Users.java</file>
-            <file>file:/D:/Chuyên%20Ngành%202/PRO/NetBeansProjects/SWP_Project/web/login.jsp</file>
+            <file>file:/C:/Users/Anh4Lan/Documents/NetBeansProjects/SWP391_Fa23-quang/web/ForgotPassword.jsp</file>
+            <file>file:/C:/Users/Anh4Lan/Documents/NetBeansProjects/SWP391_Fa23-quang/src/java/controller/LoginEnterServlet.java</file>
+            <file>file:/C:/Users/Anh4Lan/Documents/NetBeansProjects/SWP391_Fa23-quang/src/java/controller/SignUpServlet.java</file>
+            <file>file:/C:/Users/Anh4Lan/Documents/NetBeansProjects/SWP391_Fa23-quang/web/css/style.css</file>
+            <file>file:/C:/Users/Anh4Lan/Documents/NetBeansProjects/SWP391_Fa23-quang/web/login.jsp</file>
         </group>
     </open-files>
 </project-private>
