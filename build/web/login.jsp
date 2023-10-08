@@ -1,10 +1,9 @@
 <%-- 
-    Document   : SignUp
-    Created on : Sep 19, 2023, 2:29:18 PM
+    Document   : Login
+    Created on : Oct 6, 2023, 1:42:37 PM
     Author     : ASUS
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <!doctype html>
 <html lang="en">
@@ -122,40 +121,82 @@
             <section class="site-section">
                 <div class="container">
                     <div class="row">
-                        <div class="offset-3 col-lg-6">
-                            <h2 class="mb-4">Log In To JobBoard</h2>
-                            <form action="LoginUser" method="POST" class="p-4 border rounded">
-
-                                <div class="row form-group">
-                                    <div class="col-md-12 mb-3 mb-md-0">
-                                        <label class="text-black" for="fname">User Account</label>
-                                        <input type="text" id="account-login" class="form-control " name ="account-login" placeholder="User Account">
-                                    </div>
+                        <div class="offset-3 col-lg-6 mb-5">
+                            <h2 class="mb-4">Log In To JobC</h2>
+                            <form action="LoginServlet" method="POST" class="p-4 border rounded">
+                                <div class="form-group mb-3">
+                                    <label class="label" for="">Email</label>
+                                    <input type="text" class="form-control" id="username-input" name="username-login" placeholder="Username">
+                                    <span class="message-form"></span>
                                 </div>
-                                <div class="row form-group mb-4">
-                                    <div class="col-md-12 mb-3 mb-md-0">
-                                        <label class="text-black" for="fname">Password</label>
-                                        <input type="password" id="password-login" class="form-control" name="password-login" placeholder="Password">
-                                    </div>
-                                </div>
-                                <div class="w-50 text-left">
-                                    <label class="checkbox-wrap checkbox-primary mb-0">Remember Me
-                                        <input type="checkbox" name="remember" value="on" checked>
-                                        <span class="checkmark"></span>
-                                    </label>
+                                <div class="form-group mb-3">
+                                    <label class="label" for="">Password</label>
+                                    <input type="password" class="form-control" id="pass-input" name="pass-login" placeholder="Password">
+                                    <span class="message-form"></span>
                                 </div>
 
-                                <div class="row form-group">
-                                    <div class="col-md-12">
-                                        <input type="submit" value="Log In" class="btn px-4 btn-primary text-white">
+                                <div class="form-group mb-4">
+                                    <label class="label" for="role">Role</label>
+                                    <select class="form-control" name="role-login">
+                                        <option value="User">User</option>
+                                        <option value="Enterprise">Enterprise</option>
+                                        <option value="Admin">Admin</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group mb-4">
+                                    <div class="row justify-content-center">
+                                        <div class="form-check col-lg-6 text-center">
+                                            <input class="form-check-input" type="checkbox" value="" name="" id="flexCheckDefault">
+                                            <label class="form-check-label" for="flexCheckDefault">
+                                                Remember me ?
+                                            </label>
+                                        </div>
+                                        <div class="col-lg-6 text-center">
+                                            <a class="form-check-label" href="/">
+                                                Forgot Password
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
+
+
+                                <div class="row form-group">
+                                    <div class="col-md-12 text-center">
+                                        <button type="submit" class="btn px-5 btn-primary text-white">Login</button>
+                                    </div>
+                                </div>
+
+                                <div class="text-center">
+                                    <label> Or login with</label>
+                                </div>
+
+                                <form action="LoginGGServlet" method="GET" class="p-4 border rounded">
+                                    <div class="d-flex form-group justify-content-between">
+                                    <div class="col-md-6 text-center">
+                                        <button href="https://accounts.google.com/o/oauth2/auth?scope=profile+email&redirect_uri=http://localhost:8080/SWP_JC/LoginGGServlet&response_type=code&client_id=311060052304-v29rma73e6ji73uaroul7b4nft79iods.apps.googleusercontent.com&approval_prompt=force" type="submit" class="btn px-4 btn-primary text-white">
+                                            <span class="">
+                                                <i class="icon-google "></i>
+                                            </span>
+                                            Google Account
+                                        </button>
+                                    </div>
+                                    <div class="col-md-6 text-center">
+                                        <button type="submit" class="btn px-4 btn-primary text-white">
+                                            <span class="">
+                                                <i class="icon-facebook "></i>
+                                            </span>
+                                            Facebook Account
+                                        </button>
+                                    </div>
+                                </div>
+                                </form>
+
                             </form>
                         </div>
                     </div>
                 </div>
             </section>
-
             <footer class="site-footer">
 
                 <a href="#top" class="smoothscroll scroll-top">
