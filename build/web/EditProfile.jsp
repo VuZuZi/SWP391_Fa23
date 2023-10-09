@@ -1,10 +1,10 @@
 <%-- 
-    Document   : PostJob
-    Created on : Oct 6, 2023, 9:42:10 AM
+    Document   : EditProfile
+    Created on : Oct 8, 2023, 3:10:28 AM
     Author     : ASUS
 --%>
 
-
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!doctype html>
 <html lang="en">
 
@@ -54,7 +54,7 @@
             <header class="site-navbar mt-3">
                 <div class="container-fluid">
                     <div class="row align-items-center">
-                        <div class="site-logo col-6"><a href="mainEnter">JobBoard</a></div>
+                        <div class="site-logo col-6"><a href="index.html">JobBoard</a></div>
 
                         <nav class="mx-auto site-navigation">
                             <ul class="site-menu js-clone-nav d-none d-xl-block ml-0 pl-0">
@@ -89,6 +89,10 @@
 
                         <div class="right-cta-menu text-right d-flex aligin-items-center col-6">
                             <div class="ml-auto">
+                                <a href="post-job.html" class="btn btn-outline-white border-width-2 d-none d-lg-inline-block"><span
+                                        class="mr-2 icon-add"></span>Post a Job</a>
+                                <a href="login.html" class="btn btn-primary border-width-2 d-none d-lg-inline-block"><span
+                                        class="mr-2 icon-lock_outline"></span>Log In</a>
                             </div>
                             <a href="#" class="site-menu-toggle js-menu-toggle d-inline-block d-xl-none mt-lg-2 ml-3"><span
                                     class="icon-menu h3 m-0 p-0 mt-2"></span></a>
@@ -104,11 +108,10 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-7">
-                            <h1 class="text-white font-weight-bold">Post A Job</h1>
+                            <h1 class="text-white font-weight-bold">Edit the profile</h1>
                             <div class="custom-breadcrumbs">
                                 <a href="#">Home</a> <span class="mx-2 slash">/</span>
-                                <a href="#">Job</a> <span class="mx-2 slash">/</span>
-                                <span class="text-white"><strong>Post a Job</strong></span>
+                                <span class="text-white"><strong>Edit the profile</strong></span>
                             </div>
                         </div>
                     </div>
@@ -121,76 +124,47 @@
 
                     <div class="row align-items-center mb-5">
                         <div class="col-lg-10 mb-4 mb-lg-0">
-                            <div class="d-flex align-items-center">
+                            <div class="d-flex align-items-center text-capitalize">
                                 <div>
-                                    <h2>Post A Job</h2>
+                                    <h2>edit the profile</h2>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-lg-2">
-                            <a href="#" class="btn btn-block btn-primary btn-md">Post Job</a>
                         </div>
                     </div>
                     <div class="row mb-5">
                         <div class="col-lg-12">
-                            <form action="PostJobServlet" class="p-4 p-md-5 border rounded" method="POST">
-                                <h3 class="text-black mb-5 border-bottom pb-2">Job Details</h3>
+                            <form action="EditProfileServlet" class="p-4 p-md-5 border rounded" method="post">
+                                <h3 class="text-black mb-5 border-bottom pb-2 text-capitalize">edit the profile</h3>
                                 <div class="form-group">
-                                    <label for="job-title">Job Title</label>
-                                    <input type="text" class="form-control" id="job-title" name="title-input" placeholder="Product Designer">
+                                    <label for="name" class="text-capitalize">Name</label>
+                                    <input type="text" class="form-control" id="name" name="name-input" placeholder="Enter your name" value="Enterprise Name">
                                 </div>
-                                <div class="form-group row">
-                                    <div class="col-6">
-                                        <label for="job-location">Date Open</label>
-                                        <input type="date" class="form-control" id="job-date-open" name="dateopen-input">
-                                    </div>
-                                    <div class="col-6">
-                                        <label for="job-location">Date Close</label>
-                                        <input type="date" class="form-control" id="job-date-close" name="dateclose-input">
-                                    </div>
-
-                                </div>
-
                                 <div class="form-group">
-                                    <label for="job-location">Location</label>
-                                    <input type="text" class="form-control" id="job-location" name="location-input" placeholder="e.g. New York">
+                                    <label for="phone" class="text-capitalize">Phone</label>
+                                    <input type="text" class="form-control" id="phone" name="phone-input" placeholder="Enter your phone" value="0123456789">
                                 </div>
-
-
                                 <div class="form-group">
-                                    <label for="job-type">Job Type</label>
-                                    <select class="selectpicker border rounded" id="job-type" data-style="btn-black" data-width="100%"
-                                            title="Select Job Type" name="type-input">
-                                        <option value="fulltime" selected>Full Time</option>
-                                        <option value="parttime">Part Time</option>
-                                        <option value="remote">Remote</option>
-                                    </select>
+                                    <label for="place" class="text-capitalize">Address</label>
+                                    <input type="text" class="form-control" id="place" name="address-input" placeholder="Enter your address" value="Enterprise Address">
                                 </div>
-
-                                <div class="form-group">
-                                    <label for="job-location">Skills</label>
-                                    <input type="text" class="form-control" id="job-location" name="skill-input" placeholder="e.g. SQL, Python, Java">
-                                </div>
-
-
-                                <div class="form-group">
-                                    <label for="job-region">Job Salary</label>
-                                    <input type="text" class="form-control" id="job-salary" name="salary-input" placeholder="Salary">
-                                </div>
-
-
                                 <div class="form-group">
                                     <label for="description" class="text-capitalize">Description</label>
                                     <textarea type="text" class="form-control" id="description" name="desc-input" placeholder="Enter your description" value="Enterprise Address" rows="3"></textarea>
                                 </div>
+                                <!--                                <div class="form-group">
+                                                                    <label for="description">Description</label>
+                                                                    <input style="width: 100%;" type="text" class="editor" id="editor-1" name="desc-input">
+                                                                </div>-->
 
+                                <div class="form-group">
+                                    <label for="job-title" class="text-capitalize">Taxcode</label>
+                                    <input type="text" class="form-control" id="taxcode" placeholder="Enter your taxcode"  name="tax-input" >
+                                </div>
                                 <div class="row align-items-center mb-5">
                                     <div class="col-lg-2 ml-auto">
-                                        <button type="submit" class="btn btn-block btn-primary btn-md">Post Job</button>
+                                        <button type="submit" class="btn btn-block btn-primary btn-md">Update</button>
                                     </div>
                                 </div>
-
-
                             </form>
                         </div>
 

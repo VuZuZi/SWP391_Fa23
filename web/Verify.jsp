@@ -99,9 +99,6 @@
 
                         <div class="right-cta-menu text-right d-flex aligin-items-center col-6">
                             <div class="ml-auto">
-                                <a href="post-job.html"
-                                   class="btn btn-outline-white border-width-2 d-none d-lg-inline-block"><span
-                                        class="mr-2 icon-add"></span>Post a Job</a>
                                 <a href="login.html" class="btn btn-primary border-width-2 d-none d-lg-inline-block"><span
                                         class="mr-2 icon-lock_outline"></span>Log In</a>
                             </div>
@@ -144,7 +141,7 @@
                                 <h3 class="text-center">Please check your email</h3>
                                 <div class="form-group mb-3">
                                     <label for="code-verify" class="label">Your code:</label>
-                                    <input id="code-verify" name="input-code" type="text" class="form-control"
+                                    <input id="code-verify" name="input-code" type="password" class="form-control"
                                            placeholder="Your code"></a>
                                     <span class="message-form"></span>
                                 </div>

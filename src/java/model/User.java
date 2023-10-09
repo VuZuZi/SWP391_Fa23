@@ -7,6 +7,7 @@ package model;
 import java.sql.Date;
 import java.util.ArrayList;
 import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 
 
 /**
@@ -39,12 +40,16 @@ public class User {
         this.UserAccount = UserAccount;
         this.UserPassword = UserPassword;
     }
-    
-    public User (String UserID, String UserAccount, String UserPassword) {
+
+    public User(String UserID, String UserAccount, String UserPassword) {
         this.UserID = UserID;
         this.UserAccount = UserAccount;
         this.UserPassword = UserPassword;
     }
+    
+    
+    
+    
 
     public User(String UserID, String UserAccount, String UserName, String UserPassword, String Phone, String Gender, Date UserDOB, String UserSkills, int isAdmin) {
         this.UserID = UserID;
@@ -187,6 +192,8 @@ public class User {
     }
     
     
+    
+    
     public String newID(){
         if(UserDB.getListUser().isEmpty())
             return "user100";
@@ -220,5 +227,8 @@ public class User {
         return  UserDB.addNewUser(this);
     }
     
+    public User login (String acc , String pass) throws NoSuchAlgorithmException{
+        return UserDB.login(acc, pass);
+    }
 
 }

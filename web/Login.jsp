@@ -1,6 +1,6 @@
 <%-- 
-    Document   : PostJob
-    Created on : Oct 6, 2023, 9:42:10 AM
+    Document   : Login
+    Created on : Oct 6, 2023, 1:42:37 PM
     Author     : ASUS
 --%>
 
@@ -54,17 +54,17 @@
             <header class="site-navbar mt-3">
                 <div class="container-fluid">
                     <div class="row align-items-center">
-                        <div class="site-logo col-6"><a href="mainEnter">JobBoard</a></div>
+                        <div class="site-logo col-6"><a href="index.html">JobBoard</a></div>
 
                         <nav class="mx-auto site-navigation">
                             <ul class="site-menu js-clone-nav d-none d-xl-block ml-0 pl-0">
-                                <li><a href="index.html" class="nav-link active">Home</a></li>
+                                <li><a href="index.html" class="nav-link">Home</a></li>
                                 <li><a href="about.html">About</a></li>
                                 <li class="has-children">
-                                    <a href="job-listings.html" class="active">Job Listings</a>
+                                    <a href="job-listings.html">Job Listings</a>
                                     <ul class="dropdown">
                                         <li><a href="job-single.html">Job Single</a></li>
-                                        <li><a href="post-job.html" class="active">Post a Job</a></li>
+                                        <li><a href="post-job.html">Post a Job</a></li>
                                     </ul>
                                 </li>
                                 <li class="has-children">
@@ -89,6 +89,8 @@
 
                         <div class="right-cta-menu text-right d-flex aligin-items-center col-6">
                             <div class="ml-auto">
+                                <a href="SignUpServlet" class="btn btn-primary border-width-2 d-none d-lg-inline-block"><span
+                                        class="mr-2 icon-lock_outline"></span>Sign Up</a>
                             </div>
                             <a href="#" class="site-menu-toggle js-menu-toggle d-inline-block d-xl-none mt-lg-2 ml-3"><span
                                     class="icon-menu h3 m-0 p-0 mt-2"></span></a>
@@ -104,104 +106,95 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-7">
-                            <h1 class="text-white font-weight-bold">Post A Job</h1>
+                            <h1 class="text-white font-weight-bold">Sign Up/Login</h1>
                             <div class="custom-breadcrumbs">
                                 <a href="#">Home</a> <span class="mx-2 slash">/</span>
-                                <a href="#">Job</a> <span class="mx-2 slash">/</span>
-                                <span class="text-white"><strong>Post a Job</strong></span>
+                                <span class="text-white"><strong>Log In</strong></span>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
-
 
             <section class="site-section">
                 <div class="container">
-
-                    <div class="row align-items-center mb-5">
-                        <div class="col-lg-10 mb-4 mb-lg-0">
-                            <div class="d-flex align-items-center">
-                                <div>
-                                    <h2>Post A Job</h2>
+                    <div class="row">
+                        <div class="offset-3 col-lg-6 mb-5">
+                            <h2 class="mb-4">Log In To JobC</h2>
+                            <form action="LoginServlet" method="POST" class="p-4 border rounded">
+                                <div class="form-group mb-3">
+                                    <label class="label" for="">Email</label>
+                                    <input type="text" class="form-control" id="username-input" name="username-login" placeholder="Username">
+                                    <span class="message-form"></span>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-2">
-                            <a href="#" class="btn btn-block btn-primary btn-md">Post Job</a>
-                        </div>
-                    </div>
-                    <div class="row mb-5">
-                        <div class="col-lg-12">
-                            <form action="PostJobServlet" class="p-4 p-md-5 border rounded" method="POST">
-                                <h3 class="text-black mb-5 border-bottom pb-2">Job Details</h3>
-                                <div class="form-group">
-                                    <label for="job-title">Job Title</label>
-                                    <input type="text" class="form-control" id="job-title" name="title-input" placeholder="Product Designer">
-                                </div>
-                                <div class="form-group row">
-                                    <div class="col-6">
-                                        <label for="job-location">Date Open</label>
-                                        <input type="date" class="form-control" id="job-date-open" name="dateopen-input">
-                                    </div>
-                                    <div class="col-6">
-                                        <label for="job-location">Date Close</label>
-                                        <input type="date" class="form-control" id="job-date-close" name="dateclose-input">
-                                    </div>
-
+                                <div class="form-group mb-3">
+                                    <label class="label" for="">Password</label>
+                                    <input type="password" class="form-control" id="pass-input" name="pass-login" placeholder="Password">
+                                    <span class="message-form"></span>
                                 </div>
 
-                                <div class="form-group">
-                                    <label for="job-location">Location</label>
-                                    <input type="text" class="form-control" id="job-location" name="location-input" placeholder="e.g. New York">
-                                </div>
+                                <div class="form-group mb-4">
+                                    <label class="label" for="role">Role</label>
+                                    <select class="form-control" name="role-login">
+                                        <option value="User">User</option>
+                                        <option value="Enterprise">Enterprise</option>
 
-
-                                <div class="form-group">
-                                    <label for="job-type">Job Type</label>
-                                    <select class="selectpicker border rounded" id="job-type" data-style="btn-black" data-width="100%"
-                                            title="Select Job Type" name="type-input">
-                                        <option value="fulltime" selected>Full Time</option>
-                                        <option value="parttime">Part Time</option>
-                                        <option value="remote">Remote</option>
                                     </select>
                                 </div>
 
-                                <div class="form-group">
-                                    <label for="job-location">Skills</label>
-                                    <input type="text" class="form-control" id="job-location" name="skill-input" placeholder="e.g. SQL, Python, Java">
-                                </div>
-
-
-                                <div class="form-group">
-                                    <label for="job-region">Job Salary</label>
-                                    <input type="text" class="form-control" id="job-salary" name="salary-input" placeholder="Salary">
-                                </div>
-
-
-                                <div class="form-group">
-                                    <label for="description" class="text-capitalize">Description</label>
-                                    <textarea type="text" class="form-control" id="description" name="desc-input" placeholder="Enter your description" value="Enterprise Address" rows="3"></textarea>
-                                </div>
-
-                                <div class="row align-items-center mb-5">
-                                    <div class="col-lg-2 ml-auto">
-                                        <button type="submit" class="btn btn-block btn-primary btn-md">Post Job</button>
+                                <div class="form-group mb-4">
+                                    <div class="row justify-content-center">
+                                        <div class="form-check col-lg-6 text-center">
+                                            <input class="form-check-input" type="checkbox" value="" name="remember" value="on" id="flexCheckDefault">
+                                            <label class="form-check-label" for="flexCheckDefault">
+                                                Remember me ?
+                                            </label>
+                                        </div>
+                                        <div class="col-lg-6 text-center">
+                                            <a class="form-check-label" href="/">
+                                                Forgot Password
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
 
 
+                                <div class="row form-group">
+                                    <div class="col-md-12 text-center">
+                                        <button type="submit" class="btn px-5 btn-primary text-white">Login</button>
+                                    </div>
+                                </div>
+
+                                <div class="text-center">
+                                    <label> Or login with</label>
+                                </div>
+
+                                <form action="LoginGGServlet" method="GET" class="p-4 border rounded">
+                                    <div class="d-flex form-group justify-content-between">
+                                        <div class="col-md-6 text-center">
+                                            <button href="https://accounts.google.com/o/oauth2/auth?scope=profile+email&redirect_uri=http://localhost:8080/SWP_JC/LoginGGServlet&response_type=code&client_id=311060052304-v29rma73e6ji73uaroul7b4nft79iods.apps.googleusercontent.com&approval_prompt=force" type="submit" class="btn px-4 btn-primary text-white">
+                                                <span class="">
+                                                    <i class="icon-google "></i>
+                                                </span>
+                                                Google Account
+                                            </button>
+                                        </div>
+                                        <div class="col-md-6 text-center">
+                                            <button type="submit" class="btn px-4 btn-primary text-white">
+                                                <span class="">
+                                                    <i class="icon-facebook "></i>
+                                                </span>
+                                                Facebook Account
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+
                             </form>
                         </div>
-
-
                     </div>
-
                 </div>
             </section>
-
-
-
             <footer class="site-footer">
 
                 <a href="#top" class="smoothscroll scroll-top">

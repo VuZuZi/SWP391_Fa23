@@ -1,6 +1,9 @@
 package model;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.naming.Context;
@@ -22,6 +25,35 @@ public interface DatabaseInfo {
             Logger.getLogger(DatabaseInfo.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
+    }
+    
+    public static void closeResultSet( ResultSet rs){
+        if(rs != null){
+            try{
+                rs.close();
+            }catch (SQLException e){
+                e.printStackTrace();
+            }
+        }
+    }
+    
+    public static void closeStatement(PreparedStatement createCustomerPS) {
+        if(createCustomerPS!=null){
+            try{
+                createCustomerPS.close();
+            } catch(SQLException e){
+                e.printStackTrace();
+            }
+        }	
+    }
+    public static void closeConnection(Connection conn) {
+        if(conn!=null){
+            try{
+                conn.close();
+            } catch(SQLException e){
+                e.printStackTrace();
+            }
+        }		
     }
 
 }

@@ -12,22 +12,36 @@ import java.util.Date;
  * @author ASUS
  */
 public class Job {
+
     private String JobId;
     private String Title;
-    private java.util.Date DateOpen;
-    private java.util.Date DateClose;
+    private java.sql.Date DateOpen;
+    private java.sql.Date DateClose;
     private String Location;
     private String Type;
     private String Description;
     private String Skills;
-    private String salary;
+    private String Salary;
     private String EnterpriseID;
     private int isAccept;
 
     public Job() {
     }
 
-    public Job(String JobId, String Title, Date DateOpen, Date DateClose, String Location, String Type, String Description, String Skills, String salary, String EnterpriseID, int isAccept) {
+    public Job(String Title, java.sql.Date DateOpen, java.sql.Date DateClose, String Location, String Type, String Description, String Skills, String Salary, String EnterpriseID) {
+        this.JobId = newID();
+        this.Title = Title;
+        this.DateOpen = DateOpen;
+        this.DateClose = DateClose;
+        this.Location = Location;
+        this.Type = Type;
+        this.Description = Description;
+        this.Skills = Skills;
+        this.Salary = Salary;
+        this.EnterpriseID = EnterpriseID;
+    }
+
+    public Job(String JobId, String Title, java.sql.Date DateOpen, java.sql.Date DateClose, String Location, String Type, String Description, String Skills , String EnterpriseID, String Salary, int isAccept) {
         this.JobId = JobId;
         this.Title = Title;
         this.DateOpen = DateOpen;
@@ -36,10 +50,18 @@ public class Job {
         this.Type = Type;
         this.Description = Description;
         this.Skills = Skills;
-        this.salary = salary;
+        this.Salary = Salary;
         this.EnterpriseID = EnterpriseID;
         this.isAccept = isAccept;
     }
+
+    public Job(String JobId, int isAccept) {
+        this.JobId = JobId;
+        this.isAccept = isAccept;
+    }
+    
+    
+    
 
     public String getJobId() {
         return JobId;
@@ -57,19 +79,19 @@ public class Job {
         this.Title = Title;
     }
 
-    public Date getDateOpen() {
+    public java.sql.Date getDateOpen() {
         return DateOpen;
     }
 
-    public void setDateOpen(Date DateOpen) {
+    public void setDateOpen(java.sql.Date DateOpen) {
         this.DateOpen = DateOpen;
     }
 
-    public Date getDateClose() {
+    public java.sql.Date getDateClose() {
         return DateClose;
     }
 
-    public void setDateClose(Date DateClose) {
+    public void setDateClose(java.sql.Date DateClose) {
         this.DateClose = DateClose;
     }
 
@@ -106,11 +128,11 @@ public class Job {
     }
 
     public String getSalary() {
-        return salary;
+        return Salary;
     }
 
-    public void setSalary(String salary) {
-        this.salary = salary;
+    public void setSalary(String Salary) {
+        this.Salary = Salary;
     }
 
     public String getEnterpriseID() {
@@ -128,27 +150,36 @@ public class Job {
     public void setIsAccept(int isAccept) {
         this.isAccept = isAccept;
     }
-    
-    public String newID(){
-        if(JobDB.getListJob().isEmpty())
+
+    public String newID() {
+        if (JobDB.getListJob().isEmpty()) 
             return "job100";
         ArrayList<Job> listJob = JobDB.getListJob();
-        for( Job job : listJob){
+        for (Job job : listJob) {
             String numID = job.getJobId().substring(3);
-            String nextID = "job"+(Integer.parseInt(numID+1));
-            if(!isDupplicatedID(nextID)){
+            String nextID = "job" + (Integer.parseInt(numID)+ 1);
+            if (!isDupplicatedID(nextID)) {
                 return nextID;
             }
         }
         return null;
     }
-    
-    
-    public boolean isDupplicatedID(String id){
+
+    public boolean isDupplicatedID(String id) {
         ArrayList<Job> listJob = JobDB.getListJob();
-        for(Job job : listJob){
-            if(job.getJobId().equals(id)) return true;
+        for (Job job : listJob) {
+            if (job.getJobId().equals(id)) {
+                return true;
+            }
         }
         return false;
+    }
+
+    public int addNew() {
+        return JobDB.addNewJob(this);
+    }
+    
+    public int acceptJob(){
+        return JobDB.accepJob(this);
     }
 }

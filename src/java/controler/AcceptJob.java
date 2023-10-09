@@ -6,25 +6,19 @@ package controler;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.Date;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.mail.Session;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import model.Enterprise;
 import model.Job;
 
 /**
  *
  * @author ASUS
  */
-public class PostJobServlet extends HttpServlet {
+public class AcceptJob extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -43,10 +37,10 @@ public class PostJobServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet PostJobServlet</title>");
+            out.println("<title>Servlet AcceptJob</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet PostJobServlet at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet AcceptJob at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -64,8 +58,7 @@ public class PostJobServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.getRequestDispatcher("PostJob.jsp").forward(request, response);
-
+        processRequest(request, response);
     }
 
     /**
@@ -79,34 +72,17 @@ public class PostJobServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String jobtitle = request.getParameter("title-input").trim();
-        String dateopen = request.getParameter("dateopen-input").trim();
-        String dateclose = request.getParameter("dateclose-input").trim();
-        String location = request.getParameter("location-input").trim();
-        String type = request.getParameter("type-input").trim();
-        String Salary = request.getParameter("salary-input").trim();
-        String desc = request.getParameter("desc-input").trim();
-        String skill = request.getParameter("skill-input").trim();
+        int isAccept = 1;
 
         HttpSession session = request.getSession();
-        Enterprise e = (Enterprise) session.getAttribute("Enterprise");
-        String enterpriseId = e.getEnterpriseID();
-        
-        String[] inputArray = {jobtitle, dateopen, dateclose, location, type, desc, skill,enterpriseId, Salary};
-        if (isEmptyInput(inputArray)) {
-            request.setAttribute("inputError", "Must fill all input");
-            request.getRequestDispatcher("PostJob.jsp").forward(request, response);
-            return;
-        }
+//        Job jobs = (ArrayList<Job>) request.getAttribute("jobs");
+////        String jobJD = jobs.;
+//        
+//        int id = -1;      
+//        Job jobaccept = new Job(jobID, isAccept);
+//        id = jobaccept.acceptJob();
 
-        int id = -1;
-        java.sql.Date dtopen = formatDate(dateopen);
-        java.sql.Date dtclose = formatDate(dateclose);
-
-        Job j = new Job(jobtitle, dtopen, dtclose, location, type, desc, skill, Salary,enterpriseId);
-        id = j.addNew();
-
-        request.getRequestDispatcher("mainEnter.jsp").forward(request, response);
+        request.getRequestDispatcher("mainAdmin.jsp").forward(request, response);
     }
 
     /**
@@ -119,23 +95,4 @@ public class PostJobServlet extends HttpServlet {
         return "Short description";
     }// </editor-fold>
 
-    public static boolean isEmptyInput(String[] s) {
-        for (int i = 0; i < s.length; i++) {
-            if (s[i].isEmpty()) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    public static java.sql.Date formatDate(String str) {
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        java.sql.Date result = null;
-        try {
-            result = new java.sql.Date(sdf.parse(str).getTime());
-        } catch (ParseException ex) {
-            Logger.getLogger(SignUpServlet.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return result;
-    }
 }

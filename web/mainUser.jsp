@@ -1,11 +1,13 @@
-<!DOCTYPE html>
-<!--
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit this template
--->
+<%-- 
+    Document   : mainUser
+    Created on : Oct 7, 2023, 1:09:07 PM
+    Author     : ASUS
+--%>
 
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!doctype html>
 <html lang="en">
+
     <head>
         <title>JobBoard &mdash; Website Template by Colorlib</title>
         <meta charset="utf-8">
@@ -22,10 +24,39 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
         <link rel="stylesheet" href="fonts/line-icons/style.css">
         <link rel="stylesheet" href="css/owl.carousel.min.css">
         <link rel="stylesheet" href="css/animate.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+              integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+              crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/brands.min.css"
+              integrity="sha512-G/T7HQJXSeNV7mKMXeJKlYNJ0jrs8RsWzYG7rVACye+qrcUhEAYKYzaa+VFy6eFzM2+/JT1Q+eqBbZFSHmJQew=="
+              crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/fontawesome.min.css"
+              integrity="sha512-giQeaPns4lQTBMRpOOHsYnGw1tGVzbAIHUyHRgn7+6FmiEgGGjaG0T2LZJmAPMzRCl+Cug0ItQ2xDZpTmEc+CQ=="
+              crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/regular.min.css"
+              integrity="sha512-k2UAKyvfA7Xd/6FrOv5SG4Qr9h4p2oaeshXF99WO3zIpCsgTJ3YZELDK0gHdlJE5ls+Mbd5HL50b458z3meB/Q=="
+              crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/solid.min.css"
+              integrity="sha512-6mc0R607di/biCutMUtU9K7NtNewiGQzrvWX4bWTeqmljZdJrwYvKJtnhgR+Ryvj+NRJ8+NnnCM/biGqMe/iRA=="
+              crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/svg-with-js.min.css"
+              integrity="sha512-iyaXtrpKz7FIRsICgrvVtq1vkSJT/cfLeXA0sHSQaAs0y3LdqXWlQCXTxM246mTQ/M2qpyVX3A0aRfmTt0LOCQ=="
+              crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/v4-font-face.min.css"
+              integrity="sha512-ueEJBIkl0DBM2fA8eS/o12U3l+ZUFn32IUY4jIaTZnNtKR4ktQw3cE/tx/tFIYJuBm4EVT7WUMqIXP1TUN0boA=="
+              crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/v4-shims.min.css"
+              integrity="sha512-SkKgNHAdwXn0lw1CzCwHFpNidxo0GT4AEueTmvgUoBRnxwfFDmWUsRfS6ZjxhXP8HystwoBp8fYDfuWD6azryQ=="
+              crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/v5-font-face.min.css"
+              integrity="sha512-5V4m5oBRPLC2aZloM2/C/Simvm/jRfHXcqxTC6iW3FS93jfEWEFmJ7dWqAHME6CGlAG4StQ3f7kN41EUjEFJUQ=="
+              crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 
         <!-- MAIN CSS -->
-        <link rel="stylesheet" href="css/style.css">    
+        <link rel="stylesheet" href="css/style.css">
     </head>
+
     <body id="top">
 
         <div id="overlayer"></div>
@@ -52,34 +83,36 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
             <header class="site-navbar mt-3">
                 <div class="container-fluid">
                     <div class="row align-items-center">
-                        <div class="site-logo col-6"><a href="index.html">JobBoard</a></div>
+                        <div class="site-logo col-6"><a href="#">JobBoard</a></div>
 
                         <nav class="mx-auto site-navigation">
                             <ul class="site-menu js-clone-nav d-none d-xl-block ml-0 pl-0">
                                 <li><a href="index.html" class="nav-link active">Home</a></li>
                                 <li><a href="about.html">About</a></li>
-                                <li class="has-children">
-                                    <a href="job-listings.html">Job Listings</a>
-                                    <ul class="dropdown">
-                                        <li><a href="job-single.html">Job Single</a></li>
-                                        <li><a href="post-job.html">Post a Job</a></li>
-                                    </ul>
+                                <!-- <li class="has-children">
+                                  <a href="job-listings.html">Job Listings</a>
+                                  <ul class="dropdown">
+                                    <li><a href="job-single.html">Job Single</a></li>
+                                    <li><a href="post-job.html">Post a Job</a></li>
+                                  </ul>
                                 </li>
                                 <li class="has-children">
-                                    <a href="services.html">Pages</a>
-                                    <ul class="dropdown">
-                                        <li><a href="services.html">Services</a></li>
-                                        <li><a href="service-single.html">Service Single</a></li>
-                                        <li><a href="blog-single.html">Blog Single</a></li>
-                                        <li><a href="portfolio.html">Portfolio</a></li>
-                                        <li><a href="portfolio-single.html">Portfolio Single</a></li>
-                                        <li><a href="testimonials.html">Testimonials</a></li>
-                                        <li><a href="faq.html">Frequently Ask Questions</a></li>
-                                        <li><a href="gallery.html">Gallery</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="blog.html">Blog</a></li>
-                                <li><a href="contact.html">Contact</a></li>
+                                  <a href="services.html">Pages</a>
+                                  <ul class="dropdown">
+                                    <li><a href="services.html">Services</a></li>
+                                    <li><a href="service-single.html">Service Single</a></li>
+                                    <li><a href="blog-single.html">Blog Single</a></li>
+                                    <li><a href="portfolio.html">Portfolio</a></li>
+                                    <li><a href="portfolio-single.html">Portfolio Single</a></li>
+                                    <li><a href="testimonials.html">Testimonials</a></li>
+                                    <li><a href="faq.html">Frequently Ask Questions</a></li>
+                                    <li><a href="gallery.html">Gallery</a></li>
+                                  </ul>
+                                </li> -->
+                                <li><a href="blog.html">Create CV</a></li>
+                                <li><a href="blog.html">View CV</a></li>
+                                <li><a href="blog.html">Interview</a></li>
+                                <li><a href="blog.html">Job Applied</a></li>
                                 <li class="d-lg-none"><a href="post-job.html"><span class="mr-2">+</span> Post a Job</a></li>
                                 <li class="d-lg-none"><a href="login.html">Log In</a></li>
                             </ul>
@@ -87,25 +120,29 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
 
                         <div class="right-cta-menu text-right d-flex aligin-items-center col-6">
                             <div class="ml-auto">
-
-                                <!-- <a href="post-job.html" class="btn btn-outline-white border-width-2 d-none d-lg-inline-block"><span class="mr-2 icon-add"></span>Sign up</a> -->
+<!--                                <a href="post-job.html" class="btn btn-outline-white border-width-2 d-none d-lg-inline-block mx-2"><span
+                                        class="mr-2 icon-add"></span>Post a Job</a>-->
                                 <div class="dropdown d-none d-lg-inline-block">
-                                    <!--                <button class="btn btn-primary border-width-2  dropdown-toggle" type="button" id="signUp" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                      Sign up
-                                                    </button>-->
-                                    <a class="btn btn-primary border-width-2  dropdown-toggle" href="SignUpServlet">Sign Up</a>
 
-                                </div>
-                                <div class="dropdown d-none d-lg-inline-block">
-<!--                                    <button class="btn btn-primary border-width-2 dropdown-toggle" type="button" id="login" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        Log in
-                                    </button>-->
-                                    <a class="btn btn-primary border-width-2  dropdown-toggle" href="LoginServlet">Login</a>
+                                    <div class="mx-2" style="color: white; font-size: 20px;" type="button" id="signUp"
+                                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <i class="fa-regular fa-user"></i>
+                                        <span class="icon-text mx-2 text-capitalize">User</span>
+                                    </div>
+                                    <!-- <button class="btn btn-primary border-width-2  dropdown-toggle" >
+                                      Account
+                                    </button> -->
+                                    <div class="dropdown-menu mt-2" aria-labelledby="dropdownMenuButton">
+                                        <a class="dropdown-item" href="#">Edit a profile</a>
+                                        <a class="dropdown-item" href="LogOutServlet">Log out</a>
 
+                                    </div>
                                 </div>
+
                                 <!-- <a href="login.html" class="btn btn-primary border-width-2 d-none d-lg-inline-block"><span class="mr-2 icon-lock_outline"></span>Log In</a> -->
                             </div>
-                            <a href="#" class="site-menu-toggle js-menu-toggle d-inline-block d-xl-none mt-lg-2 ml-3"><span class="icon-menu h3 m-0 p-0 mt-2"></span></a>
+                            <a href="#" class="site-menu-toggle js-menu-toggle d-inline-block d-xl-none mt-lg-2 ml-3"><span
+                                    class="icon-menu h3 m-0 p-0 mt-2"></span></a>
                         </div>
 
                     </div>
@@ -113,7 +150,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
             </header>
 
             <!-- HOME -->
-            <section class="home-section section-hero overlay bg-image" style="background-image: url('images/hero_1.jpg');" id="home-section">
+            <section class="home-section section-hero overlay bg-image" style="background-image: url('images/hero_1.jpg');"
+                     id="home-section">
 
                 <div class="container">
                     <div class="row align-items-center justify-content-center">
@@ -128,7 +166,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
                                         <input type="text" class="form-control form-control-lg" placeholder="Job title, Company...">
                                     </div>
                                     <div class="col-12 col-sm-6 col-md-6 col-lg-3 mb-4 mb-lg-0">
-                                        <select class="selectpicker" data-style="btn-white btn-lg" data-width="100%" data-live-search="true" title="Select Region">
+                                        <select class="selectpicker" data-style="btn-white btn-lg" data-width="100%" data-live-search="true"
+                                                title="Select Region">
                                             <option>Anywhere</option>
                                             <option>San Francisco</option>
                                             <option>Palo Alto</option>
@@ -141,13 +180,15 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
                                         </select>
                                     </div>
                                     <div class="col-12 col-sm-6 col-md-6 col-lg-3 mb-4 mb-lg-0">
-                                        <select class="selectpicker" data-style="btn-white btn-lg" data-width="100%" data-live-search="true" title="Select Job Type">
+                                        <select class="selectpicker" data-style="btn-white btn-lg" data-width="100%" data-live-search="true"
+                                                title="Select Job Type">
                                             <option>Part Time</option>
                                             <option>Full Time</option>
                                         </select>
                                     </div>
                                     <div class="col-12 col-sm-6 col-md-6 col-lg-3 mb-4 mb-lg-0">
-                                        <button type="submit" class="btn btn-primary btn-lg btn-block text-white btn-search"><span class="icon-search icon mr-2"></span>Search Job</button>
+                                        <button type="submit" class="btn btn-primary btn-lg btn-block text-white btn-search"><span
+                                                class="icon-search icon mr-2"></span>Search Job</button>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -171,12 +212,14 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
 
             </section>
 
-            <section class="py-5 bg-image overlay-primary fixed overlay" id="next" style="background-image: url('images/hero_1.jpg');">
+            <section class="py-5 bg-image overlay-primary fixed overlay" id="next"
+                     style="background-image: url('images/hero_1.jpg');">
                 <div class="container">
                     <div class="row mb-5 justify-content-center">
                         <div class="col-md-7 text-center">
                             <h2 class="section-title mb-2 text-white">JobBoard Site Stats</h2>
-                            <p class="lead text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita unde officiis recusandae sequi excepturi corrupti.</p>
+                            <p class="lead text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita unde officiis
+                                recusandae sequi excepturi corrupti.</p>
                         </div>
                     </div>
                     <div class="row pb-0 block__19738 section-counter">
@@ -258,7 +301,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
                                     <strong>Sprint</strong>
                                 </div>
                                 <div class="job-listing-location mb-3 mb-sm-0 custom-width w-25">
-                                    <span class="icon-room"></span> Overland Park, Kansas 
+                                    <span class="icon-room"></span> Overland Park, Kansas
                                 </div>
                                 <div class="job-listing-meta">
                                     <span class="badge badge-success">Full Time</span>
@@ -278,7 +321,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
                                     <strong>Amazon</strong>
                                 </div>
                                 <div class="job-listing-location mb-3 mb-sm-0 custom-width w-25">
-                                    <span class="icon-room"></span> Overland Park, Kansas 
+                                    <span class="icon-room"></span> Overland Park, Kansas
                                 </div>
                                 <div class="job-listing-meta">
                                     <span class="badge badge-success">Full Time</span>
@@ -298,7 +341,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
                                     <strong>Microsoft</strong>
                                 </div>
                                 <div class="job-listing-location mb-3 mb-sm-0 custom-width w-25">
-                                    <span class="icon-room"></span> Anywhere 
+                                    <span class="icon-room"></span> Anywhere
                                 </div>
                                 <div class="job-listing-meta">
                                     <span class="badge badge-success">Full Time</span>
@@ -318,7 +361,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
                                     <strong>Puma</strong>
                                 </div>
                                 <div class="job-listing-location mb-3 mb-sm-0 custom-width w-25">
-                                    <span class="icon-room"></span> San Mateo, CA 
+                                    <span class="icon-room"></span> San Mateo, CA
                                 </div>
                                 <div class="job-listing-meta">
                                     <span class="badge badge-success">Full Time</span>
@@ -357,7 +400,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
                                     <strong>Sprint</strong>
                                 </div>
                                 <div class="job-listing-location mb-3 mb-sm-0 custom-width w-25">
-                                    <span class="icon-room"></span> Overland Park, Kansas 
+                                    <span class="icon-room"></span> Overland Park, Kansas
                                 </div>
                                 <div class="job-listing-meta">
                                     <span class="badge badge-success">Full Time</span>
@@ -396,7 +439,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
                     <div class="row align-items-center">
                         <div class="col-md-8">
                             <h2 class="text-white">Looking For A Job?</h2>
-                            <p class="mb-0 text-white lead">Lorem ipsum dolor sit amet consectetur adipisicing elit tempora adipisci impedit.</p>
+                            <p class="mb-0 text-white lead">Lorem ipsum dolor sit amet consectetur adipisicing elit tempora adipisci
+                                impedit.</p>
                         </div>
                         <div class="col-md-3 ml-auto">
                             <a href="#" class="btn btn-warning btn-block btn-lg">Sign Up</a>
@@ -414,7 +458,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
                             <div class="row justify-content-center">
                                 <div class="col-md-7">
                                     <h2 class="section-title mb-2">Company We've Helped</h2>
-                                    <p class="lead">Porro error reiciendis commodi beatae omnis similique voluptate rerum ipsam fugit mollitia ipsum facilis expedita tempora suscipit iste</p>
+                                    <p class="lead">Porro error reiciendis commodi beatae omnis similique voluptate rerum ipsam fugit
+                                        mollitia ipsum facilis expedita tempora suscipit iste</p>
                                 </div>
                             </div>
 
@@ -458,7 +503,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
                         <div class="row">
                             <div class="col-lg-6 align-self-center text-center text-lg-left">
                                 <blockquote>
-                                    <p>&ldquo;Soluta quasi cum delectus eum facilis recusandae nesciunt molestias accusantium libero dolores repellat id in dolorem laborum ad modi qui at quas dolorum voluptatem voluptatum repudiandae.&rdquo;</p>
+                                    <p>&ldquo;Soluta quasi cum delectus eum facilis recusandae nesciunt molestias accusantium libero dolores
+                                        repellat id in dolorem laborum ad modi qui at quas dolorum voluptatem voluptatum repudiandae.&rdquo;
+                                    </p>
                                     <p><cite> &mdash; Corey Woods, @Dribbble</cite></p>
                                 </blockquote>
                             </div>
@@ -472,7 +519,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
                         <div class="row">
                             <div class="col-lg-6 align-self-center text-center text-lg-left">
                                 <blockquote>
-                                    <p>&ldquo;Soluta quasi cum delectus eum facilis recusandae nesciunt molestias accusantium libero dolores repellat id in dolorem laborum ad modi qui at quas dolorum voluptatem voluptatum repudiandae.&rdquo;</p>
+                                    <p>&ldquo;Soluta quasi cum delectus eum facilis recusandae nesciunt molestias accusantium libero dolores
+                                        repellat id in dolorem laborum ad modi qui at quas dolorum voluptatem voluptatum repudiandae.&rdquo;
+                                    </p>
                                     <p><cite> &mdash; Chris Peters, @Google</cite></p>
                                 </blockquote>
                             </div>
@@ -491,10 +540,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
                     <div class="row">
                         <div class="col-md-6 align-self-center text-center text-md-left mb-5 mb-md-0">
                             <h2 class="text-white">Get The Mobile Apps</h2>
-                            <p class="mb-5 lead text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit tempora adipisci impedit.</p>
+                            <p class="mb-5 lead text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit tempora adipisci
+                                impedit.</p>
                             <p class="mb-0">
-                                <a href="#" class="btn btn-dark btn-md px-4 border-width-2"><span class="icon-apple mr-3"></span>App Store</a>
-                                <a href="#" class="btn btn-dark btn-md px-4 border-width-2"><span class="icon-android mr-3"></span>Play Store</a>
+                                <a href="#" class="btn btn-dark btn-md px-4 border-width-2"><span class="icon-apple mr-3"></span>App
+                                    Store</a>
+                                <a href="#" class="btn btn-dark btn-md px-4 border-width-2"><span class="icon-android mr-3"></span>Play
+                                    Store</a>
                             </p>
                         </div>
                         <div class="col-md-6 ml-auto align-self-end">
@@ -555,8 +607,12 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
                         <div class="col-12">
                             <p class="copyright"><small>
                                     <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                                    Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart text-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank" >Colorlib</a>
-                                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></small></p>
+                                    Copyright &copy;
+                                    <script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made
+                                    with <i class="icon-heart text-danger" aria-hidden="true"></i> by <a href="https://colorlib.com"
+                                                                                                         target="_blank">Colorlib</a>
+                                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                                </small></p>
                         </div>
                     </div>
                 </div>
@@ -582,4 +638,5 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
 
 
     </body>
+
 </html>

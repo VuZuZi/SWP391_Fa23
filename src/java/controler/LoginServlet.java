@@ -6,25 +6,26 @@ package controler;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.Date;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
+import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.mail.Session;
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import model.Enterprise;
+import model.EnterpriseDB;
 import model.Job;
+import model.JobDB;
+import model.User;
 
 /**
  *
  * @author ASUS
  */
-public class PostJobServlet extends HttpServlet {
+public class LoginServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -43,10 +44,10 @@ public class PostJobServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet PostJobServlet</title>");
+            out.println("<title>Servlet LoginServlet</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet PostJobServlet at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet LoginServlet at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -64,8 +65,8 @@ public class PostJobServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.getRequestDispatcher("PostJob.jsp").forward(request, response);
 
+        request.getRequestDispatcher("Login.jsp").forward(request, response);
     }
 
     /**
@@ -79,34 +80,52 @@ public class PostJobServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String jobtitle = request.getParameter("title-input").trim();
-        String dateopen = request.getParameter("dateopen-input").trim();
-        String dateclose = request.getParameter("dateclose-input").trim();
-        String location = request.getParameter("location-input").trim();
-        String type = request.getParameter("type-input").trim();
-        String Salary = request.getParameter("salary-input").trim();
-        String desc = request.getParameter("desc-input").trim();
-        String skill = request.getParameter("skill-input").trim();
 
-        HttpSession session = request.getSession();
-        Enterprise e = (Enterprise) session.getAttribute("Enterprise");
-        String enterpriseId = e.getEnterpriseID();
+        ArrayList<Job> jobs = JobDB.getListJobdonaccept();
+        request.setAttribute("jobs", jobs);
+        ArrayList<Enterprise> enters = EnterpriseDB.getListEnter();
+        request.setAttribute("Enters",enters );
+        String uName = request.getParameter("username-login").trim();
+        String pass = request.getParameter("pass-login").trim();
+        String role = request.getParameter("role-login").trim();
         
-        String[] inputArray = {jobtitle, dateopen, dateclose, location, type, desc, skill,enterpriseId, Salary};
-        if (isEmptyInput(inputArray)) {
-            request.setAttribute("inputError", "Must fill all input");
-            request.getRequestDispatcher("PostJob.jsp").forward(request, response);
-            return;
+        //remember me ?
+//        String remember = request.getParameter("remember");
+//        if(remember.equals("on")){
+//            response.addCookie(new Cookie("account",uName));
+//            response.addCookie(new Cookie("password",pass));
+//            response.addCookie(new Cookie("role", role));
+//        }
+        // end remember
+        
+        
+        request.setAttribute("role", role);
+        if (role.equals("User")) {
+            if (uName.equals("manager") && pass.equals("123456")) {
+                request.getSession().setAttribute("manager", "manager/123456");
+                request.getRequestDispatcher("mainAdmin.jsp").forward(request, response);
+                return;
+            } else {
+                try {
+                    User u = new User().login(uName, pass);
+                    if (u != null) {
+                        request.getSession().setAttribute("user", u);
+                        request.getRequestDispatcher("mainUser.jsp").forward(request, response);
+                        return;
+                    }
+                } catch (NoSuchAlgorithmException ex) {
+                    Logger.getLogger(LoginServlet.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        } else if (role.equals("Enterprise")) {
+            Enterprise e = new Enterprise().login(uName, pass);
+            if (e != null) {
+                request.getSession().setAttribute("Enterprise", e);
+                request.getRequestDispatcher("mainEnter.jsp").forward(request, response);
+                return;
+            }
         }
 
-        int id = -1;
-        java.sql.Date dtopen = formatDate(dateopen);
-        java.sql.Date dtclose = formatDate(dateclose);
-
-        Job j = new Job(jobtitle, dtopen, dtclose, location, type, desc, skill, Salary,enterpriseId);
-        id = j.addNew();
-
-        request.getRequestDispatcher("mainEnter.jsp").forward(request, response);
     }
 
     /**
@@ -119,23 +138,4 @@ public class PostJobServlet extends HttpServlet {
         return "Short description";
     }// </editor-fold>
 
-    public static boolean isEmptyInput(String[] s) {
-        for (int i = 0; i < s.length; i++) {
-            if (s[i].isEmpty()) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    public static java.sql.Date formatDate(String str) {
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        java.sql.Date result = null;
-        try {
-            result = new java.sql.Date(sdf.parse(str).getTime());
-        } catch (ParseException ex) {
-            Logger.getLogger(SignUpServlet.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return result;
-    }
 }

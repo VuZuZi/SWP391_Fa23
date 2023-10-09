@@ -4,7 +4,10 @@
  */
 package model;
 
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -19,7 +22,6 @@ public class Enterprise {
     private String Taxcode;
     private String Place;
     private String EnterpriseDesc;
-
     public Enterprise() {
     }
 
@@ -34,13 +36,23 @@ public class Enterprise {
         this.EnterpriseAccount = EnterpriseAccount;
         this.EnterprisePassword = EnterprisePassword;
     }
+
+    public Enterprise(String EnterpriseID, String EnterpriseName, String Phone, String Taxcode, String Place, String EnterpriseDesc) {
+        this.EnterpriseID = EnterpriseID;
+        this.EnterpriseName = EnterpriseName;
+        this.Phone = Phone;
+        this.Taxcode = Taxcode;
+        this.Place = Place;
+        this.EnterpriseDesc = EnterpriseDesc;
+    }
+    
+    
     
     
     
 
-    public Enterprise(String EnterpriseID, String EnterpriseAccount, String EnterpriseName, String EnterprisePassword, String Phone, String Taxcode, String Place, String EnterpriseDesc) {
+    public Enterprise(String EnterpriseID, String EnterpriseName, String EnterprisePassword, String Phone, String Taxcode, String Place, String EnterpriseDesc) {
         this.EnterpriseID = EnterpriseID;
-        this.EnterpriseAccount = EnterpriseAccount;
         this.EnterpriseName = EnterpriseName;
         this.EnterprisePassword = EnterprisePassword;
         this.Phone = Phone;
@@ -144,5 +156,18 @@ public class Enterprise {
     
     public int addNew(){
         return EnterpriseDB.addNewEnter(this);
+    }
+    
+    public Enterprise login(String acc ,String pass){
+        try {
+            return EnterpriseDB.login(acc, pass);
+        } catch (NoSuchAlgorithmException ex) {
+            Logger.getLogger(Enterprise.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+    
+    public int addDataEnter(){
+        return  EnterpriseDB.addData(this);
     }
 }
