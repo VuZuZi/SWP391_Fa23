@@ -24,6 +24,7 @@ public class Job {
     private String Salary;
     private String EnterpriseID;
     private int isAccept;
+    
 
     public Job() {
     }
@@ -39,6 +40,7 @@ public class Job {
         this.Skills = Skills;
         this.Salary = Salary;
         this.EnterpriseID = EnterpriseID;
+        
     }
 
     public Job(String JobId, String Title, java.sql.Date DateOpen, java.sql.Date DateClose, String Location, String Type, String Description, String Skills , String EnterpriseID, String Salary, int isAccept) {
@@ -53,6 +55,7 @@ public class Job {
         this.Salary = Salary;
         this.EnterpriseID = EnterpriseID;
         this.isAccept = isAccept;
+        
     }
 
     public Job(String JobId, int isAccept) {
@@ -154,6 +157,10 @@ public class Job {
     public void setIsAccept(int isAccept) {
         this.isAccept = isAccept;
     }
+
+
+    
+    
 
     public String newID() {
         if (JobDB.getListJob().isEmpty()) 

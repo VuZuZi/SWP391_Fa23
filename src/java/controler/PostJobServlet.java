@@ -91,6 +91,7 @@ public class PostJobServlet extends HttpServlet {
         HttpSession session = request.getSession();
         Enterprise e = (Enterprise) session.getAttribute("Enterprise");
         String enterpriseId = e.getEnterpriseID();
+       
         
         String[] inputArray = {jobtitle, dateopen, dateclose, location, type, desc, skill,enterpriseId, Salary};
         if (isEmptyInput(inputArray)) {

@@ -80,7 +80,7 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        ArrayList<Job> jobss = JobDB.getlistJobAccet();
+        ArrayList<Job> jobss = JobDB.getlistJobAccept();
         request.setAttribute("jobss", jobss);
         ArrayList<Job> jobs = JobDB.getListJobdonaccept();
         request.setAttribute("jobs", jobs);
@@ -98,30 +98,35 @@ public class LoginServlet extends HttpServlet {
 //        }
         // end remember
         request.setAttribute("role", role);
-        if (role.equals("User")) {
-            if (uName.equals("manager") && pass.equals("123456")) {
-                request.getSession().setAttribute("manager", "manager/123456");
-                request.getRequestDispatcher("mainAdmin.jsp").forward(request, response);
-                return;
-            } else {
+        
+        if(role.equals("User")){
+            if(!uName.equals("manager") && !pass.equals("123456")){
                 try {
-                    User u = new User().login(uName, pass);
-                    if (u != null) {
-                        request.getSession().setAttribute("user", u);
+                    User u = new User().login(uName,pass);
+                    if(u != null){
+                        request.getSession().setAttribute("User", u);
                         request.getRequestDispatcher("mainUser.jsp").forward(request, response);
                         return;
                     }
                 } catch (NoSuchAlgorithmException ex) {
                     Logger.getLogger(LoginServlet.class.getName()).log(Level.SEVERE, null, ex);
                 }
+            }else if(uName.equals("manager") && pass.equals("123456")){
+                request.getSession().setAttribute("manager", "123456");
+                request.getRequestDispatcher("mainAdmin.jsp").forward(request, response);
             }
-        } else if (role.equals("Enterprise")) {
+            
+        } else if( role.equals("Enterprise")){
             Enterprise e = new Enterprise().login(uName, pass);
-            if (e != null) {
+            if( e != null){
                 request.getSession().setAttribute("Enterprise", e);
                 request.getRequestDispatcher("mainEnter.jsp").forward(request, response);
                 return;
             }
+        } else if ( uName.equals("manager") && pass.equals("123456")){
+            request.getSession().setAttribute("admin", "manager/123456");
+            request.getRequestDispatcher("mainAdmin.jsp").forward(request, response);
+            return;
         }
 
     }

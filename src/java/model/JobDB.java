@@ -45,6 +45,7 @@ public class JobDB {
             ps.setString(8, newJob.getSkills());
             ps.setString(9, newJob.getSalary());
             ps.setString(10, newJob.getEnterpriseID());
+           
             res = ps.executeUpdate();
         } catch (Exception e) {
             Logger.getLogger(JobDB.class.getName()).log(Level.SEVERE, null, e);
@@ -66,7 +67,7 @@ public class JobDB {
         return res;
     }
 
-    public static ArrayList<Job> getlistJobAccet() {
+    public static ArrayList<Job> getlistJobAccept() {
         ArrayList<Job> res = new ArrayList<>();
         try (Connection con = DatabaseInfo.getConnect()) {
             PreparedStatement ps = con.prepareStatement("select * from Job where isAccept =1 ");

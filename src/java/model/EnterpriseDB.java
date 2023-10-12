@@ -81,7 +81,7 @@ public class EnterpriseDB implements DatabaseInfo {
         if(e != null){
             String enterPass = e.getEnterprisePassword();
             if(enterPass != null){
-                 MessageDigest md = MessageDigest.getInstance("SHA-256");
+                MessageDigest md = MessageDigest.getInstance("SHA-256");
 
                 byte[] passwordBytes = pass.getBytes();
                 byte[] hashedPass = md.digest(passwordBytes);
