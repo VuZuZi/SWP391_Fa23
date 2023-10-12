@@ -59,6 +59,10 @@ public class Job {
         this.JobId = JobId;
         this.isAccept = isAccept;
     }
+
+    public Job(String JobId) {
+        this.JobId = JobId;
+    }
     
     
     
@@ -181,5 +185,8 @@ public class Job {
     
     public int acceptJob(){
         return JobDB.accepJob(this);
+    }
+    public  int deleteJob(){
+        return  JobDB.deleteJob(this);
     }
 }

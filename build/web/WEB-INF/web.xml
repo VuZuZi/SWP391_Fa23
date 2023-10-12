@@ -36,6 +36,10 @@
         <servlet-name>LogOutServlet</servlet-name>
         <servlet-class>controler.LogOutServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>DeleteJob</servlet-name>
+        <servlet-class>DeleteJob.DeleteJob</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>SignUpServlet</servlet-name>
         <url-pattern>/SignUpServlet</url-pattern>
@@ -71,6 +75,10 @@
     <servlet-mapping>
         <servlet-name>LogOutServlet</servlet-name>
         <url-pattern>/LogOutServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteJob</servlet-name>
+        <url-pattern>/DeleteJob</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

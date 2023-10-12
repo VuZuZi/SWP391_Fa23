@@ -2,23 +2,23 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
-package controler;
+package DeleteJob;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import model.Enterprise;
-import model.User;
+import model.Job;
+import model.JobDB;
 
 /**
  *
  * @author ASUS
  */
-public class VerifyServlet extends HttpServlet {
+public class DeleteJob extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -37,10 +37,10 @@ public class VerifyServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet VerifyServlet</title>");
+            out.println("<title>Servlet DeleteJob</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet VerifyServlet at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet DeleteJob at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -58,7 +58,15 @@ public class VerifyServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.getRequestDispatcher("Verify.jsp").forward(request, response);
+        String jobId = request.getParameter("id");
+        ArrayList<Job> jobs = (ArrayList<Job>) request.getAttribute("jobs");
+        Job jobdelete = new Job(jobId);
+        jobdelete.deleteJob();
+        
+        ArrayList<Job> jobsNotAccepted = (ArrayList<Job>) JobDB.getListJobdonaccept();
+        request.setAttribute("jobs", jobsNotAccepted);
+        request.getRequestDispatcher("mainAdmin.jsp").forward(request, response);
+        
     }
 
     /**
@@ -72,30 +80,7 @@ public class VerifyServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-//         request.getRequestDispatcher("Verify.jsp").forward(request, response);
-        HttpSession session = request.getSession();
-        String inputcode = request.getParameter("input-code").trim();
-        String emaildont = (String) session.getAttribute("emaildont");
-        String passdont = (String) session.getAttribute("passdont");
-        int id = -1;
-        if (inputcode.equals(session.getAttribute("codetest")) && "User".equals(session.getAttribute("role"))) {
-            User u = new User(emaildont, passdont);
-            if(u.isDupplicatedAccount()){
-                request.setAttribute("inputError", "Account is used. Try another one!");
-                request.getRequestDispatcher("signup.jsp").forward(request, response);
-            }
-            id = u.addNew();
-        } else if (inputcode.equals(session.getAttribute("codetest")) && "Enterprise".equals(session.getAttribute("role"))) {
-            Enterprise e = new Enterprise(emaildont, passdont);
-            if(e.isDupplicatedAccount()){
-                request.setAttribute("inputEnrror", "Account is used. Try another one!");
-            }
-            id = e.addNew();
-        } else{
-            request.getRequestDispatcher("Verify.jsp").forward(request, response);
-        }
-
-        request.getRequestDispatcher("Login.jsp").forward(request, response);
+        processRequest(request, response);
     }
 
     /**

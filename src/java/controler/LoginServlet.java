@@ -80,15 +80,15 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
+        ArrayList<Job> jobss = JobDB.getlistJobAccet();
+        request.setAttribute("jobss", jobss);
         ArrayList<Job> jobs = JobDB.getListJobdonaccept();
         request.setAttribute("jobs", jobs);
         ArrayList<Enterprise> enters = EnterpriseDB.getListEnter();
-        request.setAttribute("Enters",enters );
+        request.setAttribute("Enters", enters);
         String uName = request.getParameter("username-login").trim();
         String pass = request.getParameter("pass-login").trim();
         String role = request.getParameter("role-login").trim();
-        
         //remember me ?
 //        String remember = request.getParameter("remember");
 //        if(remember.equals("on")){
@@ -97,8 +97,6 @@ public class LoginServlet extends HttpServlet {
 //            response.addCookie(new Cookie("role", role));
 //        }
         // end remember
-        
-        
         request.setAttribute("role", role);
         if (role.equals("User")) {
             if (uName.equals("manager") && pass.equals("123456")) {

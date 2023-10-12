@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import model.Job;
+import model.JobDB;
 
 /**
  *
@@ -58,7 +59,17 @@ public class AcceptJob extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        String jobId = request.getParameter("id");
+        ArrayList<Job> jobs = (ArrayList<Job>) request.getAttribute("jobs");
+//        String jobJD = jobs.;
+        
+
+        Job jobaccept = new Job(jobId, 1);
+        jobaccept.acceptJob();  
+        
+        ArrayList<Job> jobsNotAccepted = (ArrayList<Job>) JobDB.getListJobdonaccept();
+        request.setAttribute("jobs", jobsNotAccepted);
+        request.getRequestDispatcher("mainAdmin.jsp").forward(request, response);
     }
 
     /**
@@ -73,7 +84,7 @@ public class AcceptJob extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         int isAccept = 1;
-
+        String i = request.getParameter("id");
         HttpSession session = request.getSession();
 //        Job jobs = (ArrayList<Job>) request.getAttribute("jobs");
 ////        String jobJD = jobs.;

@@ -111,7 +111,7 @@
                                 <li><a href="blog.html">Blog</a></li>
                                 <li><a href="contact.html">Contact</a></li>
                                 <li class="d-lg-none"><a href="post-job.html"><span class="mr-2">+</span> Post a Job</a></li>
-                                <li class="d-lg-none"><a href="login.html">Log In</a></li>
+                                <li class="d-lg-none"><a href="login">Log In</a></li>
                             </ul>
                         </nav>
 
@@ -130,7 +130,7 @@
                                     </button> -->
                                     <div class="dropdown-menu mt-2" aria-labelledby="dropdownMenuButton">
 
-                                        <a class="dropdown-item" href="#">Log out</a>
+                                        <a class="dropdown-item" href="LogOutServlet">Log out</a>
                                     </div>
 
                                 </div>
@@ -144,7 +144,7 @@
                     </div>
                 </div>
             </header>
-
+${id}
             <!-- HOME -->
             <section class="home-section section-hero overlay bg-image" style="background-image: url('images/hero_1.jpg'); "
                      id="home-section">
@@ -203,10 +203,10 @@
                                                 </div>
                                                 <div class="row align-items-center mb-5">
                                                     <div class="col-lg-2">
-                                                        <button type="submit" class="btn btn-block btn-primary btn-md">Accept</button>
+                                                        <a href="AcceptJob?id=${job.jobId}" class="btn btn-block btn-primary btn-md">Accept</a>
                                                     </div>
                                                     <div class="col-lg-2">
-                                                        <button type="submit" class="btn btn-block btn-danger btn-md">Delete</button>
+                                                        <a href="DeleteJob?id=${job.jobId}" class="btn btn-block btn-primary btn-md">Delete</a>
                                                     </div>
                                                 </div>
                                             </div>
