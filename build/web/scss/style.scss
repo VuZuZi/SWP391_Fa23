@@ -1237,7 +1237,7 @@ h1, h2, h3, h4 {
   transform: translateX(-50%);
   display: block;
 
-  .mouse-icon{
+/*  .mouse-icon{
 		display: block;
 	   width: 25px;
 	   height: 45px;
@@ -1247,8 +1247,7 @@ h1, h2, h3, h4 {
 	   position: relative;
 	   text-align: center;
 	   transition: .3s all ease-in-out;
-	}
-        .mouse-wheel{
+	}.mouse-wheel{
 	  height: 4px;
 	  margin: 2px auto 0;
 	  display: block;
@@ -1264,8 +1263,8 @@ h1, h2, h3, h4 {
 			border-color: $white;
 		}
 	}
-}
-@-webkit-keyframes wheel-up-down {
+}*/
+/*@-webkit-keyframes wheel-up-down {
 	0% {
 	    margin-top: 2px;
 	    opacity: 0;
@@ -1288,7 +1287,7 @@ h1, h2, h3, h4 {
 	100% {
 	    margin-top: 20px;
 	    opacity: 0;
-	}
+	}*/
 }@keyframes wheel-up-down {
 	0% {
 	    margin-top: 2px;
