@@ -6,9 +6,8 @@ package model;
 
 import controller.SignUpServlet;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
+
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -23,34 +22,12 @@ public class Users {
     private String UserPassword;
     private String Phone;
     private String Gender;
-    private java.sql.Date UserDOB;
+    private String UserDOB;
     private String UserSkills;
     
     public Users(){}
 
-    public Users(String UserAccount, String UserName, String UserPassword, String Phone, String Gender, String UserDOB, String UserSkills) {
-        this.UserID = newID();
-        this.UserAccount = UserAccount;
-        this.UserName = UserName;
-        this.UserPassword = UserPassword;
-        this.Phone = Phone;
-        this.Gender = Gender;
-        this.UserDOB = formatDate(UserID);
-        this.UserSkills = UserSkills;
-    }
-    
-    public Users(String UserAccount, String UserName, String UserPassword, String Phone, String Gender, java.sql.Date UserDOB, String UserSkills) {
-        this.UserID = newID();
-        this.UserAccount = UserAccount;
-        this.UserName = UserName;
-        this.UserPassword = UserPassword;
-        this.Phone = Phone;
-        this.Gender = Gender;
-        this.UserDOB = UserDOB;
-        this.UserSkills = UserSkills;
-    }
-
-    public Users(String UserID,String UserAccount, String UserName, String UserPassword, String Phone, String Gender, java.sql.Date UserDOB, String UserSkills) {
+    public Users(String UserID, String UserAccount, String UserName, String UserPassword, String Phone, String Gender, String UserDOB, String UserSkills) {
         this.UserID = UserID;
         this.UserAccount = UserAccount;
         this.UserName = UserName;
@@ -60,6 +37,8 @@ public class Users {
         this.UserDOB = UserDOB;
         this.UserSkills = UserSkills;
     }
+
+
 
     public String getUserID() {
         return UserID;
@@ -109,11 +88,11 @@ public class Users {
         this.Gender = Gender;
     }
 
-    public java.sql.Date getUserDOB() {
+    public String getUserDOB() {
         return UserDOB;
     }
 
-    public void setUserDOB(java.sql.Date UserDOB) {
+    public void setUserDOB(String UserDOB) {
         this.UserDOB = UserDOB;
     }
 
@@ -124,63 +103,9 @@ public class Users {
     public void setUserSkills(String UserSkills) {
         this.UserSkills = UserSkills;
     }
-    
-    
-    public String newID(){
-        if(UserDB.getListUser().isEmpty())
-            return "user100";
-        ArrayList<Users> listUser  = UserDB.getListUser();
-        for( Users users : listUser){
-            String numID = users.getUserID().substring(4);
-            String nextID = "user"+ (Integer.parseInt(numID)+1);
-            if( !isDupplicatedID(nextID)){
-                return nextID;
-            }
-        }
-        return null;
-    }
-    
-    public boolean isDupplicatedID(String id){
-        ArrayList<Users> listUser = UserDB.getListUser();
-        for( Users users : listUser){
-            if(users.getUserID().equals(id)) return true;
-        }
-        return false;
-    }
-    
-    public Users(Users u ){
-        this(u.getUserID(),u.getUserAccount(),u.getUserName(),u.getUserPassword(),u.getPhone(),u.getGender(),u.getUserDOB(),u.getUserSkills());
-    }
-    
-    public boolean isDupplicatedAccount() {
-        ArrayList<Users> listUsers =  UserDB.getListUser();
-        for (Users user : listUsers) {
-            if (user.getUserAccount().equals(this.UserAccount)) return true;
-        }
-        return false;
-    }
-    
-    public int addNew(){
-        return UserDB.addNewUser(this);
-    }
-
     @Override
     public String toString() {
         return "Users{" + "UserID=" + UserID + ", UserAccount=" + UserAccount + ", UserName=" + UserName + ", UserPassword=" + UserPassword + ", Phone=" + Phone + ", Gender=" + Gender + ", UserDOB=" + UserDOB + ", UserSkills=" + UserSkills + '}';
     }
     
-    public static java.sql.Date formatDate(String str){
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        java.sql.Date result=null;
-        try {
-            result = new java.sql.Date(sdf.parse(str).getTime()) ;
-        } catch (ParseException ex) {
-            Logger.getLogger(SignUpServlet.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return result;
-    }
-    
-    public Users login (String acc,String pass){
-        return UserDB.login(acc, pass);
-    }
 }
