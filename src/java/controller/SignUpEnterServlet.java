@@ -4,8 +4,7 @@
  */
 package controller;
 
-import static controller.SignUpServlet.isConfirmedPassword;
-import static controller.SignUpServlet.isEmptyInput;
+
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;

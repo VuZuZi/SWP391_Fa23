@@ -75,49 +75,51 @@ public class SignUpServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String useraccount = request.getParameter("account-input").trim();
-        String username = request.getParameter("name-input").trim();
-        String pass = request.getParameter("pass-input").trim();
-        String confirm = request.getParameter("confirm-input").trim();
-        String phone = request.getParameter("phone-input").trim();
-        String gender = request.getParameter("gender-input").trim();
-        String date = request.getParameter("date-input").trim();
-        String skills = request.getParameter("skill-input").trim();
         
-        String[] inputArray = {useraccount,username,pass,phone,gender,date,skills};
-        if(isEmptyInput(inputArray)){
-            request.setAttribute("inputError", "Must fill all input");
-            request.getRequestDispatcher("SignUp.jsp").forward(request, response);
-            return;
-        } else if (!isConfirmedPassword(pass, confirm)){
-            request.setAttribute("inputError", "Confirm incorrect password!");
-            request.getRequestDispatcher("SignUp.jsp").forward(request, response);
-            return;
-        } else if(!isPhoneNumber(phone)){
-            request.setAttribute("inputError", "Invalid phone number!");
-            request.getRequestDispatcher("SignUp.jsp").forward(request, response);
-            return;
-        }
-        int id = -1;
-        java.sql.Date dt = formatDate(date);
-        Users u  = new Users(useraccount,username,pass,phone,gender,dt,skills);
-        
-        if(u.isDupplicatedAccount()){
-            request.setAttribute("inputError", "Account is used. Try another one!");
-            request.getRequestDispatcher("SignUp.jsp").forward(request, response);
-            return;
-        }
-        
-        id = u.addNew();
-        
-        
-        
-        request.setAttribute("notic", "Sign up successfully");
-        request.setAttribute("link ", "login.jsp");
-        request.setAttribute("subLink", "Login");
-        if(id ==1)
-            request.getRequestDispatcher("login.jsp").forward(request, response);
     }
+//        String useraccount = request.getParameter("account-input").trim();
+//        String username = request.getParameter("name-input").trim();
+//        String pass = request.getParameter("pass-input").trim();
+//        String confirm = request.getParameter("confirm-input").trim();
+//        String phone = request.getParameter("phone-input").trim();
+//        String gender = request.getParameter("gender-input").trim();
+//        String date = request.getParameter("date-input").trim();
+//        String skills = request.getParameter("skill-input").trim();
+//        
+//        String[] inputArray = {useraccount,username,pass,phone,gender,date,skills};
+//        if(isEmptyInput(inputArray)){
+//            request.setAttribute("inputError", "Must fill all input");
+//            request.getRequestDispatcher("SignUp.jsp").forward(request, response);
+//            return;
+//        } else if (!isConfirmedPassword(pass, confirm)){
+//            request.setAttribute("inputError", "Confirm incorrect password!");
+//            request.getRequestDispatcher("SignUp.jsp").forward(request, response);
+//            return;
+//        } else if(!isPhoneNumber(phone)){
+//            request.setAttribute("inputError", "Invalid phone number!");
+//            request.getRequestDispatcher("SignUp.jsp").forward(request, response);
+//            return;
+//        }
+//        int id = -1;
+//        java.sql.Date dt = formatDate(date);
+//        Users u  = new Users(useraccount,username,pass,phone,gender,dt,skills);
+//        
+//        if(u.isDupplicatedAccount()){
+//            request.setAttribute("inputError", "Account is used. Try another one!");
+//            request.getRequestDispatcher("SignUp.jsp").forward(request, response);
+//            return;
+//        }
+//        
+//        id = u.addNew();
+//        
+//        
+//        
+//        request.setAttribute("notic", "Sign up successfully");
+//        request.setAttribute("link ", "login.jsp");
+//        request.setAttribute("subLink", "Login");
+//        if(id ==1)
+//            request.getRequestDispatcher("login.jsp").forward(request, response);
+//    }
     
 
     /**
@@ -125,35 +127,35 @@ public class SignUpServlet extends HttpServlet {
      *
      * @return a String containing servlet description
      */
-    @Override
-    public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
-
-    public static boolean isEmptyInput(String[] s){
-        for (int i = 0; i < s.length; i++) {
-            if (s[i].isEmpty()) return true;
-        }
-        return false;
-    }
-    public static boolean isConfirmedPassword(String pass, String confirm){
-        if(confirm.equals(pass)) return true;
-        return false;
-    }
-    public static boolean isPhoneNumber(String phone){
-        String pattern = "^\\+?0[0-9]{9}$";
-        if (phone.matches(pattern)) return true;
-        return false;
-    }
-    
-    public static java.sql.Date formatDate(String str){
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        java.sql.Date result=null;
-        try {
-            result = new java.sql.Date(sdf.parse(str).getTime()) ;
-        } catch (ParseException ex) {
-            Logger.getLogger(SignUpServlet.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return result;
-    }
+//    @Override
+//    public String getServletInfo() {
+//        return "Short description";
+//    }// </editor-fold>
+//
+//    public static boolean isEmptyInput(String[] s){
+//        for (int i = 0; i < s.length; i++) {
+//            if (s[i].isEmpty()) return true;
+//        }
+//        return false;
+//    }
+//    public static boolean isConfirmedPassword(String pass, String confirm){
+//        if(confirm.equals(pass)) return true;
+//        return false;
+//    }
+//    public static boolean isPhoneNumber(String phone){
+//        String pattern = "^\\+?0[0-9]{9}$";
+//        if (phone.matches(pattern)) return true;
+//        return false;
+//    }
+//    
+//    public static java.sql.Date formatDate(String str){
+//        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+//        java.sql.Date result=null;
+//        try {
+//            result = new java.sql.Date(sdf.parse(str).getTime()) ;
+//        } catch (ParseException ex) {
+//            Logger.getLogger(SignUpServlet.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//        return result;
+//    }
 }

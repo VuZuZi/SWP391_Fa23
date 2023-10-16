@@ -10,9 +10,9 @@
 <project name="SWP_Project" default="default" basedir=".">
     <description>Builds, tests, and runs the project SWP_Project.</description>
     <import file="nbproject/build-impl.xml"/>
-    <!--
+    
 
-    There exist several targets which are by default empty and which can be 
+    <!-- There exist several targets which are by default empty and which can be 
     used for execution of your tasks. These targets are usually executed 
     before and after some main targets. They are: 
 
@@ -32,15 +32,15 @@
       -pre-run-deploy:           called before deploying
       -post-run-deploy:          called after deploying
 
-    Example of pluging an obfuscator after the compilation could look like 
+    Example of pluging an obfuscator after the compilation could look like  -->
 
-        <target name="-post-compile">
+        <!-- <target name="-post-compile">
             <obfuscate>
                 <fileset dir="${build.classes.dir}"/>
             </obfuscate>
-        </target>
+        </target> -->
 
-    For list of available properties check the imported 
+    <!-- For list of available properties check the imported 
     nbproject/build-impl.xml file. 
 
 
@@ -54,18 +54,18 @@
       run:                    execution of project 
       javadoc-build:          javadoc generation 
 
-    Example of overriding the target for project execution could look like 
+    Example of overriding the target for project execution could look like  -->
 
-        <target name="run" depends="<PROJNAME>-impl.jar">
+        <!-- <target name="run" depends="<PROJNAME>-impl.jar">
             <exec dir="bin" executable="launcher.exe">
                 <arg file="${dist.jar}"/>
             </exec>
-        </target>
+        </target> -->
 
-    Notice that overridden target depends on jar target and not only on 
+    <!-- Notice that overridden target depends on jar target and not only on 
     compile target as regular run target does. Again, for list of available 
     properties which you can use check the target you are overriding in 
-    nbproject/build-impl.xml file. 
+    nbproject/build-impl.xml file.  -->
 
-    -->
+   
 </project>
