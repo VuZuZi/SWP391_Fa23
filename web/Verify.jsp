@@ -141,9 +141,11 @@
                                 <h3 class="text-center">Please check your email</h3>
                                 <div class="form-group mb-3">
                                     <label for="code-verify" class="label">Your code:</label>
-                                    <input id="code-verify" name="input-code" type="password" class="form-control"
+                                    <input id="code-verify" name="input-code" type="text" class="form-control"
                                            placeholder="Your code"></a>
-                                    <span class="message-form"></span>
+                                    <div class="message-response h5 mt-3 " style="color: red">
+                                        ${inputError}
+                                    </div>
                                 </div>
                                 <div class="row justify-content-center ">
                                     <button type="submit" class="btn px-4 btn-primary text-white">Verify</a>

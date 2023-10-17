@@ -6,19 +6,19 @@ package controler;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import model.Enterprise;
-import model.User;
 
 /**
  *
  * @author ASUS
  */
-public class VerifyServlet extends HttpServlet {
+public class ViewProfile extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -37,10 +37,10 @@ public class VerifyServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet VerifyServlet</title>");
+            out.println("<title>Servlet ViewProfile</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet VerifyServlet at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet ViewProfile at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -58,7 +58,15 @@ public class VerifyServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.getRequestDispatcher("Verify.jsp").forward(request, response);
+        HttpSession session = request.getSession();
+        Enterprise e = (Enterprise) session.getAttribute("Enterprise");
+        String  enterpriseID = e.getEnterpriseID();
+        System.out.println(enterpriseID);
+        Enterprise enter = new Enterprise(enterpriseID);
+        ArrayList<Enterprise> enterne = enter.getEnterbyId();
+        request.setAttribute("enterinfo", enter);
+        System.out.println(enter.getEnterpriseName());
+        request.getRequestDispatcher("EnterProfile.jsp").forward(request, response);
     }
 
     /**
@@ -72,31 +80,7 @@ public class VerifyServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-//         request.getRequestDispatcher("Verify.jsp").forward(request, response);
-        HttpSession session = request.getSession();
-        String inputcode = request.getParameter("input-code").trim();
-        String emaildont = (String) session.getAttribute("emaildont");
-        String passdont = (String) session.getAttribute("passdont");
-        int id = -1;
-        if (inputcode.equals(session.getAttribute("codetest")) && "User".equals(session.getAttribute("role"))) {
-            User u = new User(emaildont, passdont);
-            if(u.isDupplicatedAccount()){
-                request.setAttribute("inputError", "Account is used. Try another one!");
-                request.getRequestDispatcher("signup.jsp").forward(request, response);
-            }
-            id = u.addNew();
-        } else if (inputcode.equals(session.getAttribute("codetest")) && "Enterprise".equals(session.getAttribute("role"))) {
-            Enterprise e = new Enterprise(emaildont, passdont);
-            if(e.isDupplicatedAccount()){
-                request.setAttribute("inputEnrror", "Account is used. Try another one!");
-            }
-            id = e.addNew();
-        } else if(!inputcode.equals(session.getAttribute("codetest"))){
-            request.setAttribute("inputError", "Incorrect code");
-            request.getRequestDispatcher("Verify.jsp").forward(request, response);
-        }
-
-        request.getRequestDispatcher("Login.jsp").forward(request, response);
+        processRequest(request, response);
     }
 
     /**

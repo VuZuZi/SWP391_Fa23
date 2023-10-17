@@ -76,6 +76,8 @@ public class EnterpriseDB implements DatabaseInfo {
         return null;
     }
     
+    
+    
     public static Enterprise login(String acc, String pass) throws NoSuchAlgorithmException{
         Enterprise e = getEnter(acc);
         if(e != null){
@@ -114,4 +116,20 @@ public class EnterpriseDB implements DatabaseInfo {
         }
         return res;
     }
+    
+    public static ArrayList<Enterprise> getEnterbyID(Enterprise enter){
+        ArrayList<Enterprise> res = new ArrayList<>();
+        try(Connection con = DatabaseInfo.getConnect()){
+            PreparedStatement ps = con.prepareStatement("select * from Enterprise where EnterpriseID =?");
+            ps.setString(1, enter.getEnterpriseID());
+            ResultSet rs = ps.executeQuery();
+            while( rs.next()){
+                res.add(new Enterprise(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6)));
+            }
+        }catch (Exception e){
+            
+        }
+        return  res;
+    }
+    
 }

@@ -38,7 +38,11 @@
     </servlet>
     <servlet>
         <servlet-name>DeleteJob</servlet-name>
-        <servlet-class>DeleteJob.DeleteJob</servlet-class>
+        <servlet-class>controler.DeleteJob</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ViewProfile</servlet-name>
+        <servlet-class>controler.ViewProfile</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>SignUpServlet</servlet-name>
@@ -79,6 +83,10 @@
     <servlet-mapping>
         <servlet-name>DeleteJob</servlet-name>
         <url-pattern>/DeleteJob</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ViewProfile</servlet-name>
+        <url-pattern>/ViewProfile</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

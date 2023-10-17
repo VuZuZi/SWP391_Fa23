@@ -1,3 +1,12 @@
+<%-- 
+    Document   : index
+    Created on : Oct 15, 2023, 11:29:32 PM
+    Author     : ASUS
+--%>
+
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <!--
 Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -97,9 +106,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
 
                                 </div>
                                 <div class="dropdown d-none d-lg-inline-block">
-<!--                                    <button class="btn btn-primary border-width-2 dropdown-toggle" type="button" id="login" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        Log in
-                                    </button>-->
+                                    <!--                                    <button class="btn btn-primary border-width-2 dropdown-toggle" type="button" id="login" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                            Log in
+                                                                        </button>-->
                                     <a class="btn btn-primary border-width-2  dropdown-toggle" href="LoginServlet">Login</a>
 
                                 </div>
@@ -113,61 +122,125 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
             </header>
 
             <!-- HOME -->
-            <section class="home-section section-hero overlay bg-image" style="background-image: url('images/hero_1.jpg');" id="home-section">
+            <section class="home-section section-hero overlay bg-image" style="background-image: url('images/hero_1.jpg'); "
+                     id="home-section">
 
-                <div class="container">
-                    <div class="row align-items-center justify-content-center">
-                        <div class="col-md-12">
+                <div class="container scroll" style="overflow-y:scroll;">
+                    <div class="row justify-content-center">
+                        <div class="h-25 col-md-12 align-items-end">
+
+                        </div>
+                        <div class="col-md-12 align-items-end">
                             <div class="mb-5 text-center">
                                 <h1 class="text-white font-weight-bold">The Easiest Way To Get Your Dream Job</h1>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate est, consequuntur perferendis.</p>
                             </div>
-                            <form method="post" class="search-jobs-form">
-                                <div class="row mb-5">
-                                    <div class="col-12 col-sm-6 col-md-6 col-lg-3 mb-4 mb-lg-0">
-                                        <input type="text" class="form-control form-control-lg" placeholder="Job title, Company...">
-                                    </div>
-                                    <div class="col-12 col-sm-6 col-md-6 col-lg-3 mb-4 mb-lg-0">
-                                        <select class="selectpicker" data-style="btn-white btn-lg" data-width="100%" data-live-search="true" title="Select Region">
-                                            <option>Anywhere</option>
-                                            <option>San Francisco</option>
-                                            <option>Palo Alto</option>
-                                            <option>New York</option>
-                                            <option>Manhattan</option>
-                                            <option>Ontario</option>
-                                            <option>Toronto</option>
-                                            <option>Kansas</option>
-                                            <option>Mountain View</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-12 col-sm-6 col-md-6 col-lg-3 mb-4 mb-lg-0">
-                                        <select class="selectpicker" data-style="btn-white btn-lg" data-width="100%" data-live-search="true" title="Select Job Type">
-                                            <option>Part Time</option>
-                                            <option>Full Time</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-12 col-sm-6 col-md-6 col-lg-3 mb-4 mb-lg-0">
-                                        <button type="submit" class="btn btn-primary btn-lg btn-block text-white btn-search"><span class="icon-search icon mr-2"></span>Search Job</button>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-12 popular-keywords">
-                                        <h3>Trending Keywords:</h3>
-                                        <ul class="keywords list-unstyled m-0 p-0">
-                                            <li><a href="#" class="">UI Designer</a></li>
-                                            <li><a href="#" class="">Python</a></li>
-                                            <li><a href="#" class="">Developer</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </form>
                         </div>
+                        <form method="post" class="search-jobs-form">
+                            <div class="row mb-5">
+                                <div class="col-12 col-sm-6 col-md-6 col-lg-3 mb-4 mb-lg-0">
+                                    <input type="text" class="form-control form-control-lg" placeholder="Job title, Company...">
+                                </div>
+                                <div class="col-12 col-sm-6 col-md-6 col-lg-3 mb-4 mb-lg-0">
+                                    <select class="selectpicker" data-style="btn-white btn-lg" data-width="100%" data-live-search="true"
+                                            title="Select Region">
+                                        <option>Anywhere</option>
+                                        <option>San Francisco</option>
+                                        <option>Palo Alto</option>
+                                        <option>New York</option>
+                                        <option>Manhattan</option>
+                                        <option>Ontario</option>
+                                        <option>Toronto</option>
+                                        <option>Kansas</option>
+                                        <option>Mountain View</option>
+                                    </select>
+                                </div>
+                                <div class="col-12 col-sm-6 col-md-6 col-lg-3 mb-4 mb-lg-0">
+                                    <select class="selectpicker" data-style="btn-white btn-lg" data-width="100%" data-live-search="true"
+                                            title="Select Job Type">
+                                        <option>Part Time</option>
+                                        <option>Full Time</option>
+                                    </select>
+                                </div>
+                                <div class="col-12 col-sm-6 col-md-6 col-lg-3 mb-4 mb-lg-0">
+                                    <button type="submit" class="btn btn-primary btn-lg btn-block text-white btn-search"><span
+                                            class="icon-search icon mr-2"></span>Search Job</button>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 popular-keywords">
+                                    <h3>Trending Keywords:</h3>
+                                    <ul class="keywords list-unstyled m-0 p-0">
+                                        <li><a href="#" class="">UI Designer</a></li>
+                                        <li><a href="#" class="">Python</a></li>
+                                        <li><a href="#" class="">Developer</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </form>
+                        <c:forEach items="${jobss}" var="job">
+                            <div class="col-md-12 align-items-start">
+                                <div class="mb-5 border rounded" style="background-color: whitesmoke; color: black;">
+                                    <div class="p-3 p-md-5 border rounded">
+                                        <form action="PostJobServlet" class="p-3 p-md-5 border rounded" method="post">
+                                            <h2 class="text-black mb-5 pb-2 text-capitalize">${job.title}</h2>
+                                            <h3 class="text-black mb-5 border-bottom pb-2 text-capitalize">${job.enterpriseID}</h3>
+
+                                            <div class="p-2">
+                                                <div class="row">
+                                                    <div class="col-md-4">
+                                                        <div class="row form-group">
+                                                            <label for="name" class="col-4 col-form-label text-capitalize">location</label>
+                                                            <div class="col-sm-8">
+                                                                ${job.location}
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="row form-group">
+                                                            <label for="name" class="col-4 col-form-label text-capitalize">salary</label>
+                                                            <div class="col-sm-8">
+                                                                ${job.salary}
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="row form-group">
+                                                            <label for="name" class="col-4 col-form-label text-capitalize">Date Start</label>
+                                                            <div class="col-sm-8">
+                                                                <c:out value="${job.dateOpen}"/>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+
+                                                    <label for="description">Description</label>
+                                                    <textarea class="form-control" id="description" rows="5">${job.description}</textarea>
+
+                                                </div>
+                                                <div class="row align-items-center mb-5">
+                                                    <div class="col-lg-2">
+                                                        <button type="submit" class="btn btn-block btn-primary btn-md">Apply</button>
+                                                    </div>
+                                                    <div class="col-lg-2">
+                                                        <button type="submit" class="btn btn-block btn-danger btn-md">Delete</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </c:forEach>
+
                     </div>
                 </div>
-
                 <a href="#next" class="scroll-button smoothscroll">
                     <span class=" icon-keyboard_arrow_down"></span>
                 </a>
+
 
             </section>
 
@@ -583,3 +656,4 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
 
     </body>
 </html>
+

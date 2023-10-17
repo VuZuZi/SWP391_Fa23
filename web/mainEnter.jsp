@@ -133,6 +133,7 @@
                                       Account
                                     </button> -->
                                     <div class="dropdown-menu mt-2" aria-labelledby="dropdownMenuButton">
+                                        <a class="dropdown-item" href="ViewProfile ">Profile</a>
                                         <a class="dropdown-item" href="EditProfileServlet">Edit a profile</a>
                                         <a class="dropdown-item" href="LogOutServlet">Log out</a>
                                     </div>

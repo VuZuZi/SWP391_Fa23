@@ -1,7 +1,7 @@
 <%-- 
-    Document   : PostJob
-    Created on : Oct 6, 2023, 9:42:10 AM
-    Author     : ASUS
+Document   : PostJob
+Created on : Oct 6, 2023, 9:42:10 AM
+Author     : ASUS
 --%>
 
 
@@ -284,7 +284,13 @@
 
         <script src="js/custom.js"></script>
 
-
+        <script>
+                                        const startDate = document.getElementById("job-date-open");
+                                        const endDate = document.getElementById("job-date-close");
+                                        startDate.addEventListener('input', function () {
+                                            endDate.min = startDate.value;
+                                        });
+        </script>
 
     </body>
 

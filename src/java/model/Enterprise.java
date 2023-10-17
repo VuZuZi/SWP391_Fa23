@@ -45,6 +45,12 @@ public class Enterprise {
         this.Place = Place;
         this.EnterpriseDesc = EnterpriseDesc;
     }
+
+    public Enterprise(String EnterpriseID) {
+        this.EnterpriseID = EnterpriseID;
+    }
+
+    
     
     
     
@@ -169,5 +175,9 @@ public class Enterprise {
     
     public int addDataEnter(){
         return  EnterpriseDB.addData(this);
+    }
+    
+    public ArrayList<Enterprise> getEnterbyId(){
+        return EnterpriseDB.getEnterbyID(this);
     }
 }
