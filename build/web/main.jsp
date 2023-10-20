@@ -220,7 +220,7 @@
         <ul class="job-listings mb-5">  
             <c:forEach items="${list}" var="x">
                 <li class="job-listing d-block d-sm-flex pb-3 pb-sm-0 align-items-center" >
-            <a href="about.jsp"></a>
+            <a href="detail?sid=${x.jobID}"></a>
             <div class="job-listing-logo">
               <img src="images/job_logo_1.jpg" alt="Free Website Template by Free-Template.co" class="img-fluid">
             </div>
@@ -408,7 +408,7 @@
             <ul class="list-unstyled">
               <li><a href="#">Support</a></li>
               <li><a href="#">Privacy</a></li>
-              <li><a href="#">Terms of Service</a></li>
+              <li><a href="managerPost.jsp">Terms of Service</a></li>
             </ul>
           </div>
           <div class="col-6 col-md-3 mb-4 mb-md-0">

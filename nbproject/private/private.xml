@@ -3,19 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Mark_FPT/Cn5/SWP/project_web/Ex/SWP391_Fa23/src/java/model/DatabaseInfoo.java</file>
-            <file>file:/C:/Mark_FPT/Cn5/SWP/project_web/Ex/SWP391_Fa23/src/java/model/UserDB.java</file>
+            <file>file:/C:/Mark_FPT/Cn5/SWP/project_web/Ex/SWP391_Fa23/web/login.jsp</file>
             <file>file:/C:/Mark_FPT/Cn5/SWP/project_web/Ex/SWP391_Fa23/web/about.jsp</file>
-            <file>file:/C:/Mark_FPT/Cn5/SWP/project_web/Ex/SWP391_Fa23/src/java/controller/LoginUser.java</file>
-            <file>file:/C:/Mark_FPT/Cn5/SWP/project_web/Ex/SWP391_Fa23/web/META-INF/context.xml</file>
-            <file>file:/C:/Mark_FPT/Cn5/SWP/project_web/Ex/SWP391_Fa23/src/java/model/EnterpriseDB.java</file>
-            <file>file:/C:/Mark_FPT/Cn5/SWP/project_web/Ex/SWP391_Fa23/src/java/controller/SignUpServlet.java</file>
-            <file>file:/C:/Mark_FPT/Cn5/SWP/project_web/Ex/SWP391_Fa23/web/WEB-INF/web.xml</file>
-            <file>file:/C:/Mark_FPT/Cn5/SWP/project_web/Ex/SWP391_Fa23/src/java/controller/about.java</file>
-            <file>file:/C:/Mark_FPT/Cn5/SWP/project_web/Ex/SWP391_Fa23/src/java/controller/SignUpEnterServlet.java</file>
-            <file>file:/C:/Mark_FPT/Cn5/SWP/project_web/Ex/SWP391_Fa23/src/java/model/Users.java</file>
+            <file>file:/C:/Mark_FPT/Cn5/SWP/project_web/Ex/SWP391_Fa23/web/SignUpEnterprise.jsp</file>
+            <file>file:/C:/Mark_FPT/Cn5/SWP/project_web/Ex/SWP391_Fa23/web/SignUp.jsp</file>
+            <file>file:/C:/Mark_FPT/Cn5/SWP/project_web/Ex/SWP391_Fa23/web/loginenter.jsp</file>
             <file>file:/C:/Mark_FPT/Cn5/SWP/project_web/Ex/SWP391_Fa23/web/main.jsp</file>
-            <file>file:/C:/Mark_FPT/Cn5/SWP/project_web/Ex/SWP391_Fa23/web/css/jobDetail.css</file>
+            <file>file:/C:/Mark_FPT/Cn5/SWP/project_web/Ex/SWP391_Fa23/web/about.html</file>
+            <file>file:/C:/Mark_FPT/Cn5/SWP/project_web/Ex/SWP391_Fa23/web/index.html</file>
         </group>
     </open-files>
 </project-private>

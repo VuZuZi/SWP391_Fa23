@@ -1,0 +1,116 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 19-10-2023, 23:19:37
+    Author     : dinhv
+*/
+
+
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    color: #fff;
+  }
+  
+ 
+  
+  .table_manager tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  .table_manager tr:nth-child(odd) {
+    background-color: #fff;
+  }
+  
+  .table_manager td {
+    padding: 10px;
+  }
+  
+  .table_manager table, th, td {
+    border: 1px solid #ddd;
+  }
+  
+  /* Adjust the width of each column if needed */
+  td:first-child,
+  th:first-child {
+    width: 15%;
+  }
+  #table_manager {
+    margin-top: 200px;
+  }
+  #table_goodC {
+    margin-top: 20px;
+  }
+  th{
+    text-align: center; /* Horizontal alignment */
+  vertical-align: middle; /* Vertical alignment */
+  background-color: rgb(80, 187, 80);
+  }
+  #table_manager td{
+    text-align: center; /* Horizontal alignment */
+    vertical-align: middle; /* Vertical alignment */
+  }
+  
+  /* Adjust the positioning of the table to avoid overlap with the header */
+  .table-section {
+    position: relative;
+    z-index: 1; /* Make sure the table appears above other content */
+  }
+  td#button {
+    text-align: center;
+  }
+  
+  td#button button {
+    display: inline-block;
+  }
+  #table_nunC {
+    margin-top: 20px;
+  }
+  #table_report {
+    margin-top: 20px;
+  }
+  #history{
+    margin-top: 20px;
+  }
+
+  
+        /* Style for the sidebar menu */
+.sidebar {
+  height: 100%;
+  width: 200px; /* Adjust the width as needed */
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #333; /* Background color of the sidebar */
+  padding: 20px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar li {
+  margin-bottom: 10px;
+}
+
+.sidebar a {
+  text-decoration: none;
+  color: #fff; /* Text color of menu items */
+  display: block;
+}
+
+/* Style for the page content */
+.content {
+  margin-left: 220px; /* Adjust the margin to match the width of the sidebar */
+  padding: 20px;
+}
+td button {
+  display: inline-block;
+}
+td button {
+  text-align: center;
+}

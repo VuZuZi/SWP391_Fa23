@@ -102,5 +102,21 @@ public class UserDB  {
         
     }
     
+    public  Job getJob (String id){
+        Job j = new Job();
+        try( Connection con = DatabaseInfoo.getConnect()){
+            PreparedStatement ps = con.prepareStatement("Select * from Job where JobID = ?");
+            ps.setString(1,id );
+            ResultSet rs =ps.executeQuery();
+            if (rs.next()){
+                j= new Job(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5),rs.getString(6), rs.getString(7), rs.getString(8));
+                return j;
+            }
+        } catch (Exception e){
+            Logger.getLogger(UserDB.class.getName()).log(Level.SEVERE,null,e);
+        }
+        return null;
+    }
+    
     
 }
