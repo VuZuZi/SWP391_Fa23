@@ -1,11 +1,9 @@
 <%-- 
-    Document   : EnterProfile
-    Created on : Oct 16, 2023, 2:11:50 AM
+    Document   : changepass
+    Created on : Oct 18, 2023, 12:06:13 AM
     Author     : ASUS
 --%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@page import="model.Job"%>
-<%@page import="model.Enterprise"%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!doctype html>
 <html lang="en">
@@ -23,6 +21,7 @@
         <link rel="stylesheet" href="fonts/line-icons/style.css">
         <link rel="stylesheet" href="css/owl.carousel.min.css">
         <link rel="stylesheet" href="css/animate.min.css">
+        <link rel="stylesheet" href="css/quill.snow.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
               integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
               crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -82,41 +81,49 @@
             <header class="site-navbar mt-3">
                 <div class="container-fluid">
                     <div class="row align-items-center">
-                        <div class="site-logo col-6"><a href="index.html">JobC</a></div>
+                        <div class="site-logo col-6"><a href="#">JobC</a></div>
 
                         <nav class="mx-auto site-navigation">
                             <ul class="site-menu js-clone-nav d-none d-xl-block ml-0 pl-0">
-                                <li><a href="index.html" class="nav-link active">Home</a></li>
+                                <li><a href="index.html" class="nav-link">Home</a></li>
                                 <li><a href="about.html">About</a></li>
-                                <li><a href="about.html">Post Job</a></li>
-                                <li><a href="about.html">Interview</a></li>
-                                <li><a href="about.html">Posted Job</a></li>
+                                <li><a href="#">Post Job</a></li>
+                                <li><a href="#">Interview</a></li>
+                                <li><a href="#">Posted Job</a></li>
+                                <li class="d-lg-none"><a href="post-job.html"><span class="mr-2">+</span> Post a Job</a>
+                                </li>
+                                <li class="d-lg-none"><a href="login.html">Log In</a></li>
                             </ul>
                         </nav>
 
-                        <div class="ml-auto">
-                            <a href="post-job.html"
-                               class="btn btn-outline-white border-width-2 d-none d-lg-inline-block mx-2"><span
-                                    class="mr-2 icon-add"></span>Post a Job</a>
-                            <div class="dropdown d-none d-lg-inline-block">
+                        <div class="right-cta-menu text-right d-flex aligin-items-center col-6">
+                            <div class="ml-auto">
+                                <a href="post-job.html"
+                                   class="btn btn-outline-white border-width-2 d-none d-lg-inline-block"><span
+                                        class="mr-2 icon-add"></span>Post a Job</a>
+                                <div class="dropdown d-none d-lg-inline-block">
 
-                                <div class=" mx-2" style="color: white; font-size: 20px;" type="button" id="signUp"
-                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <i class="fa-regular fa-user"></i>
-                                    <span class="icon-text mx-2 text-capitalize">Enterprise</span>
-                                </div>
-                                <!-- <button class="btn btn-primary border-width-2  dropdown-toggle" >
-                                Account
-                              </button> -->
-                                <div class="dropdown-menu mt-2" aria-labelledby="dropdownMenuButton">
-                                    <a class="dropdown-item" href="#">Edit a profile</a>
-                                    <a class="dropdown-item" href="LogOutServlet">Log out</a>
-                                </div>
+                                    <div class=" mx-2" style="color: white; font-size: 20px;" type="button" id="signUp"
+                                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <i class="fa-regular fa-user"></i>
+                                        <span class="icon-text mx-2 text-capitalize">Enterprise</span>
+                                    </div>
+                                    <!-- <button class="btn btn-primary border-width-2  dropdown-toggle" >
+                                              Account
+                                            </button> -->
+                                    <div class="dropdown-menu mt-2" aria-labelledby="dropdownMenuButton">
+                                        <a class="dropdown-item" href="ViewProfile">Profile</a>
+                                        <a class="dropdown-item" href="LogOutServlet">Log out</a>
+                                    </div>
 
+                                </div>
                             </div>
-
+                            <a href="#" class="site-menu-toggle js-menu-toggle d-inline-block d-xl-none mt-lg-2 ml-3"><span
+                                    class="icon-menu h3 m-0 p-0 mt-2"></span></a>
                         </div>
+
                     </div>
+                </div>
             </header>
 
             <!-- HOME -->
@@ -125,77 +132,51 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-7">
-                            <h1 class="text-white font-weight-bold">Enterprise Profile</h1>
+                            <h1 class="text-white font-weight-bold">Sign Up/Login</h1>
                             <div class="custom-breadcrumbs">
                                 <a href="#">Home</a> <span class="mx-2 slash">/</span>
-                                <span class="text-white"><strong>Enterprise Profile</strong></span>
+                                <a href="#">Profile</a> <span class="mx-2 slash">/</span>
+                                <span class="text-white"><strong>Change Password</strong></span>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
 
-
             <section class="site-section">
                 <div class="container">
+                    <div class="row">
+                        <div class="offset-3 col-lg-6 mb-5">
 
-                    <div class="row align-items-center mb-5">
-                        <div class="col-lg-10 mb-4 mb-lg-0">
-                            <div class="d-flex align-items-center text-capitalize">
-                                <div>
-                                    <h2>Enterprise Profile</h2>
+
+                            <form action="ChangepassServlet" method="POST" class="p-4 border rounded">
+                                <h3 class="text-center">Change Password</h3>
+                                <div class="form-group mb-3">
+                                    <label for="code-verify" class="label">Your Old Password</label>
+                                    <input id="code-verify" name="old-input" type="password" class="form-control"
+                                           placeholder="oldpass"></a>
+                                    <span class="message-form"></span>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row mb-5">
-                        <div class="col-lg-12">
-                            <form action="PostJobServlet" class="p-4 p-md-5 border rounded" method="post">
-                                <h3 class="text-black mb-5 border-bottom pb-2 text-capitalize">Profile</h3>
-                                <div class="form-group">
-                                    <label for="name" class="text-capitalize">Name</label>
-                                    <input type="text" class="form-control" id="name" placeholder="Enter your name"
-                                           value="${enterinfo.getEnterpriseName()}" readonly>
+                                <div class="form-group mb-3">
+                                    <label for="code-verify" class="label">New Password</label>
+                                    <input id="code-verify" name="new-input" type="password" class="form-control"
+                                           placeholder="newpass"></a>
+                                    <span class="message-form"></span>
                                 </div>
-                                <div class="form-group">
-                                    <label for="phone" class="text-capitalize">Phone</label>
-                                    <input type="text" class="form-control" id="phone" placeholder="Enter your phone"
-                                           value="${enterinfo.getPhone()}" readonly>
+                                <div class="form-group mb-3">
+                                    <label for="code-verify" class="label">Confirm New Password</label>
+                                    <input id="code-verify" name="con-input" type="password" class="form-control"
+                                           placeholder="confirm"></a>
+                                    <span class="message-form"></span>
                                 </div>
-                                <div class="form-group">
-                                    <label for="place" class="text-capitalize">Address</label>
-                                    <input type="text" class="form-control" id="place" placeholder="Enter your address"
-                                           value="${enterinfo.getPlace()}" readonly>
-                                </div>
-                                <div class="form-group">
-                                    <label for="description">Description</label>
-                                    <textarea rows="4" readonly name="job_description"
-                                              class="form-control">${enterinfo.getEnterpriseDesc()}</textarea>
-                                    <!-- <div class="editor" id="editor-1" name="job_description" readonly> -->
-                                    <!-- </div> -->
-                                </div>
-                                <div class="form-group">
-                                    <label for="job-title" class="text-capitalize">Taxcode</label>
-                                    <input type="number" class="form-control" id="taxcode" placeholder="Enter your taxcode"
-                                           value="${enterinfo.getTaxcode()}" readonly>
-                                </div>
-                                <div class="row mb-5 justify-content-end">
-                                    <div class="col-lg-3 col-md-3">
-                                        <a href="EditProfileServlet" class="btn btn-block btn-primary btn-md text-white">Edit
-                                            the
-                                            profile</a>
-                                    </div>
-                                    <div class="col-lg-3 col-md-3">
-                                        <a href="ChangepassServlet" class="btn btn-block btn-secondary btn-md text-white">Change
-                                            password</a>
-                                    </div>
+                                <div class="row justify-content-center ">
+                                    <button type="submit" class="btn px-4 btn-primary text-white">Change Password</a>
                                 </div>
                             </form>
+
+
                         </div>
-
-
                     </div>
-
                 </div>
             </section>
 
@@ -283,7 +264,18 @@
         <script src="js/bootstrap-select.min.js"></script>
 
         <script src="js/custom.js"></script>
+        <script>
+                                        const signUpButton = document.getElementById('signUp');
+                                        const signInButton = document.getElementById('signIn');
+                                        const container = document.getElementById('container');
 
+                                        signInButton.addEventListener('click', () => {
+                                            container.classList.add("right-panel-active");
+                                        });
+                                        signInButton.addEventListener('click', () => {
+                                            container.classList.remove("right-panel-active");
+                                        })
+        </script>
 
 
     </body>

@@ -134,7 +134,6 @@
                                     </button> -->
                                     <div class="dropdown-menu mt-2" aria-labelledby="dropdownMenuButton">
                                         <a class="dropdown-item" href="ViewProfile ">Profile</a>
-                                        <a class="dropdown-item" href="EditProfileServlet">Edit a profile</a>
                                         <a class="dropdown-item" href="LogOutServlet">Log out</a>
                                     </div>
 
@@ -168,30 +167,20 @@
                                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate est, consequuntur perferendis.</p>
                                 </div>
                             </div>
-                            <form method="post" class="search-jobs-form">
+                            <form action="SearchEnter" method="POST" class="search-jobs-form">
                                 <div class="row mb-5">
                                     <div class="col-12 col-sm-6 col-md-6 col-lg-3 mb-4 mb-lg-0">
-                                        <input type="text" class="form-control form-control-lg" placeholder="Job title, Company...">
+                                        <input name ="search-input" type="text" class="form-control form-control-lg" placeholder="Job title, Company...">
                                     </div>
                                     <div class="col-12 col-sm-6 col-md-6 col-lg-3 mb-4 mb-lg-0">
-                                        <select class="selectpicker" data-style="btn-white btn-lg" data-width="100%" data-live-search="true"
-                                                title="Select Region">
-                                            <option>Anywhere</option>
-                                            <option>San Francisco</option>
-                                            <option>Palo Alto</option>
-                                            <option>New York</option>
-                                            <option>Manhattan</option>
-                                            <option>Ontario</option>
-                                            <option>Toronto</option>
-                                            <option>Kansas</option>
-                                            <option>Mountain View</option>
-                                        </select>
+                                        <input name ="location-input" type="text" class="form-control form-control-lg" placeholder="Location">
                                     </div>
                                     <div class="col-12 col-sm-6 col-md-6 col-lg-3 mb-4 mb-lg-0">
-                                        <select class="selectpicker" data-style="btn-white btn-lg" data-width="100%" data-live-search="true"
+                                        <select name="type-input" class="selectpicker" data-style="btn-white btn-lg" data-width="100%" data-live-search="true"
                                                 title="Select Job Type">
-                                            <option>Part Time</option>
-                                            <option>Full Time</option>
+                                            <option value="parttime">Part Time</option>
+                                            <option value="fulltime" >Full Time</option>
+                                            <option value="remote" >Remote</option>
                                         </select>
                                     </div>
                                     <div class="col-12 col-sm-6 col-md-6 col-lg-3 mb-4 mb-lg-0">
@@ -216,7 +205,7 @@
                                         <div class="p-3 p-md-5 border rounded">
                                             <form action="PostJobServlet" class="p-3 p-md-5 border rounded" method="post">
                                                 <h2 class="text-black mb-5 pb-2 text-capitalize">${job.title}</h2>
-                                                <h3 class="text-black mb-5 border-bottom pb-2 text-capitalize">${job.enterpriseID}</h3>
+                                                <h3 class="text-black mb-5 border-bottom pb-2 text-capitalize">${job.enterName}</h3>
 
                                                 <div class="p-2">
                                                     <div class="row">

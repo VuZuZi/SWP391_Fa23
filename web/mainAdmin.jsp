@@ -166,7 +166,7 @@ ${id}
                                     <div class="p-3 p-md-5 border rounded">
                                         <form action="AcceptJob" class="p-3 p-md-5 border rounded" method="post">
                                             <h2 class="text-black mb-5 pb-2 text-capitalize">${job.title}</h2>
-                                            <h3 class="text-black mb-5 border-bottom pb-2 text-capitalize">${job.enterpriseID}</h3>
+                                            <h3 class="text-black mb-5 border-bottom pb-2 text-capitalize">${job.enterName}</h3>
 
                                             <div class="p-2">
                                                 <div class="row">

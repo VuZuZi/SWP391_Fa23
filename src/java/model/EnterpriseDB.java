@@ -117,19 +117,40 @@ public class EnterpriseDB implements DatabaseInfo {
         return res;
     }
     
-    public static ArrayList<Enterprise> getEnterbyID(Enterprise enter){
-        ArrayList<Enterprise> res = new ArrayList<>();
+    public static Enterprise getEnterbyID(String enterID){
+        Enterprise res = null;
         try(Connection con = DatabaseInfo.getConnect()){
             PreparedStatement ps = con.prepareStatement("select * from Enterprise where EnterpriseID =?");
-            ps.setString(1, enter.getEnterpriseID());
+            ps.setString(1,enterID);
             ResultSet rs = ps.executeQuery();
-            while( rs.next()){
-                res.add(new Enterprise(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6)));
+            if( rs.next()){
+                res =new Enterprise(rs.getString(1), rs.getString(3) ,rs.getString(5),rs.getString(8),rs.getString(6),rs.getString(7));
             }
         }catch (Exception e){
             
         }
         return  res;
+    }
+    public static Enterprise changePass(String enterpriseID, String newPassword){
+        Enterprise res = null;
+        try(Connection con = DatabaseInfo.getConnect()){
+            MessageDigest md = MessageDigest.getInstance("SHA-256");
+            
+            byte[] passwordBytes = newPassword.getBytes();
+            byte[] hashedPass = md.digest(passwordBytes);
+            
+            StringBuilder hexHash = new StringBuilder();
+            for (byte b : hashedPass) {
+                hexHash.append(String.format("%02x", b));
+            }
+            PreparedStatement ps =  con.prepareStatement("UPDATE Enterprise SET PassEnter = ? WHERE EnterpriseID = ?");
+            ps.setString(1, hexHash.toString());
+            ps.setString(2, enterpriseID);
+            ResultSet rs = ps.executeQuery();
+        } catch(Exception e){
+            Logger.getLogger(EnterpriseDB.class.getName()).log(Level.SEVERE, null,e);
+        }
+        return res; 
     }
     
 }

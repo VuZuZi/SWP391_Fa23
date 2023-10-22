@@ -92,7 +92,6 @@ public class PostJobServlet extends HttpServlet {
         Enterprise e = (Enterprise) session.getAttribute("Enterprise");
         String enterpriseId = e.getEnterpriseID();
        
-        
         String[] inputArray = {jobtitle, dateopen, dateclose, location, type, desc, skill,enterpriseId, Salary};
         if (isEmptyInput(inputArray)) {
             request.setAttribute("inputError", "Must fill all input");
@@ -106,7 +105,8 @@ public class PostJobServlet extends HttpServlet {
 
         Job j = new Job(jobtitle, dtopen, dtclose, location, type, desc, skill, Salary,enterpriseId);
         id = j.addNew();
-
+                
+        request.getSession().setAttribute("Enterprise", e);
         request.getRequestDispatcher("mainEnter.jsp").forward(request, response);
     }
 

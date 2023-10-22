@@ -6,26 +6,23 @@ package controler;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import model.Enterprise;
 import model.EnterpriseDB;
-import model.Job;
-import model.JobDB;
-import model.User;
 
 /**
  *
  * @author ASUS
  */
-public class LoginServlet extends HttpServlet {
+public class ChangepassServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -44,10 +41,10 @@ public class LoginServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet LoginServlet</title>");
+            out.println("<title>Servlet ChangepassServlet</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet LoginServlet at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet ChangepassServlet at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -65,8 +62,7 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
-        request.getRequestDispatcher("Login.jsp").forward(request, response);
+        request.getRequestDispatcher("changepass.jsp").forward(request, response);
     }
 
     /**
@@ -80,59 +76,34 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        ArrayList<Job> jobss = JobDB.getlistJobAccept();
-        request.setAttribute("jobss", jobss);
-        ArrayList<Job> jobs = JobDB.getListJobdonaccept();
-        request.setAttribute("jobs", jobs);
-        ArrayList<Enterprise> enters = EnterpriseDB.getListEnter();
-        request.setAttribute("Enters", enters);
-        String uName = request.getParameter("username-login").trim();
-        String pass = request.getParameter("pass-login").trim();
-        String role = request.getParameter("role-login").trim();
-        //remember me ?
-//        String remember = request.getParameter("remember");
-//        if(remember.equals("on")){
-//            response.addCookie(new Cookie("account",uName));
-//            response.addCookie(new Cookie("password",pass));
-//            response.addCookie(new Cookie("role", role));
-//        }
-        // end remember
-        request.setAttribute("role", role);
-        
-        if(role.equals("User")){
-            if(!uName.equals("manager") && !pass.equals("123456")){
-                try {
-                    User u = new User().login(uName,pass);
-                    if(u != null){
-                        request.getSession().setAttribute("User", u);
-                        request.getRequestDispatcher("mainUser.jsp").forward(request, response);
-                        return;
-                    }else if (u == null ){
-                        request.getRequestDispatcher("Login.jsp").forward(request, response);
-                    }
-                } catch (NoSuchAlgorithmException ex) {
-                    Logger.getLogger(LoginServlet.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            }else if(uName.equals("manager") && pass.equals("123456")){
-                request.getSession().setAttribute("manager", "123456");
-                request.getRequestDispatcher("mainAdmin.jsp").forward(request, response);
+        String oldpass = request.getParameter("old-input").trim();
+        String newpass = request.getParameter("new-input").trim();
+        String confirm = request.getParameter("con-input").trim();
+
+        HttpSession session = request.getSession();
+        Enterprise e = (Enterprise) session.getAttribute("Enterprise");
+        String EnterID = e.getEnterpriseID();
+       
+
+        try {
+            MessageDigest md = MessageDigest.getInstance("SHA-256");
+            byte[] passwordBytes = oldpass.getBytes();
+            byte[] hashedPass = md.digest(passwordBytes);
+            
+            StringBuilder hexHash = new StringBuilder();
+            for(byte b : hashedPass){
+                hexHash.append(String.format("%02x", b));
             }
             
-        } else if( role.equals("Enterprise")){
-            Enterprise e = new Enterprise().login(uName, pass);
-            if( e != null){
-                request.getSession().setAttribute("Enterprise", e);
+            if(hexHash.toString().equals(e.getEnterprisePassword())){
+                Enterprise rs =EnterpriseDB.changePass(EnterID, newpass);
                 request.getRequestDispatcher("mainEnter.jsp").forward(request, response);
-                return;
-            }else if (e == null){
-                request.getRequestDispatcher("Login.jsp").forward(request, response);
             }
-            
-        } else if ( uName.equals("manager") && pass.equals("123456")){
-            request.getSession().setAttribute("admin", "manager/123456");
-            request.getRequestDispatcher("mainAdmin.jsp").forward(request, response);
-            return;
+        } catch (NoSuchAlgorithmException ex) {
+            Logger.getLogger(ChangepassServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
+        
 
     }
 
@@ -145,5 +116,10 @@ public class LoginServlet extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
-
+    public static boolean isConfirmedPassword(String pass, String confirm){
+        if(confirm.equals(pass)){
+            return  true;
+        }
+        return  false;
+    }
 }

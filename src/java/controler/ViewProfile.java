@@ -61,11 +61,9 @@ public class ViewProfile extends HttpServlet {
         HttpSession session = request.getSession();
         Enterprise e = (Enterprise) session.getAttribute("Enterprise");
         String  enterpriseID = e.getEnterpriseID();
-        System.out.println(enterpriseID);
-        Enterprise enter = new Enterprise(enterpriseID);
-        ArrayList<Enterprise> enterne = enter.getEnterbyId();
-        request.setAttribute("enterinfo", enter);
-        System.out.println(enter.getEnterpriseName());
+        Enterprise completeEnter = e.getEnterbyId();
+        request.setAttribute("enterinfo", completeEnter);
+        System.out.println(completeEnter);
         request.getRequestDispatcher("EnterProfile.jsp").forward(request, response);
     }
 

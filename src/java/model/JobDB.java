@@ -8,6 +8,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.function.Predicate;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -102,6 +103,17 @@ public class JobDB {
             res = ps.executeUpdate();
         } catch (Exception e) {
             Logger.getLogger(JobDB.class.getName()).log(Level.SEVERE, null, e);
+        }
+        return res;
+    }
+    
+    public static ArrayList<Job> searchJob(Predicate<Job> pre){
+        ArrayList<Job> jobss = getlistJobAccept();
+        ArrayList<Job> res = new ArrayList<Job>();
+        for(Job s : jobss){
+            if(pre.test(s)){
+                res.add(s);
+            }
         }
         return res;
     }

@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    <welcome-file-list>
+        <welcome-file>indexServlet</welcome-file>
+    </welcome-file-list>
     <servlet>
         <servlet-name>SignUpServlet</servlet-name>
         <servlet-class>controler.SignUpServlet</servlet-class>
@@ -44,6 +47,34 @@
         <servlet-name>ViewProfile</servlet-name>
         <servlet-class>controler.ViewProfile</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>indexServlet</servlet-name>
+        <servlet-class>controler.indexServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ChangePass</servlet-name>
+        <servlet-class>controler.ChangePass</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ChangepassServlet</servlet-name>
+        <servlet-class>controler.ChangepassServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SearchServlet</servlet-name>
+        <servlet-class>controler.SearchServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SearchEnter</servlet-name>
+        <servlet-class>controler.SearchEnter</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SearchUser</servlet-name>
+        <servlet-class>controler.SearchUser</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SearchIndex</servlet-name>
+        <servlet-class>controler.SearchIndex</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>SignUpServlet</servlet-name>
         <url-pattern>/SignUpServlet</url-pattern>
@@ -87,6 +118,30 @@
     <servlet-mapping>
         <servlet-name>ViewProfile</servlet-name>
         <url-pattern>/ViewProfile</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>indexServlet</servlet-name>
+        <url-pattern>/indexServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ChangepassServlet</servlet-name>
+        <url-pattern>/ChangepassServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SearchServlet</servlet-name>
+        <url-pattern>/SearchServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SearchEnter</servlet-name>
+        <url-pattern>/SearchEnter</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SearchUser</servlet-name>
+        <url-pattern>/SearchUser</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SearchIndex</servlet-name>
+        <url-pattern>/SearchIndex</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

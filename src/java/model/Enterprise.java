@@ -14,6 +14,7 @@ import java.util.logging.Logger;
  * @author ASUS
  */
 public class Enterprise {
+
     private String EnterpriseID;
     private String EnterpriseAccount;
     private String EnterpriseName;
@@ -22,9 +23,15 @@ public class Enterprise {
     private String Taxcode;
     private String Place;
     private String EnterpriseDesc;
+
     public Enterprise() {
     }
 
+    /**
+     *
+     * @param EnterpriseAccount
+     * @param EnterprisePassword
+     */
     public Enterprise(String EnterpriseAccount, String EnterprisePassword) {
         this.EnterpriseID = newID();
         this.EnterpriseAccount = EnterpriseAccount;
@@ -50,13 +57,6 @@ public class Enterprise {
         this.EnterpriseID = EnterpriseID;
     }
 
-    
-    
-    
-    
-    
-    
-
     public Enterprise(String EnterpriseID, String EnterpriseName, String EnterprisePassword, String Phone, String Taxcode, String Place, String EnterpriseDesc) {
         this.EnterpriseID = EnterpriseID;
         this.EnterpriseName = EnterpriseName;
@@ -66,6 +66,8 @@ public class Enterprise {
         this.Place = Place;
         this.EnterpriseDesc = EnterpriseDesc;
     }
+
+    
 
     public String getEnterpriseID() {
         return EnterpriseID;
@@ -130,41 +132,48 @@ public class Enterprise {
     public void setEnterpriseDesc(String EnterpriseDesc) {
         this.EnterpriseDesc = EnterpriseDesc;
     }
-    
-    public String newID(){
-        if(EnterpriseDB.getListEnter().isEmpty())
+
+    public String newID() {
+        if (EnterpriseDB.getListEnter().isEmpty()) {
             return "enterprise100";
-        ArrayList<Enterprise> listEnter  = EnterpriseDB.getListEnter();
-        for( Enterprise enter : listEnter){
+        }
+        ArrayList<Enterprise> listEnter = EnterpriseDB.getListEnter();
+        for (Enterprise enter : listEnter) {
             String numID = enter.getEnterpriseID().substring(10);
-            String nextID = "enterprise"+ (Integer.parseInt(numID)+1);
-            if( !isDupplicatedID(nextID)){
+            String nextID = "enterprise" + (Integer.parseInt(numID) + 1);
+            if (!isDupplicatedID(nextID)) {
                 return nextID;
             }
         }
         return null;
     }
-    public boolean isDupplicatedID(String id){
+
+    public boolean isDupplicatedID(String id) {
         ArrayList<Enterprise> listEnter = EnterpriseDB.getListEnter();
-        for( Enterprise enter : listEnter){
-            if(enter.getEnterpriseID().equals(id)) return true;
+        for (Enterprise enter : listEnter) {
+            if (enter.getEnterpriseID().equals(id)) {
+                return true;
+            }
         }
         return false;
     }
-    
+
     public boolean isDupplicatedAccount() {
         ArrayList<Enterprise> listEnter = EnterpriseDB.getListEnter();
-        for( Enterprise enter : listEnter) {
-            if(enter.getEnterpriseID().equals(this.EnterpriseAccount)) return true;
+        for (Enterprise enter : listEnter) {
+            if (enter.getEnterpriseID().equals(this.EnterpriseAccount)) {
+                return true;
+            }
         }
         return false;
     }
-    
-    public int addNew(){
+
+    public int addNew() {
         return EnterpriseDB.addNewEnter(this);
     }
     
-    public Enterprise login(String acc ,String pass){
+    
+    public Enterprise login(String acc, String pass) {
         try {
             return EnterpriseDB.login(acc, pass);
         } catch (NoSuchAlgorithmException ex) {
@@ -172,12 +181,22 @@ public class Enterprise {
         }
         return null;
     }
-    
-    public int addDataEnter(){
-        return  EnterpriseDB.addData(this);
+
+    public int addDataEnter() {
+        return EnterpriseDB.addData(this);
+    }
+
+    public Enterprise getEnterbyId() {
+        return EnterpriseDB.getEnterbyID(this.EnterpriseID);
     }
     
-    public ArrayList<Enterprise> getEnterbyId(){
-        return EnterpriseDB.getEnterbyID(this);
+    public Enterprise changesPass(){
+        return EnterpriseDB.changePass(this.EnterpriseID, this.EnterprisePassword);
     }
+
+    @Override
+    public String toString() {
+        return "Enterprise{" + "EnterpriseID=" + EnterpriseID + ", EnterpriseAccount=" + EnterpriseAccount + ", EnterpriseName=" + EnterpriseName + ", EnterprisePassword=" + EnterprisePassword + ", Phone=" + Phone + ", Taxcode=" + Taxcode + ", Place=" + Place + ", EnterpriseDesc=" + EnterpriseDesc + '}';
+    }
+
 }

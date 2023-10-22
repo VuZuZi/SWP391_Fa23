@@ -158,7 +158,9 @@ public class Job {
         this.isAccept = isAccept;
     }
 
-
+    public String getEnterName(){
+        return EnterpriseDB.getEnterbyID(this.EnterpriseID).getEnterpriseName();
+    }
     
     
 

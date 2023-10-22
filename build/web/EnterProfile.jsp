@@ -3,7 +3,9 @@
     Created on : Oct 16, 2023, 2:11:50 AM
     Author     : ASUS
 --%>
-
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@page import="model.Job"%>
+<%@page import="model.Enterprise"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!doctype html>
 <html lang="en">
@@ -108,7 +110,7 @@
                               </button> -->
                                 <div class="dropdown-menu mt-2" aria-labelledby="dropdownMenuButton">
                                     <a class="dropdown-item" href="#">Edit a profile</a>
-                                    <a class="dropdown-item" href="#">Log out</a>
+                                    <a class="dropdown-item" href="LogOutServlet">Log out</a>
                                 </div>
 
                             </div>
@@ -153,38 +155,38 @@
                                 <div class="form-group">
                                     <label for="name" class="text-capitalize">Name</label>
                                     <input type="text" class="form-control" id="name" placeholder="Enter your name"
-                                           value="Enterprise Name" readonly>
+                                           value="${enterinfo.getEnterpriseName()}" readonly>
                                 </div>
                                 <div class="form-group">
                                     <label for="phone" class="text-capitalize">Phone</label>
                                     <input type="text" class="form-control" id="phone" placeholder="Enter your phone"
-                                           value="0123456789" readonly>
+                                           value="${enterinfo.getPhone()}" readonly>
                                 </div>
                                 <div class="form-group">
                                     <label for="place" class="text-capitalize">Address</label>
                                     <input type="text" class="form-control" id="place" placeholder="Enter your address"
-                                           value="Enterprise Address" readonly>
+                                           value="${enterinfo.getPlace()}" readonly>
                                 </div>
                                 <div class="form-group">
                                     <label for="description">Description</label>
                                     <textarea rows="4" readonly name="job_description"
-                                              class="form-control">dcm simp vcl</textarea>
+                                              class="form-control">${enterinfo.getEnterpriseDesc()}</textarea>
                                     <!-- <div class="editor" id="editor-1" name="job_description" readonly> -->
                                     <!-- </div> -->
                                 </div>
                                 <div class="form-group">
                                     <label for="job-title" class="text-capitalize">Taxcode</label>
                                     <input type="number" class="form-control" id="taxcode" placeholder="Enter your taxcode"
-                                           value="0303543710" readonly>
+                                           value="${enterinfo.getTaxcode()}" readonly>
                                 </div>
                                 <div class="row mb-5 justify-content-end">
                                     <div class="col-lg-3 col-md-3">
-                                        <a href="edit-profile.html" class="btn btn-block btn-primary btn-md text-white">Edit
+                                        <a href="EditProfileServlet" class="btn btn-block btn-primary btn-md text-white">Edit
                                             the
                                             profile</a>
                                     </div>
                                     <div class="col-lg-3 col-md-3">
-                                        <a type="submit" class="btn btn-block btn-secondary btn-md text-white">Change
+                                        <a href="ChangepassServlet" class="btn btn-block btn-secondary btn-md text-white">Change
                                             password</a>
                                     </div>
                                 </div>
