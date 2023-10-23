@@ -107,8 +107,7 @@ public class JobDB {
         return res;
     }
     
-    public static ArrayList<Job> searchJob(Predicate<Job> pre){
-        ArrayList<Job> jobss = getlistJobAccept();
+    public static ArrayList<Job> searchJob(Predicate<Job> pre, ArrayList<Job> jobss){
         ArrayList<Job> res = new ArrayList<Job>();
         for(Job s : jobss){
             if(pre.test(s)){

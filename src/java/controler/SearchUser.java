@@ -78,15 +78,14 @@ public class SearchUser extends HttpServlet {
         String location = request.getParameter("location-input");
         String type = request.getParameter("type-input");
         ArrayList<Job> jobss = JobDB.getlistJobAccept();
-
+        ArrayList<Job> result = new ArrayList<>();
         System.out.println(value);
-        jobss = JobDB.searchJob(s -> s.getTitle().contains(value));
-        jobss = JobDB.searchJob(s -> s.getLocation().contains(location));
-        jobss = JobDB.searchJob(s -> s.getSkills().contains(value));
-        jobss = JobDB.searchJob(s -> s.getType().contains(type));
+        result = JobDB.searchJob(s -> s.getTitle().contains(value) || s.getSkills().contains(value), jobss);
+        result = JobDB.searchJob(s -> s.getLocation().contains(location), result);
+        result = JobDB.searchJob(s -> s.getType().contains(type), result);
 
-        request.getSession().setAttribute("jobss", jobss);
-        request.getRequestDispatcher("mainEnter.jsp").forward(request, response);
+        request.getSession().setAttribute("jobss", result);
+        request.getRequestDispatcher("mainUser.jsp").forward(request, response);
     }
 
     /**
