@@ -62,6 +62,7 @@ public class detail extends HttpServlet {
         //processRequest(request, response);
         UserDB userdb = new UserDB();
         String id = request.getParameter("sid");
+        //k
         System.out.println(id);
         Job jb = userdb.getJob(id);
         System.out.println(jb);

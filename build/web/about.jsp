@@ -308,7 +308,7 @@
                 </div>
                 <div class="col-12 col-sm-6 col-md-6 col-lg-3 mb-4 mb-lg-0">
                   <select class="selectpicker" data-style="btn-white btn-lg" data-width="100%" data-live-search="true" title="Select Region">
-                    <option>Anywhere</option>
+                    <option>Anywhere </option>
                     <option>San Francisco</option>
                     <option>Palo Alto</option>
                     <option>New York</option>
@@ -335,7 +335,7 @@
                   <ul class="keywords list-unstyled m-0 p-0">
                     <li><a href="#" class="">UI Designer</a></li>
                     <li><a href="#" class="">Python</a></li>
-                    <li><a href="#" class="">Developer</a></li>
+                    <li><a href="#s" class="">Developer</a></li>
                   </ul>
                 </div>
               </div>
@@ -475,7 +475,7 @@
           <div class="col-12 text-center mt-4 mb-5">
             <div class="row justify-content-center">
               <div class="col-md-7">
-                <h2 class="section-title mb-2">Company We've Helped</h2>
+                <h2 class="section-title mb-2">Company We've Helped </h2>
                 <p class="lead">Porro error reiciendis commodi beatae omnis similique voluptate rerum ipsam fugit mollitia ipsum facilis expedita tempora suscipit iste</p>
               </div>
             </div>
@@ -577,7 +577,7 @@
           <div class="col-6 col-md-3 mb-4 mb-md-0">
             <h3>Search Trending</h3>
             <ul class="list-unstyled">
-              <li><a href="#">Web Design</a></li>
+              <li><a href="#">Web Design </a></li>
               <li><a href="#">Graphic Design</a></li>
               <li><a href="#">Web Developers</a></li>
               <li><a href="#">Python</a></li>
