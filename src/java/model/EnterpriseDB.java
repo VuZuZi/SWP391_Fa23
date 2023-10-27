@@ -9,6 +9,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -31,6 +32,7 @@ public class EnterpriseDB implements DatabaseInfoo {
         }
         return res;
     }
+    
 
     public static int addNewEnter(Enterprise newEnter) {
         int res = -1;
@@ -74,6 +76,30 @@ public class EnterpriseDB implements DatabaseInfoo {
             return e;
         }
         return null;
+    }
+    public static List<Job> getListJob(){
+        List<Job> list = new ArrayList<>();
+        String query = "select * from job";
+        try {
+            Connection con = DatabaseInfoo.getConnect(); 
+            PreparedStatement ps = con.prepareStatement(query);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+                //String JobID, String Title, String DateClose, String DateOpen,
+                //String Location, String Type, String Description, String Skills
+                list.add(new Job(rs.getString(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getString(5),
+                        rs.getString(6),
+                        rs.getString(7),
+                        rs.getString(8)));
+            }
+        } catch (Exception e) {
+        }
+        
+        return list;
     }
 
 }

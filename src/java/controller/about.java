@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.Job;
 import model.UserDB;
+import model.commentJob;
 
 /**
  *
@@ -52,7 +53,12 @@ public class about extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+//            UserDB dao = new UserDB();
+//            String id = request.getParameter("sid");
+//            
+//             List<commentJob> list = dao.getComment(id);
+             
+//        processRequest(request, response);
     }
 
     /**
@@ -66,7 +72,16 @@ public class about extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+//        UserDB dao = new UserDB();
+//            String id = request.getParameter("sid");
+//            
+//             List<commentJob> list = dao.getComment(id);
+//             System.out.println("==about.java==");
+//             System.out.println("id: "+id);
+//             for (commentJob job : list) {
+//                 System.out.println("about java "+job.toString());
+//             }
+//             System.out.println("=====");
     }
 
     /**

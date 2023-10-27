@@ -6,6 +6,7 @@ package controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -13,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.Job;
 import model.UserDB;
+import model.commentJob;
 
 /**
  *
@@ -65,9 +67,17 @@ public class detail extends HttpServlet {
         //k
         System.out.println(id);
         Job jb = userdb.getJob(id);
+        List<commentJob> list = userdb.getComment(id);
         System.out.println(jb);
+        request.setAttribute("list", list);
         request.setAttribute("jb", jb);
         request.getRequestDispatcher("about.jsp").forward(request, response);
+//        System.out.println("==detail.java==");
+//             System.out.println("id: "+id);
+//             for (commentJob job : list) {
+//                 System.out.println("about java "+job.toString());
+//             }
+//             System.out.println("=====");
         
     }
 

@@ -38,7 +38,7 @@ public class UserDB  {
     public List<Job> getJob() {
         List<Job> res = new ArrayList<>();
         try (Connection con = DatabaseInfoo.getConnect()) {
-            PreparedStatement ps = con.prepareStatement("select * from Job where JobID='1'");
+            PreparedStatement ps = con.prepareStatement("select * from Job ");
             rs= ps.executeQuery();
             while (rs.next()) {
                 res.add(new Job(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5),rs.getString(6), rs.getString(7), rs.getString(8)));
@@ -51,6 +51,31 @@ public class UserDB  {
         }  
         return null;
         
+    }
+ 
+    public List<commentJob> getComment(String idJob){
+        List<commentJob> res = new ArrayList<>();
+            try (Connection con = DatabaseInfoo.getConnect()) {
+                    String sql = "select * from Comment as c,Users as u where JobID=? and c.UserID = u.UserID";
+                    
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, idJob);
+            rs= ps.executeQuery();
+            while (rs.next()) {
+                //String idC, String nameUse, String contentC, String dateC, String enterId, String userId, String jobId
+                commentJob commet = new commentJob(rs.getString(1),rs.getString(9), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6));
+                res.add(commet);
+                System.out.println(commet.toString());
+                
+//                res.add(new Job(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5),rs.getString(6), rs.getString(7), rs.getString(8)));
+            }
+            System.out.println(res.size()+"size");
+        
+        return res;
+        } catch (Exception e) {
+            
+        }  
+        return null;
     }
     
 

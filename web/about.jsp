@@ -404,6 +404,7 @@
                                 <div class="user-info col-3 ml-3">
                                     <h5 class="mb-0">User Name</h5>
                                     <small>${jb.dateOpen}</small>
+                                    console.log("s");
                                 </div>
                                 <div class="user-info col-3 ml-3">
                                     <h5 class="mb-0" style="color: blue;">
@@ -416,10 +417,11 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="card-body">
+                        <div class="card-body" >
                           <h3>${jb.title}</h3>
-                            <p class="card-text">${jb.description}</p>
+                            <p class="card-text" href="">${jb.description}</p>
                             <h4>${jb.skills}</h4>
+                       
                         </div>
                         <div class="card-footer">
                             <div class="row mt-3">
@@ -442,7 +444,15 @@
                                 </div>
                             </div>
                             <div class="col-12">
-                                <ul class="list-group list-group-flush" id="list2">
+                               <ul class="list-group list-group-flush" id="list2">
+
+                               <c:forEach items="${list}" var="x">
+                                    <li class="list-group-item">
+                                        <strong><a href="detail?sid=${x.userName}"></a></strong> ${y.contentC}
+                                    </li>
+                                </c:forEach>
+
+<!--                                <ul class="list-group list-group-flush" id="list2">
                                     <li class="list-group-item">
                                         <strong>User_1:</strong> Comment 1
                                     </li>
@@ -451,12 +461,12 @@
                                     </li>
                                     <li class="list-group-item">
                                         <strong>User_3:</strong> Comment 3
-                                    </li>
+                                    </li>-->
                                 </ul>
                             </div>
                         </div>
                         
-                            <!-- End of comments list -->
+                            <!-- End of comments list 
                         </div>
                     </div>
                     <!-- End of Post Card -->
