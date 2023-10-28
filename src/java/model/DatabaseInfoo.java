@@ -9,7 +9,7 @@ import javax.sql.DataSource;
 
 public interface DatabaseInfoo {
     public static String driverName="com.microsoft.sqlserver.jdbc.SQLServerDriver";
-    public static String dbURL="jdbc:sqlserver://DESKTOP-LOT0O4E:1433;databaseName=JB;encrypt=true;trustServerCertificate=true;";
+    public static String dbURL="jdbc:sqlserver://DESKTOP-LOT0O4E:1433;databaseName=JC;encrypt=true;trustServerCertificate=true;";
     public static String userDB="sa";
     public static String passDB="123456";
     

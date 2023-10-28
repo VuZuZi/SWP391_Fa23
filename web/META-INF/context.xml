@@ -4,7 +4,7 @@
           driverClassName="com.microsoft.sqlserver.jdbc.SQLServerDriver" 
           name="jdbc/mydb" 
           type="javax.sql.DataSource" 
-          url="jdbc:sqlserver://DESKTOP-LOT0O4E:1433;databaseName=JB;encrypt=true;trustServerCertificate=true;"
+          url="jdbc:sqlserver://DESKTOP-LOT0O4E:1433;databaseName=JC;encrypt=true;trustServerCertificate=true;"
           username="sa" 
           password="123456"/>
 </Context>
