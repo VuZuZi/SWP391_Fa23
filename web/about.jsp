@@ -1,5 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set var="userAccount" value="${sessionScope.userAccount}" />
 
 <!DOCTYPE html>
 <html>
@@ -249,7 +250,6 @@
                                 <div class="user-info col-3 ml-3">
                                     <h5 class="mb-0">User Name</h5>
                                     <small>${jb.dateOpen}</small>
-                                    console.log("s");
                                 </div>
                                 <div class="user-info col-3 ml-3">
                                     <h5 class="mb-0" style="color: blue;">
@@ -274,20 +274,64 @@
                                   <button class="btn btn-primary"><i class="fa-brands fa-facebook-messenger"></i></button>
                                     <button class="btn btn-primary"><i class="fa-solid fa-comment"  id="comment_button"></i></button>
                                     <button class="btn btn-primary"><i class="fa-solid fa-share"></i></button>
+                                    <button id="report" class="btn" style="color : #fff;background-color: red"><i class="fa-solid fa-triangle-exclamation" id="reportBt"></i></button>
+
                                     <!-- <button class="btn btn-secondary">Share</button> -->
 
                                 </div>
                                 <div class="col-3"></div>
                                 <div class="col-3">date-close</div>
                             </div>
-                            <div class="row mt-3">
-                                <div class="input-group col-10">
-                                    <input type="text" id="commentButton" placeholder="New comment" class="form-control" oninput="checkInput()" >
+                            <div class=" " id="tag">
+                                
+                                <div id="commet_tag" class="row">
+                                    <div class="row input-group">
+                                        <div class="col-10 offset-1" style="display: inline-block">
+                                            <input type="text" id="commentButton" placeholder="New comment" class="form-control" oninput="checkInput()">
+                                        </div>
+                                        <div class="col-1">
+                                            <button id="buttonComment" class="btn btn-secondary"><i onclick="cmt()" id="postComment" class="fa-solid fa-paper-plane"></i></button>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="col-2">
-                                    <button id="buttonComment" class="btn btn-secondary"><i onclick="cmt()" id="postComment" class="fa-solid fa-paper-plane"></i></button>
+
+                                
+                                    <div id="report_tag" class="row">
+                                        <div class="col-10 offset-1">
+                                        <input type="text" id="reportTitle" placeholder="Title Report" class="form-control" oninput="checkInputReport()" >
+                                        <input type="text" id="reportDes" placeholder="Description Report" class="form-control" oninput="checkInputReport()" >
+                                    </div>
+                                        <div class="col-1" >
+                                        <button class="btn report_sent" id="buttonReport">
+                                            <i class="fa-regular fa-paper-plane" id="iReport"></i>
+                                        </button>
+                                        <button class="btn btn-primary" id="closeReport">
+                                            <i class="fa-solid fa-xmark"></i>
+                                        </button>
+                                    </div>
                                 </div>
-                            </div>
+                                        </div>
+                                        <style>
+                                            #report_tag{
+                                                opacity: 0;
+                                                pointer-events: none;
+                                            }
+                                            #report_tag.showReport{
+                                                opacity: 1;
+                                                pointer-events: all;
+                                            }
+                                            #commet_tag{
+                                                opacity: 1;
+                                                pointer-events: all;
+                                            }
+                                            #commet_tag.close{
+                                                opacity: 0;
+                                                pointer-events: none;
+                                            }
+                                         </style>
+                                    
+                                
+                            
                             <div class="col-12">
                                <ul class="list-group list-group-flush" id="list2">
 
@@ -297,16 +341,6 @@
                                     </li>
                                 </c:forEach> 
 
-<!--                                <ul class="list-group list-group-flush" id="list2">
-                                    <li class="list-group-item">
-                                        <strong>User_1:</strong> Comment 1
-                                    </li>
-                                    <li class="list-group-item">
-                                        <strong>User_2:</strong> Comment 2
-                                    </li>
-                                    <li class="list-group-item">
-                                        <strong>User_3:</strong> Comment 3
-                                    </li>-->
                                 </ul>
                             </div>
                         </div>
@@ -483,6 +517,38 @@
 
     <!-- SCRIPTS -->
     <script>
+        
+        const btn_open = document.getElementById('report')
+        const btn_close = document.getElementById('closeReport');
+        const model_report = document.getElementById('report_tag');
+        const model_comment = document.getElementById('commet_tag');
+        btn_open.addEventListener('click',()=>{
+            model_comment.classList.add('close');
+            model_report.classList.add('showReport');
+        });
+        btn_close.addEventListener('click', () => {
+    model_comment.classList.remove('close');
+    model_report.classList.remove('showReport');
+});
+        
+        function checkInputReport(){
+            var inputTitle = document.getElementById("reportTitle");
+            var inputDes = document.getElementById("reportDes");
+            var buttonRe = document.getElementById("buttonReport");
+            var iReport = document.getElementById("iReport");
+            
+            if (inputTitle.value.trim() != '' && inputDes.value.trim() != '') {
+                // N?u ? input c? d? li?u, thay ??i m?u n?t
+               iReport.style.backgroundColor = 'red';
+               buttonRe.style.backgroundColor = 'red';
+               iReport.style.color = 'white';
+            } else {
+                // N?u ? input r?ng, ??t l?i m?u m?c ??nh c?a n?t
+                buttonRe.style.backgroundColor = '#6c757d';
+               iReport.style.backgroundColor = '#6c757d';
+                iReport.style.color = '';
+            }
+        }
         function checkInput(){
           var inputElement = document.getElementById("commentButton");
           var buttonElement = document.getElementById("postComment");
@@ -535,21 +601,6 @@
   }
 
       </script>
-      
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 </body>
 </html>

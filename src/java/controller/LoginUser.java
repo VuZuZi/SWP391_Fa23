@@ -12,6 +12,7 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import model.Job;
 import model.Users;
 import model.UserDB;
@@ -93,6 +94,9 @@ public class LoginUser extends HttpServlet {
         }
         else{
              UserDB dao = new UserDB();
+             HttpSession session = request.getSession();
+             session.setAttribute("userAccount", u);
+System.out.println("loginDone");
              List<Job> list = dao.getJob();
              System.out.println(list);
              System.out.println(u);
