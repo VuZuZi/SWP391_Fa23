@@ -87,6 +87,8 @@ public class LoginUser extends HttpServlet {
        
         //end remember mel
         Users u = db.getUser(uName);
+//        HttpSession session = request.getSession();
+//        session.setAttribute("idU", u.getUserID());
         System.out.println(u);
         if(u.getUserPassword().equals(pass)==false){
             
@@ -94,9 +96,6 @@ public class LoginUser extends HttpServlet {
         }
         else{
              UserDB dao = new UserDB();
-             HttpSession session = request.getSession();
-             session.setAttribute("userAccount", u);
-System.out.println("loginDone");
              List<Job> list = dao.getJob();
              System.out.println(list);
              System.out.println(u);

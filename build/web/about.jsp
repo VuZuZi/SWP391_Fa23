@@ -1,6 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<c:set var="userAccount" value="${sessionScope.userAccount}" />
 
 <!DOCTYPE html>
 <html>
@@ -250,6 +249,7 @@
                                 <div class="user-info col-3 ml-3">
                                     <h5 class="mb-0">User Name</h5>
                                     <small>${jb.dateOpen}</small>
+                                    console.log("s");
                                 </div>
                                 <div class="user-info col-3 ml-3">
                                     <h5 class="mb-0" style="color: blue;">
@@ -274,14 +274,13 @@
                                   <button class="btn btn-primary"><i class="fa-brands fa-facebook-messenger"></i></button>
                                     <button class="btn btn-primary"><i class="fa-solid fa-comment"  id="comment_button"></i></button>
                                     <button class="btn btn-primary"><i class="fa-solid fa-share"></i></button>
-                                    <button id="report" class="btn" style="color : #fff;background-color: red"><i class="fa-solid fa-triangle-exclamation" id="reportBt"></i></button>
-
                                     <!-- <button class="btn btn-secondary">Share</button> -->
 
                                 </div>
                                 <div class="col-3"></div>
                                 <div class="col-3">date-close</div>
                             </div>
+<<<<<<< HEAD
                             
                                 <div class=" " id="tag">
                                     
@@ -336,6 +335,16 @@
                                     
                                 
                             
+=======
+                            <div class="row mt-3">
+                                <div class="input-group col-10">
+                                    <input type="text" id="commentButton" placeholder="New comment" class="form-control" oninput="checkInput()" >
+                                </div>
+                                <div class="col-2">
+                                    <button id="buttonComment" class="btn btn-secondary"><i onclick="cmt()" id="postComment" class="fa-solid fa-paper-plane"></i></button>
+                                </div>
+                            </div>
+>>>>>>> parent of af62b35 (add button report)
                             <div class="col-12">
                                <ul class="list-group list-group-flush" id="list2">
 
@@ -345,6 +354,16 @@
                                     </li>
                                 </c:forEach> 
 
+<!--                                <ul class="list-group list-group-flush" id="list2">
+                                    <li class="list-group-item">
+                                        <strong>User_1:</strong> Comment 1
+                                    </li>
+                                    <li class="list-group-item">
+                                        <strong>User_2:</strong> Comment 2
+                                    </li>
+                                    <li class="list-group-item">
+                                        <strong>User_3:</strong> Comment 3
+                                    </li>-->
                                 </ul>
                             </div>
                         </div>
@@ -521,6 +540,7 @@
 
     <!-- SCRIPTS -->
     <script>
+<<<<<<< HEAD
         
         const btn_open = document.getElementById('report')
         const btn_close = document.getElementById('closeReport');
@@ -540,13 +560,13 @@
             const reportTitle = document.getElementById('reportTitle').value;
             const reportDes = document.getElementById('reportDes').value;
 
-//            if (reportTitle != "" && reportDes != "") {
-//                var report = confirm("Are you sure sent report");
-//                if(report == true){
-//                    var userId = "${userAccount}"
-//                    
-//                }
-//            }
+            if (reportTitle != "" && reportDes != "") {
+                var report = confirm("Are you sure sent report");
+                if(report == true){
+                    
+                    alert('u');
+                }
+            }
         });
         
         function checkInputReport(){
@@ -567,6 +587,8 @@
                 iReport.style.color = '';
             }
         }
+=======
+>>>>>>> parent of af62b35 (add button report)
         function checkInput(){
           var inputElement = document.getElementById("commentButton");
           var buttonElement = document.getElementById("postComment");
@@ -619,6 +641,21 @@
   }
 
       </script>
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 </body>
 </html>

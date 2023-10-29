@@ -919,11 +919,6 @@ h1, h2, h3, h4 {
   .btn.btn-primary:hover {
     background: #90c317;
     border-color: #90c317; }
-  .btn.report{
-  color: #fff;
-  background: red;
-    border-color: red;
-}
 
 .btn.btn-outline-white {
   background: transparent;

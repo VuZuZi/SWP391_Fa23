@@ -12,6 +12,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import model.Job;
 import model.UserDB;
 import model.commentJob;
@@ -63,7 +64,10 @@ public class detail extends HttpServlet {
             throws ServletException, IOException {
         //processRequest(request, response);
         UserDB userdb = new UserDB();
-        String id = request.getParameter("sid");
+        String id = request.getParameter("n");
+        
+        HttpSession session = request.getSession();
+        System.out.println(session.getAttribute("idU"));
         //k
         System.out.println(id);
         Job jb = userdb.getJob(id);

@@ -14,6 +14,7 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -38,7 +39,7 @@ public class UserDB  {
     public List<Job> getJob() {
         List<Job> res = new ArrayList<>();
         try (Connection con = DatabaseInfoo.getConnect()) {
-            PreparedStatement ps = con.prepareStatement("select * from job where Status = 1");
+            PreparedStatement ps = con.prepareStatement("select * from Job ");
             rs= ps.executeQuery();
             while (rs.next()) {
                 res.add(new Job(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5),rs.getString(6), rs.getString(7), rs.getString(8)));
