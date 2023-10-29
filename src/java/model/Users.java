@@ -16,7 +16,7 @@ import java.util.logging.Logger;
  * @author ASUS
  */
 public class Users {
-    private String UserID;
+    public String UserID;
     private String UserAccount;
     private String UserName;
     private String UserPassword;

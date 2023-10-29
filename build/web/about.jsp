@@ -282,8 +282,9 @@
                                 <div class="col-3"></div>
                                 <div class="col-3">date-close</div>
                             </div>
-                            <div class=" " id="tag">
-                                
+                            
+                                <div class=" " id="tag">
+                                    
                                 <div id="commet_tag" class="row">
                                     <div class="row input-group">
                                         <div class="col-10 offset-1" style="display: inline-block">
@@ -294,23 +295,25 @@
                                         </div>
                                     </div>
                                 </div>
-
-                                
+                                      
+                                    
                                     <div id="report_tag" class="row">
                                         <div class="col-10 offset-1">
-                                        <input type="text" id="reportTitle" placeholder="Title Report" class="form-control" oninput="checkInputReport()" >
-                                        <input type="text" id="reportDes" placeholder="Description Report" class="form-control" oninput="checkInputReport()" >
-                                    </div>
-                                        <div class="col-1" >
-                                        <button class="btn report_sent" id="buttonReport">
-                                            <i class="fa-regular fa-paper-plane" id="iReport"></i>
-                                        </button>
-                                        <button class="btn btn-primary" id="closeReport">
-                                            <i class="fa-solid fa-xmark"></i>
-                                        </button>
-                                    </div>
-                                </div>
+                                            <input type="text" id="reportTitle" placeholder="Title Report" class="form-control" oninput="checkInputReport()" >
+                                            <input type="text" id="reportDes" placeholder="Description Report" class="form-control" oninput="checkInputReport()" >
                                         </div>
+                                        <div class="col-1" >
+                                            <button type="" href="#" class="btn report_sent" id="buttonReport">
+                                                <i class="fa-regular fa-paper-plane" id="iReport"></i>
+                                            </button>
+                                            <button class="btn btn-primary" id="closeReport">
+                                                <i class="fa-solid fa-xmark"></i>
+                                            </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    
+                            
                                         <style>
                                             #report_tag{
                                                 opacity: 0;
@@ -329,6 +332,7 @@
                                                 pointer-events: none;
                                             }
                                          </style>
+  
                                     
                                 
                             
@@ -530,6 +534,20 @@
     model_comment.classList.remove('close');
     model_report.classList.remove('showReport');
 });
+
+//gửi report
+        buttonReport.addEventListener('click', function (event) {
+            const reportTitle = document.getElementById('reportTitle').value;
+            const reportDes = document.getElementById('reportDes').value;
+
+//            if (reportTitle != "" && reportDes != "") {
+//                var report = confirm("Are you sure sent report");
+//                if(report == true){
+//                    var userId = "${userAccount}"
+//                    
+//                }
+//            }
+        });
         
         function checkInputReport(){
             var inputTitle = document.getElementById("reportTitle");
