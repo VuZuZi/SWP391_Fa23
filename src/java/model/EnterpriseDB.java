@@ -131,6 +131,21 @@ public class EnterpriseDB implements DatabaseInfo {
         }
         return  res;
     }
+    
+    public static Enterprise getEnterAccforjob(String enterID){
+        Enterprise res = null;
+        try(Connection con = DatabaseInfo.getConnect()){
+           PreparedStatement ps = con.prepareStatement("select * from Enterprise where EnterpriseID =?");
+           ps.setString(1, enterID);
+           ResultSet rs = ps.executeQuery();
+           if(rs.next()){
+               res = new Enterprise(rs.getString(2), rs.getString(4));
+           }
+        }catch (Exception e){
+            
+        }
+        return  res;
+    }
     public static Enterprise changePass(String enterpriseID, String newPassword){
         Enterprise res = null;
         try(Connection con = DatabaseInfo.getConnect()){

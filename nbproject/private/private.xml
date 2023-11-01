@@ -3,13 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/Chuyên%20Ngành%202/PRO/NetBeansProjects/SWP_JC/src/java/controler/SearchEnter.java</file>
-            <file>file:/D:/Chuyên%20Ngành%202/PRO/NetBeansProjects/SWP_JC/web/mainUser.jsp</file>
-            <file>file:/D:/Chuyên%20Ngành%202/PRO/NetBeansProjects/SWP_JC/src/java/controler/SearchUser.java</file>
+            <file>file:/D:/Chuyên%20Ngành%202/PRO/NetBeansProjects/SWP_JC/src/java/controler/PostJobServlet.java</file>
+            <file>file:/D:/Chuyên%20Ngành%202/PRO/NetBeansProjects/SWP_JC/web/ViewjobforeachEnter.jsp</file>
+            <file>file:/D:/Chuyên%20Ngành%202/PRO/NetBeansProjects/SWP_JC/src/java/controler/ViewEachJobEnter.java</file>
+            <file>file:/D:/Chuyên%20Ngành%202/PRO/NetBeansProjects/SWP_JC/web/PostedJob.jsp</file>
             <file>file:/D:/Chuyên%20Ngành%202/PRO/NetBeansProjects/SWP_JC/web/mainEnter.jsp</file>
-            <file>file:/D:/Chuyên%20Ngành%202/PRO/NetBeansProjects/SWP_JC/src/java/controler/SearchIndex.java</file>
-            <file>file:/D:/Chuyên%20Ngành%202/PRO/NetBeansProjects/SWP_JC/src/java/controler/LogOutServlet.java</file>
-            <file>file:/D:/Chuyên%20Ngành%202/PRO/NetBeansProjects/SWP_JC/web/index.jsp</file>
+            <file>file:/D:/Chuyên%20Ngành%202/PRO/NetBeansProjects/SWP_JC/src/java/controler/ViewJobDetaiEnter.java</file>
         </group>
     </open-files>
 </project-private>

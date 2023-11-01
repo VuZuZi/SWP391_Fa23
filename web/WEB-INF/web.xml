@@ -40,8 +40,8 @@
         <servlet-class>controler.LogOutServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>DeleteJob</servlet-name>
-        <servlet-class>controler.DeleteJob</servlet-class>
+        <servlet-name>RejectJob</servlet-name>
+        <servlet-class>controler.RejectJob</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ViewProfile</servlet-name>
@@ -74,6 +74,58 @@
     <servlet>
         <servlet-name>SearchIndex</servlet-name>
         <servlet-class>controler.SearchIndex</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EditProfileUser</servlet-name>
+        <servlet-class>controler.EditProfileUser</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ViewProfileUser</servlet-name>
+        <servlet-class>controler.ViewProfileUser</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ChangepassUser</servlet-name>
+        <servlet-class>controler.ChangepassUser</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ViewJobDetailAdmin</servlet-name>
+        <servlet-class>controler.ViewJobDetailAdmin</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ViewJobDetaiEnter</servlet-name>
+        <servlet-class>controler.ViewJobDetaiEnter</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ViewJobDetailUser</servlet-name>
+        <servlet-class>controler.ViewJobDetailUser</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ViewJobDetailIndex</servlet-name>
+        <servlet-class>controler.ViewJobDetailIndex</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>PostJobNotice</servlet-name>
+        <servlet-class>controler.PostJobNotice</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>BackHomePage</servlet-name>
+        <servlet-class>controler.BackHomePage</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ViewPostedJob</servlet-name>
+        <servlet-class>controler.ViewPostedJob</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RejectJobReal</servlet-name>
+        <servlet-class>controler.RejectJobReal</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ViewEachJobEnter</servlet-name>
+        <servlet-class>controler.ViewEachJobEnter</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UpdateJob</servlet-name>
+        <servlet-class>controler.UpdateJob</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>SignUpServlet</servlet-name>
@@ -112,8 +164,8 @@
         <url-pattern>/LogOutServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>DeleteJob</servlet-name>
-        <url-pattern>/DeleteJob</url-pattern>
+        <servlet-name>RejectJob</servlet-name>
+        <url-pattern>/RejectJob</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ViewProfile</servlet-name>
@@ -142,6 +194,58 @@
     <servlet-mapping>
         <servlet-name>SearchIndex</servlet-name>
         <url-pattern>/SearchIndex</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EditProfileUser</servlet-name>
+        <url-pattern>/EditProfileUser</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ViewProfileUser</servlet-name>
+        <url-pattern>/ViewProfileUser</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ChangepassUser</servlet-name>
+        <url-pattern>/ChangepassUser</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ViewJobDetailAdmin</servlet-name>
+        <url-pattern>/ViewJobDetailAdmin</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ViewJobDetaiEnter</servlet-name>
+        <url-pattern>/ViewJobDetaiEnter</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ViewJobDetailUser</servlet-name>
+        <url-pattern>/ViewJobDetailUser</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ViewJobDetailIndex</servlet-name>
+        <url-pattern>/ViewJobDetailIndex</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PostJobNotice</servlet-name>
+        <url-pattern>/PostJobNotice</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>BackHomePage</servlet-name>
+        <url-pattern>/BackHomePage</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ViewPostedJob</servlet-name>
+        <url-pattern>/ViewPostedJob</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RejectJobReal</servlet-name>
+        <url-pattern>/RejectJobReal</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ViewEachJobEnter</servlet-name>
+        <url-pattern>/ViewEachJobEnter</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateJob</servlet-name>
+        <url-pattern>/UpdateJob</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

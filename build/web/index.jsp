@@ -171,12 +171,12 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
                         <c:forEach items="${jobss}" var="job">
                             <div class="col-md-12 align-items-start">
                                 <div class="mb-5 border rounded" style="background-color: whitesmoke; color: black;">
-                                    <div class="p-3 p-md-5 border rounded">
-                                        <form action="PostJobServlet" class="p-3 p-md-5 border rounded" method="post">
-                                            <h2 class="text-black mb-5 pb-2 text-capitalize">${job.title}</h2>
-                                            <h3 class="text-black mb-5 border-bottom pb-2 text-capitalize">${job.enterName}</h3>
+                                    <div class="p-3 border rounded">
+                                        <form action="PostJobServlet" class="px-3 px-md-5 py-1 py-md-3 rounded" method="post">
+                                            <a href="ViewJobDetailIndex?id=${job.jobId}" class=" possion text-black mb-5 pb-2 text-capitalize" style="font-size: 50px;font-weight: bold;">${job.title}</a>
+                                            <h3 class="text-black mb-2 border-bottom pb-2 text-capitalize">${job.enterName}</h3>
 
-                                            <div class="p-2">
+                                            <div class="p-1">
                                                 <div class="row">
                                                     <div class="col-md-4">
                                                         <div class="row form-group">
@@ -186,34 +186,14 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-4">
-                                                        <div class="row form-group">
-                                                            <label for="name" class="col-4 col-form-label text-capitalize">salary</label>
-                                                            <div class="col-sm-8">
-                                                                ${job.salary}
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-4">
-                                                        <div class="row form-group">
-                                                            <label for="name" class="col-4 col-form-label text-capitalize">Date Start</label>
-                                                            <div class="col-sm-8">
-                                                                <c:out value="${job.dateOpen}"/>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group">
-
-                                                    <label for="description">Description</label>
-                                                    <textarea class="form-control" id="description" rows="5">${job.description}</textarea>
-
                                                 </div>
                                                 <div class="row align-items-center mb-5">
                                                     <div class="col-lg-2">
                                                         <a href="LoginServlet" type="submit" class="btn btn-block btn-primary btn-md">Apply</a>
                                                     </div>
                                                 </div>
+
+
                                             </div>
 
                                         </form>

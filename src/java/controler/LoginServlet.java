@@ -98,40 +98,40 @@ public class LoginServlet extends HttpServlet {
 //        }
         // end remember
         request.setAttribute("role", role);
-        
-        if(role.equals("User")){
-            if(!uName.equals("manager") && !pass.equals("123456")){
+
+        if (role.equals("User")) {
+            if (!uName.equals("manager") && !pass.equals("123456")) {
                 try {
-                    User u = new User().login(uName,pass);
-                    if(u != null){
+                    User u = new User().login(uName, pass);
+                    if (u != null) {
                         request.getSession().setAttribute("User", u);
                         request.getRequestDispatcher("mainUser.jsp").forward(request, response);
                         return;
-                    }else if (u == null ){
+                    } else if (u == null) {
+                        request.setAttribute("inputError", "Wrong email or password");
                         request.getRequestDispatcher("Login.jsp").forward(request, response);
                     }
                 } catch (NoSuchAlgorithmException ex) {
                     Logger.getLogger(LoginServlet.class.getName()).log(Level.SEVERE, null, ex);
                 }
-            }else if(uName.equals("manager") && pass.equals("123456")){
+            } else if (uName.equals("manager") && pass.equals("123456")) {
                 request.getSession().setAttribute("manager", "123456");
                 request.getRequestDispatcher("mainAdmin.jsp").forward(request, response);
             }
-            
-        } else if( role.equals("Enterprise")){
+
+        } else if (role.equals("Enterprise")) {
             Enterprise e = new Enterprise().login(uName, pass);
-            if( e != null){
+            if (e != null) {
+                
+                System.out.println(jobss);
                 request.getSession().setAttribute("Enterprise", e);
                 request.getRequestDispatcher("mainEnter.jsp").forward(request, response);
                 return;
-            }else if (e == null){
+            } else if (e == null) {
+                request.setAttribute("inputError", "Wrong email or password");
                 request.getRequestDispatcher("Login.jsp").forward(request, response);
             }
-            
-        } else if ( uName.equals("manager") && pass.equals("123456")){
-            request.getSession().setAttribute("admin", "manager/123456");
-            request.getRequestDispatcher("mainAdmin.jsp").forward(request, response);
-            return;
+
         }
 
     }

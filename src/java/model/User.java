@@ -46,6 +46,15 @@ public class User {
         this.UserAccount = UserAccount;
         this.UserPassword = UserPassword;
     }
+
+    public User(String UserID, String UserName, String Phone, String Gender, Date UserDOB, String UserSkills) {
+        this.UserID = UserID;
+        this.UserName = UserName;
+        this.Phone = Phone;
+        this.Gender = Gender;
+        this.UserDOB = UserDOB;
+        this.UserSkills = UserSkills;
+    }
     
     
     
@@ -230,5 +239,12 @@ public class User {
     public User login (String acc , String pass) throws NoSuchAlgorithmException{
         return UserDB.login(acc, pass);
     }
-
+    
+    public int addDataUser(){
+        return UserDB.addDate(this);
+    }
+    
+    public User getUserId(){
+        return UserDB.getUserID(this.UserID);
+    }
 }

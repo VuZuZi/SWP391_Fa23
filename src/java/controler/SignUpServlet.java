@@ -96,7 +96,7 @@ public class SignUpServlet extends HttpServlet {
         if (role.equals("User")) {
             User u = new User(email, pass);
             if (u.isDupplicatedAccount()) {
-                request.setAttribute("inputError", "Account is used. Try another one!");
+                request.setAttribute("inputError", "Email is used. Try another one!");
                 request.getRequestDispatcher("signup.jsp").forward(request, response);
                 return;
             }
@@ -105,7 +105,7 @@ public class SignUpServlet extends HttpServlet {
         } else if (role.equals("Enterprise")) {
             Enterprise e = new Enterprise(email, pass);
             if (e.isDupplicatedAccount()) {
-                request.setAttribute("inputError", "Account is used. Try another one!");
+                request.setAttribute("inputError", "Email is used. Try another one!");
                 request.getRequestDispatcher("signup.jsp").forward(request, response);
                 return;
             }

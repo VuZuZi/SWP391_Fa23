@@ -23,10 +23,19 @@ public class Job {
     private String Skills;
     private String Salary;
     private String EnterpriseID;
-    private int isAccept;
-    
+    private String isAccept;
 
     public Job() {
+    }
+
+    public Job(String JobId, String Title, String Location, String Type, String Description, String Skills, String Salary) {
+        this.JobId = JobId;
+        this.Title = Title;
+        this.Location = Location;
+        this.Type = Type;
+        this.Description = Description;
+        this.Skills = Skills;
+        this.Salary = Salary;
     }
 
     public Job(String Title, java.sql.Date DateOpen, java.sql.Date DateClose, String Location, String Type, String Description, String Skills, String Salary, String EnterpriseID) {
@@ -40,10 +49,10 @@ public class Job {
         this.Skills = Skills;
         this.Salary = Salary;
         this.EnterpriseID = EnterpriseID;
-        
+
     }
 
-    public Job(String JobId, String Title, java.sql.Date DateOpen, java.sql.Date DateClose, String Location, String Type, String Description, String Skills , String EnterpriseID, String Salary, int isAccept) {
+    public Job(String JobId, String Title, java.sql.Date DateOpen, java.sql.Date DateClose, String Location, String Type, String Description, String Skills, String EnterpriseID, String Salary, String isAccept) {
         this.JobId = JobId;
         this.Title = Title;
         this.DateOpen = DateOpen;
@@ -55,10 +64,12 @@ public class Job {
         this.Salary = Salary;
         this.EnterpriseID = EnterpriseID;
         this.isAccept = isAccept;
-        
-    }
 
-    public Job(String JobId, int isAccept) {
+    }
+    
+    
+
+    public Job(String JobId, String isAccept) {
         this.JobId = JobId;
         this.isAccept = isAccept;
     }
@@ -66,9 +77,6 @@ public class Job {
     public Job(String JobId) {
         this.JobId = JobId;
     }
-    
-    
-    
 
     public String getJobId() {
         return JobId;
@@ -150,27 +158,26 @@ public class Job {
         this.EnterpriseID = EnterpriseID;
     }
 
-    public int getIsAccept() {
+    public String getIsAccept() {
         return isAccept;
     }
 
-    public void setIsAccept(int isAccept) {
+    public void setIsAccept(String isAccept) {
         this.isAccept = isAccept;
     }
 
-    public String getEnterName(){
+    public String getEnterName() {
         return EnterpriseDB.getEnterbyID(this.EnterpriseID).getEnterpriseName();
     }
-    
-    
 
     public String newID() {
-        if (JobDB.getListJob().isEmpty()) 
+        if (JobDB.getListJob().isEmpty()) {
             return "job100";
+        }
         ArrayList<Job> listJob = JobDB.getListJob();
         for (Job job : listJob) {
             String numID = job.getJobId().substring(3);
-            String nextID = "job" + (Integer.parseInt(numID)+ 1);
+            String nextID = "job" + (Integer.parseInt(numID) + 1);
             if (!isDupplicatedID(nextID)) {
                 return nextID;
             }
@@ -191,11 +198,34 @@ public class Job {
     public int addNew() {
         return JobDB.addNewJob(this);
     }
-    
-    public int acceptJob(){
+
+    public int acceptJob() {
         return JobDB.accepJob(this);
     }
-    public  int deleteJob(){
-        return  JobDB.deleteJob(this);
+
+    public int rejectjob() {
+        return JobDB.RejectJob(this);
+    }
+    
+    public int delectjob(String id){
+        return  JobDB.deleteJob(id);
+    }
+
+    public Job getJobbyId(String id) {
+        return JobDB.getJobbyID(id);
+    }
+
+    public String getEnterAccount() {
+        Enterprise e = EnterpriseDB.getEnterbyID(this.EnterpriseID);
+        return e.getEnterpriseAccount();
+    }
+
+    public String getenterAcc() {
+        return EnterpriseDB.getEnterAccforjob(this.EnterpriseID).getEnterpriseAccount();
+
+    }
+    
+    public int updateDate(){
+        return JobDB.updateData(this);
     }
 }

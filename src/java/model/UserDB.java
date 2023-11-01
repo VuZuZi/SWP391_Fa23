@@ -13,6 +13,7 @@ import java.util.logging.Logger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
+import static model.DatabaseInfo.userDB;
 
 /**
  *
@@ -202,6 +203,58 @@ public class UserDB implements DatabaseInfo {
         }
         return null;
     }
-    
-    
+
+    public static int addDate(User addUser) {
+        int res = -1;
+        try (Connection con = DatabaseInfo.getConnect()) {
+            PreparedStatement ps = con.prepareStatement("update Users set FullName =? ,Phone=? ,Gender=?,DOB=?,Skills=? where UserID =?");
+            ps.setString(1, addUser.getUserName());
+            ps.setString(2, addUser.getPhone());
+            ps.setString(3, addUser.getGender());
+            ps.setDate(4, addUser.getUserDOB());
+            ps.setString(5, addUser.getUserSkills());
+            ps.setString(6, addUser.getUserID());
+            res = ps.executeUpdate();
+        } catch (Exception e) {
+            Logger.getLogger(UserDB.class.getName()).log(Level.SEVERE, null, e);
+        }
+        return res;
+    }
+
+    public static User getUserID(String userID) {
+        User res = null;
+        try (Connection con = DatabaseInfo.getConnect()) {
+            PreparedStatement ps = con.prepareStatement("Select * from Users where UserID = ?");
+            ps.setString(1, userID);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                res = new User(rs.getString(1), rs.getString(3), rs.getString(5), rs.getString(6), rs.getDate(7), rs.getString(8));
+            }
+        } catch (Exception e) {
+
+        }
+        return res;
+    }
+
+    public static User changpass(String UserID, String newPassword) {
+        User res = null;
+        try (Connection con = DatabaseInfo.getConnect()) {
+            MessageDigest md = MessageDigest.getInstance("SHA-256");
+
+            byte[] passwordBytes = newPassword.getBytes();
+            byte[] hashedPass = md.digest(passwordBytes);
+
+            StringBuilder hexHash = new StringBuilder();
+            for (byte b : hashedPass) {
+                hexHash.append(String.format("%02x", b));
+            }
+            PreparedStatement ps = con.prepareStatement("Update Users set Password =? where UserID =?");
+            ps.setString(1, hexHash.toString());
+            ps.setString(2, UserID);
+            ResultSet rs = ps.executeQuery();
+        } catch (Exception e) {
+            Logger.getLogger(UserDB.class.getName()).log(Level.SEVERE, null, e);
+        }
+        return res;
+    }
 }

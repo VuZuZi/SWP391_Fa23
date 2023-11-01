@@ -12,6 +12,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import model.EmailUtil;
+import model.Enterprise;
+import model.EnterpriseDB;
 import model.Job;
 import model.JobDB;
 
@@ -61,12 +64,15 @@ public class AcceptJob extends HttpServlet {
             throws ServletException, IOException {
         String jobId = request.getParameter("id");
         ArrayList<Job> jobs = (ArrayList<Job>) request.getAttribute("jobs");
-//        String jobJD = jobs.;
-        
 
-        Job jobaccept = new Job(jobId, 1);
-        jobaccept.acceptJob();  
-        
+
+        Job jobaccept = new Job(jobId, "Accept");
+        jobaccept.acceptJob();
+        String eId = request.getParameter("eId");
+        Enterprise e = EnterpriseDB.getEnterAccforjob(eId);
+        String acc  = e.getEnterpriseAccount();
+        System.out.println(acc);
+        EmailUtil.SendMailAccep(acc);
         ArrayList<Job> jobsNotAccepted = (ArrayList<Job>) JobDB.getListJobdonaccept();
         request.setAttribute("jobs", jobsNotAccepted);
         request.getRequestDispatcher("mainAdmin.jsp").forward(request, response);
@@ -83,17 +89,17 @@ public class AcceptJob extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        int isAccept = 1;
-        String i = request.getParameter("id");
-        HttpSession session = request.getSession();
-//        Job jobs = (ArrayList<Job>) request.getAttribute("jobs");
-////        String jobJD = jobs.;
-//        
-//        int id = -1;      
-//        Job jobaccept = new Job(jobID, isAccept);
-//        id = jobaccept.acceptJob();
-
-        request.getRequestDispatcher("mainAdmin.jsp").forward(request, response);
+//        int isAccept = 1;
+//        String i = request.getParameter("id");
+//        HttpSession session = request.getSession();
+////        Job jobs = (ArrayList<Job>) request.getAttribute("jobs");
+//////        String jobJD = jobs.;
+////        
+////        int id = -1;      
+////        Job jobaccept = new Job(jobID, isAccept);
+////        id = jobaccept.acceptJob();
+//
+//        request.getRequestDispatcher("mainAdmin.jsp").forward(request, response);
     }
 
     /**

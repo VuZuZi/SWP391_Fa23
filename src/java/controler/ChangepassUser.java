@@ -6,19 +6,23 @@ package controler;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.Job;
-import model.JobDB;
+import javax.servlet.http.HttpSession;
+import model.User;
+import model.UserDB;
 
 /**
  *
  * @author ASUS
  */
-public class DeleteJob extends HttpServlet {
+public class ChangepassUser extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -37,10 +41,10 @@ public class DeleteJob extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet DeleteJob</title>");            
+            out.println("<title>Servlet ChangepassUser</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet DeleteJob at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet ChangepassUser at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -58,15 +62,7 @@ public class DeleteJob extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String jobId = request.getParameter("id");
-        ArrayList<Job> jobs = (ArrayList<Job>) request.getAttribute("jobs");
-        Job jobdelete = new Job(jobId);
-        jobdelete.deleteJob();
-        
-        ArrayList<Job> jobsNotAccepted = (ArrayList<Job>) JobDB.getListJobdonaccept();
-        request.setAttribute("jobs", jobsNotAccepted);
-        request.getRequestDispatcher("mainAdmin.jsp").forward(request, response);
-        
+        request.getRequestDispatcher("changpassUser.jsp").forward(request, response);
     }
 
     /**
@@ -80,7 +76,32 @@ public class DeleteJob extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        String oldpass = request.getParameter("old-input").trim();
+        String newpass = request.getParameter("new-input").trim();
+        String confirm = request.getParameter("con-input").trim();
+        
+        HttpSession session = request.getSession();
+        User us = (User) session.getAttribute("User");
+        
+        String UserID = us.getUserID();
+        
+        try {
+            MessageDigest md = MessageDigest.getInstance("SHA-256");
+            byte[] passwordBytes = oldpass.getBytes();
+            byte[] hashedPass = md.digest(passwordBytes);
+            
+            StringBuilder hexHash = new StringBuilder();
+            for(byte b : hashedPass){
+                hexHash.append(String.format("%02x", b));
+            }
+            
+            if(hexHash.toString().equals(us.getUserPassword())){
+                User rs = UserDB.changpass(UserID, newpass);
+                request.getRequestDispatcher("mainUser.jsp").forward(request, response);
+            }
+        } catch (NoSuchAlgorithmException ex) {
+            Logger.getLogger(ChangepassServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**

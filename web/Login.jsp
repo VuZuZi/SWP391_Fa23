@@ -121,6 +121,9 @@
                     <div class="row">
                         <div class="offset-3 col-lg-6 mb-5">
                             <h2 class="mb-4">Log In To JobC</h2>
+                            <div class="message-response h5 mt-3 " style="color: red">
+                                ${inputError}
+                            </div>
                             <form action="LoginServlet" method="POST" class="p-4 border rounded">
                                 <div class="form-group mb-3">
                                     <label class="label" for="">Email</label>

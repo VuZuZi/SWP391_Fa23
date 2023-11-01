@@ -107,7 +107,7 @@ public class PostJobServlet extends HttpServlet {
         id = j.addNew();
                 
         request.getSession().setAttribute("Enterprise", e);
-        request.getRequestDispatcher("mainEnter.jsp").forward(request, response);
+        request.getRequestDispatcher("PostJobNotice").forward(request, response);
     }
 
     /**
