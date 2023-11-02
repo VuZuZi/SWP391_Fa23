@@ -157,16 +157,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
                                             class="icon-search icon mr-2"></span>Search Job</button>
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="col-md-12 popular-keywords">
-                                    <h3>Trending Keywords:</h3>
-                                    <ul class="keywords list-unstyled m-0 p-0">
-                                        <li><a href="#" class="">UI Designer</a></li>
-                                        <li><a href="#" class="">Python</a></li>
-                                        <li><a href="#" class="">Developer</a></li>
-                                    </ul>
-                                </div>
-                            </div>
+                            
                         </form>
                         <c:forEach items="${jobss}" var="job">
                             <div class="col-md-12 align-items-start">

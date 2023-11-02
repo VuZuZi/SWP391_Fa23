@@ -8,6 +8,10 @@
         <servlet-class>controler.SignUpServlet</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>SearchIndex</servlet-name>
+        <servlet-class>controler.SearchIndex</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>VerifyServlet</servlet-name>
         <servlet-class>controler.VerifyServlet</servlet-class>
     </servlet>
@@ -135,6 +139,14 @@
         <servlet-name>Statistics</servlet-name>
         <servlet-class>controler.Statistics</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>NewServlet</servlet-name>
+        <servlet-class>controller.NewServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>getinfouser</servlet-name>
+        <servlet-class>controller.getinfouser</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>SignUpServlet</servlet-name>
         <url-pattern>/SignUpServlet</url-pattern>
@@ -202,6 +214,13 @@
     <servlet-mapping>
         <servlet-name>SearchUser</servlet-name>
         <url-pattern>/SearchUser</url-pattern>
+    <servlet>
+        <servlet-name>CreateAccountServlet</servlet-name>
+        <servlet-class>controller.CreateAccountServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CreateAccountServlet</servlet-name>
+        <url-pattern>/CreateAccountServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>SearchIndex</servlet-name>
@@ -262,6 +281,21 @@
     <servlet-mapping>
         <servlet-name>Statistics</servlet-name>
         <url-pattern>/Statistics</url-pattern>
+    <servlet>
+        <servlet-name>GetUserAccounts</servlet-name>
+        <servlet-class>model.GetUserAccounts</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>GetUserAccounts</servlet-name>
+        <url-pattern>/GetUserAccounts</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>NewServlet</servlet-name>
+        <url-pattern>/NewServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>getinfouser</servlet-name>
+        <url-pattern>/getinfouser</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

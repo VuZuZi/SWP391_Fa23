@@ -112,7 +112,8 @@
                                 </li> -->
                                 <li><a href="blog.html">Create CV</a></li>
                                 <li><a href="blog.html">View CV</a></li>
-                                <li><a href="blog.html">Interview</a></li>
+                                <li><a href="https://nguyenanhtu37.github.io/PluginMessenger/plugin.html">Chat</a></li>
+                                <li><a href="video_call_2.html">Interview</a></li>
                                 <li><a href="blog.html">Job Applied</a></li>
                                 <li class="d-lg-none"><a href="post-job.html"><span class="mr-2">+</span> Post a Job</a></li>
                                 <li class="d-lg-none"><a href="login.html">Log In</a></li>
@@ -121,8 +122,6 @@
 
                         <div class="right-cta-menu text-right d-flex aligin-items-center col-6">
                             <div class="ml-auto">
-                                <!--                                <a href="post-job.html" class="btn btn-outline-white border-width-2 d-none d-lg-inline-block mx-2"><span
-                                                                        class="mr-2 icon-add"></span>Post a Job</a>-->
                                 <div class="dropdown d-none d-lg-inline-block">
 
                                     <div class="mx-2" style="color: white; font-size: 20px;" type="button" id="signUp"
@@ -228,7 +227,10 @@
                                                             <button type="submit" class="btn btn-block btn-danger btn-md">Delete</button>
                                                         </div>
                                                     </div>
+                                                    
+
                                                 </div>
+
                                             </form>
                                         </div>
                                     </div>

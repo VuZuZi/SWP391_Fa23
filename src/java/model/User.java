@@ -31,6 +31,7 @@ public class User {
     private String profilePic;
     private String UserFbId;
     private String UserGmailId;
+    private int NumberOfReports;
 
     public User() {
     }
@@ -66,6 +67,7 @@ public class User {
         this.UserDOB = UserDOB;
         this.UserSkills = UserSkills;
         this.isAdmin = isAdmin;
+        this.NumberOfReports = NumberOfReports;
     }
 
     public String getUserID() {
@@ -78,6 +80,14 @@ public class User {
 
     public String getUserAccount() {
         return UserAccount;
+    }
+
+    public void setNumberOfReports(int NumberOfReports) {
+        this.NumberOfReports = NumberOfReports;
+    }
+
+    public int getNumberOfReports() {
+        return NumberOfReports;
     }
 
     public void setUserAccount(String UserAccount) {

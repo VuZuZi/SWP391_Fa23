@@ -157,6 +157,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
                                             class="icon-search icon mr-2"></span>Search Job</button>
                                 </div>
                             </div>
+<<<<<<< Updated upstream
                             <div class="row">
                                 <div class="col-md-12 popular-keywords">
                                     <h3>Trending Keywords:</h3>
@@ -167,6 +168,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
                                     </ul>
                                 </div>
                             </div>
+=======
+                            
+>>>>>>> Stashed changes
                         </form>
                         <c:forEach items="${jobss}" var="job">
                             <div class="col-md-12 align-items-start">
