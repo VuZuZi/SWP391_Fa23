@@ -75,14 +75,12 @@ public class EnterpriseDB implements DatabaseInfo {
         }
         return null;
     }
-    
-    
-    
-    public static Enterprise login(String acc, String pass) throws NoSuchAlgorithmException{
+
+    public static Enterprise login(String acc, String pass) throws NoSuchAlgorithmException {
         Enterprise e = getEnter(acc);
-        if(e != null){
+        if (e != null) {
             String enterPass = e.getEnterprisePassword();
-            if(enterPass != null){
+            if (enterPass != null) {
                 MessageDigest md = MessageDigest.getInstance("SHA-256");
 
                 byte[] passwordBytes = pass.getBytes();
@@ -92,17 +90,17 @@ public class EnterpriseDB implements DatabaseInfo {
                 for (byte b : hashedPass) {
                     hexHash.append(String.format("%02x", b));
                 }
-                if(hexHash.toString().equals(enterPass)){
-                    return  e;
+                if (hexHash.toString().equals(enterPass)) {
+                    return e;
                 }
             }
         }
         return null;
     }
-    
-    public static int addData(Enterprise addEnter){
-        int res =-1;
-        try(Connection con = DatabaseInfo.getConnect()){
+
+    public static int addData(Enterprise addEnter) {
+        int res = -1;
+        try (Connection con = DatabaseInfo.getConnect()) {
             PreparedStatement ps = con.prepareStatement("Update Enterprise set EnterpriseName = ?,Phone= ?,Place = ? ,EnterpriseDesc =?,Taxcode =? Where EnterpriseID=? ");
             ps.setString(1, addEnter.getEnterpriseName());
             ps.setString(2, addEnter.getPhone());
@@ -111,8 +109,8 @@ public class EnterpriseDB implements DatabaseInfo {
             ps.setString(5, addEnter.getTaxcode());
             ps.setString(6, addEnter.getEnterpriseID());
             res = ps.executeUpdate();
-        } catch(Exception e){
-            Logger.getLogger(EnterpriseDB.class.getName()).log(Level.SEVERE, null,e);
+        } catch (Exception e) {
+            Logger.getLogger(EnterpriseDB.class.getName()).log(Level.SEVERE, null, e);
         }
         return res;
     }
@@ -126,10 +124,10 @@ public class EnterpriseDB implements DatabaseInfo {
             if( rs.next()){
                 res =new Enterprise(rs.getString(1), rs.getString(3) ,rs.getString(5),rs.getString(8),rs.getString(6),rs.getString(7));
             }
-        }catch (Exception e){
-            
+        } catch (Exception e) {
+
         }
-        return  res;
+        return res;
     }
     
     public static Enterprise getIdbyName(String enterName){

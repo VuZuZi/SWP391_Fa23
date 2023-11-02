@@ -2,6 +2,7 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+<<<<<<< Updated upstream
 <<<<<<< HEAD
         <group>
             <file>file:/D:/Chuyên%20Ngành%202/PRO/NetBeansProjects/SWP_JC/src/java/model/Job.java</file>
@@ -17,5 +18,36 @@
 =======
         <group/>
 >>>>>>> 5b736af (push cv and review)
+=======
+        <group>
+            <file>file:/C:/Users/nguye/Documents/SWP391_Fa23/src/java/controller/SearchIndex.java</file>
+            <file>file:/C:/Users/nguye/Documents/SWP391_Fa23/src/java/model/JobDB.java</file>
+            <file>file:/C:/Users/nguye/Documents/SWP391_Fa23/web/mainUser.jsp</file>
+            <file>file:/C:/Users/nguye/Documents/SWP391_Fa23/src/java/DAO/UserDAO.java</file>
+            <file>file:/C:/Users/nguye/Documents/SWP391_Fa23/web/CreateAcc.jsp</file>
+            <file>file:/C:/Users/nguye/Documents/SWP391_Fa23/src/java/controller/SearchEnter.java</file>
+            <file>file:/C:/Users/nguye/Documents/SWP391_Fa23/web/index.jsp</file>
+            <file>file:/C:/Users/nguye/Documents/SWP391_Fa23/web/Login.jsp</file>
+            <file>file:/C:/Users/nguye/Documents/SWP391_Fa23/src/java/model/DatabaseInfo.java</file>
+            <file>file:/C:/Users/nguye/Documents/SWP391_Fa23/web/video_call_2.html</file>
+            <file>file:/C:/Users/nguye/Documents/SWP391_Fa23/web/mainEnter.jsp</file>
+            <file>file:/C:/Users/nguye/Documents/SWP391_Fa23/web/css/style_1.css</file>
+            <file>file:/C:/Users/nguye/Documents/SWP391_Fa23/web/mainAdmin.jsp</file>
+            <file>file:/C:/Users/nguye/Documents/SWP391_Fa23/web/CreateCV.jsp</file>
+            <file>file:/C:/Users/nguye/Documents/SWP391_Fa23/src/java/model/DatabaseInfoImpl.java</file>
+            <file>file:/C:/Users/nguye/Documents/SWP391_Fa23/web/SignUp.jsp</file>
+            <file>file:/C:/Users/nguye/Documents/SWP391_Fa23/src/java/model/User.java</file>
+            <file>file:/C:/Users/nguye/Documents/SWP391_Fa23/src/java/DAO/DatabaseConnector.java</file>
+            <file>file:/C:/Users/nguye/Documents/SWP391_Fa23/web/js/video_call.js</file>
+            <file>file:/C:/Users/nguye/Documents/SWP391_Fa23/src/java/DAO/Main.java</file>
+            <file>file:/C:/Users/nguye/Documents/SWP391_Fa23/web/video_call_1.html</file>
+            <file>file:/C:/Users/nguye/Documents/SWP391_Fa23/web/css/custom-bs.css</file>
+            <file>file:/C:/Users/nguye/Documents/SWP391_Fa23/web/WEB-INF/web.xml</file>
+            <file>file:/C:/Users/nguye/Documents/SWP391_Fa23/web/css/writeCV.css</file>
+            <file>file:/C:/Users/nguye/Documents/SWP391_Fa23/web/userList.jsp</file>
+            <file>file:/C:/Users/nguye/Documents/SWP391_Fa23/src/java/model/UserDB.java</file>
+            <file>file:/C:/Users/nguye/Documents/SWP391_Fa23/src/java/controller/SearchUser.java</file>
+        </group>
+>>>>>>> Stashed changes
     </open-files>
 </project-private>
