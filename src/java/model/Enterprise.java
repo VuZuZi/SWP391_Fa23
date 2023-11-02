@@ -38,12 +38,23 @@ public class Enterprise {
         this.EnterprisePassword = EnterprisePassword;
     }
 
+    public Enterprise(String EnterpriseID, String EnterpriseAccount, String EnterpriseName, String EnterprisePassword) {
+        this.EnterpriseID = EnterpriseID;
+        this.EnterpriseAccount = EnterpriseAccount;
+        this.EnterpriseName = EnterpriseName;
+        this.EnterprisePassword = EnterprisePassword;
+    }
+    
+    
+
     public Enterprise(String EnterpriseID, String EnterpriseAccount, String EnterprisePassword) {
         this.EnterpriseID = EnterpriseID;
         this.EnterpriseAccount = EnterpriseAccount;
         this.EnterprisePassword = EnterprisePassword;
     }
 
+    
+    
     public Enterprise(String EnterpriseID, String EnterpriseName, String Phone, String Taxcode, String Place, String EnterpriseDesc) {
         this.EnterpriseID = EnterpriseID;
         this.EnterpriseName = EnterpriseName;
@@ -192,6 +203,10 @@ public class Enterprise {
     
     public Enterprise changesPass(){
         return EnterpriseDB.changePass(this.EnterpriseID, this.EnterprisePassword);
+    }
+    
+    public Enterprise getIdbyName(String name){
+        return EnterpriseDB.getIdbyName(name);
     }
 
     @Override

@@ -3,12 +3,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/Chuyên%20Ngành%202/PRO/NetBeansProjects/SWP_JC/src/java/controler/PostJobServlet.java</file>
+            <file>file:/D:/Chuyên%20Ngành%202/PRO/NetBeansProjects/SWP_JC/src/java/model/Job.java</file>
+            <file>file:/D:/Chuyên%20Ngành%202/PRO/NetBeansProjects/SWP_JC/web/mainAdmin.jsp</file>
             <file>file:/D:/Chuyên%20Ngành%202/PRO/NetBeansProjects/SWP_JC/web/ViewjobforeachEnter.jsp</file>
             <file>file:/D:/Chuyên%20Ngành%202/PRO/NetBeansProjects/SWP_JC/src/java/controler/ViewEachJobEnter.java</file>
-            <file>file:/D:/Chuyên%20Ngành%202/PRO/NetBeansProjects/SWP_JC/web/PostedJob.jsp</file>
-            <file>file:/D:/Chuyên%20Ngành%202/PRO/NetBeansProjects/SWP_JC/web/mainEnter.jsp</file>
-            <file>file:/D:/Chuyên%20Ngành%202/PRO/NetBeansProjects/SWP_JC/src/java/controler/ViewJobDetaiEnter.java</file>
+            <file>file:/D:/Chuyên%20Ngành%202/PRO/NetBeansProjects/SWP_JC/src/java/model/JobDB.java</file>
+            <file>file:/D:/Chuyên%20Ngành%202/PRO/NetBeansProjects/SWP_JC/src/java/controler/ViewProfile.java</file>
+            <file>file:/D:/Chuyên%20Ngành%202/PRO/NetBeansProjects/SWP_JC/src/java/controler/EditProfileServlet.java</file>
+            <file>file:/D:/Chuyên%20Ngành%202/PRO/NetBeansProjects/SWP_JC/web/Verify.jsp</file>
+            <file>file:/D:/Chuyên%20Ngành%202/PRO/NetBeansProjects/SWP_JC/src/java/controler/UpdateJob.java</file>
         </group>
     </open-files>
 </project-private>

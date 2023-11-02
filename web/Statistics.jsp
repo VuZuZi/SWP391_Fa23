@@ -1,11 +1,11 @@
 <%-- 
-    Document   : mainAdmin
-    Created on : Oct 9, 2023, 12:42:05 AM
+    Document   : Statistics
+    Created on : Nov 2, 2023, 12:57:04 PM
     Author     : ASUS
 --%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<jsp:useBean id="jobs" class="java.util.ArrayList" scope="session" />
 <!doctype html>
 <html lang="en">
 
@@ -88,7 +88,7 @@
                             <ul class="site-menu js-clone-nav d-none d-xl-block ml-0 pl-0">
                                 <li><a href="index.html" class="nav-link active">Home</a></li>
                                 <li><a href="about.html">About</a></li>
-                                <li><a href="Statistics">Statistics</a></li>
+                                <li><a href="about.html">Statistics</a></li>
                                 <li class="d-lg-none"><a href="login">Log In</a></li>
                             </ul>
                         </nav>
@@ -103,9 +103,6 @@
                                         <i class="fa-regular fa-user"></i>
                                         <span class="icon-text mx-2 text-capitalize">Admin</span>
                                     </div>
-                                    <!-- <button class="btn btn-primary border-width-2  dropdown-toggle" >
-                                      Account
-                                    </button> -->
                                     <div class="dropdown-menu mt-2" aria-labelledby="dropdownMenuButton">
 
                                         <a class="dropdown-item" href="LogOutServlet">Log out</a>
@@ -113,7 +110,6 @@
 
                                 </div>
 
-                                <!-- <a href="login.html" class="btn btn-primary border-width-2 d-none d-lg-inline-block"><span class="mr-2 icon-lock_outline"></span>Log In</a> -->
                             </div>
                             <a href="#" class="site-menu-toggle js-menu-toggle d-inline-block d-xl-none mt-lg-2 ml-3"><span
                                     class="icon-menu h3 m-0 p-0 mt-2"></span></a>
@@ -122,65 +118,70 @@
                     </div>
                 </div>
             </header>
-            ${id}
+
             <!-- HOME -->
-            <section class="home-section section-hero overlay bg-image" style="background-image: url('images/hero_1.jpg'); "
+            <section class="section-hero overlay inner-page bg-image" style="background-image: url('images/hero_1.jpg');"
                      id="home-section">
-
-                <div class="container scroll" style="overflow-y:scroll;">
-                    <div class="row justify-content-center">
-                        <div class="h-25 col-md-12 align-items-end">
-
-                        </div>
-                        <div class="col-md-12 align-items-end">
-                            <div class="mb-5 text-center">
-                                <h1 class="text-white font-weight-bold">The Easiest Way To Get Your Dream Job</h1>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate est, consequuntur perferendis.</p>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-7">
+                            <h1 class="text-white font-weight-bold">Home/Statistics</h1>
+                            <div class="custom-breadcrumbs">
+                                <a href="#">Home</a> <span class="mx-2 slash">/</span>
+                                <span class="text-white"><strong>Statistics</strong></span>
                             </div>
                         </div>
-                        <c:forEach items="${jobs}" var="job">
-                            <div class="col-md-12 align-items-start">
-                                <div class="mb-5 border rounded" style="background-color: whitesmoke; color: black;">
-                                    <div class="p-3  border rounded">
-                                        <form action="AcceptJob" class="px-3 px-md-5 py-1 py-md-3 border rounded" method="post">
-                                            <a href="ViewJobDetailAdmin?id=${job.jobId}" class="possion text-black mb-5 pb-2 text-capitalize" style="font-size: 50px;font-weight: bold;">${job.title}</a>
-                                            <h3 class="text-black mb-2 border-bottom pb-2 text-capitalize">${job.enterName}</h3>
-                                            <div class="p-1">
-                                                <div class="row">
-                                                    <div class="col-md-4">
-                                                        <div class="row form-group">
-                                                            <label for="name" class="col-4 col-form-label text-capitalize">location</label>
-                                                            <div class="col-sm-8">
-                                                                ${job.location}
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                </div>
-                                                <div class="row align-items-center mb-1">
-                                                    <div class="col-lg-3">
-                                                        <a href="AcceptJob?id=${job.jobId}&eId=${job.enterpriseID}" class="btn btn-block btn-primary btn-md">Accept</a>
-                                                    </div>
-                                                    <div class="col-lg-3">
-                                                        <a href="Reject?id=${job.jobId}&eId=${job.enterpriseID}" class="btn btn-block btn-danger btn-md">Reject</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </c:forEach>
-
                     </div>
                 </div>
-                <a href="#next" class="scroll-button smoothscroll">
-                    <span class=" icon-keyboard_arrow_down"></span>
-                </a>
-
-
             </section>
+            <section class="site-section container">
+                <div class="input-group rounded mb-5">
+                    <form action="Statistics" method="POST">
+                        <label for="" class="col-form-label mr-3">Enterprise Name</label>
+                        <input type="search" class="form-control rounded" placeholder="Enterprise Name" aria-label="Search"
+                               aria-describedby="search-addon" name="entername" />
+                        <button type="submit" class="input-group-text border-0" id="search-addon">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </form>
+                </div>
+                <div class=" ">
+                    <div class="mb-5 border rounded" style="background-color: whitesmoke; color: black;">
+                        <div class="p-3  border rounded">
+                            <c:forEach items="${jobbyenter}" var = 'job'>
+                                <form action="PostJobServlet" class="px-3 px-md-5 py-1 py-md-3 border rounded" method="post">
+                                    <div class="row align-items-center">
+                                        <div class="col-11">
+                                            <a href="#" class="possion text-black mb-2 pb-2 text-capitalize">${job.title}</a>
+                                        </div>
+                                        <div class="col-1">
+                                            <a href="#" class="align-items-end">
+                                                <i class="fa-solid fa-trash" style="font-size: 22px; color: black;"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <h3 class="text-black mb-2 border-bottom pb-2 text-capitalize">${job.enterName}</h3>
+
+                                    <div class="p-1">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="row form-group">
+                                                    <label for="name"
+                                                           class="col-4 col-form-label text-capitalize">${job.location}</label>
+                                                    
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </form>
+                            </c:forEach>
+                        </div>
+                    </div>
+            </section>
+
+
+
 
             <section class="py-5 bg-image overlay-primary fixed overlay" id="next"
                      style="background-image: url('images/hero_1.jpg');">
@@ -188,7 +189,8 @@
                     <div class="row mb-5 justify-content-center">
                         <div class="col-md-7 text-center">
                             <h2 class="section-title mb-2 text-white">JobBoard Site Stats</h2>
-                            <p class="lead text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita unde officiis
+                            <p class="lead text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita
+                                unde officiis
                                 recusandae sequi excepturi corrupti.</p>
                         </div>
                     </div>
@@ -242,7 +244,8 @@
                         <li class="job-listing d-block d-sm-flex pb-3 pb-sm-0 align-items-center">
                             <a href="job-single.html"></a>
                             <div class="job-listing-logo">
-                                <img src="images/job_logo_1.jpg" alt="Free Website Template by Free-Template.co" class="img-fluid">
+                                <img src="images/job_logo_1.jpg" alt="Free Website Template by Free-Template.co"
+                                     class="img-fluid">
                             </div>
 
                             <div class="job-listing-about d-sm-flex custom-width w-100 justify-content-between mx-4">
@@ -262,7 +265,8 @@
                         <li class="job-listing d-block d-sm-flex pb-3 pb-sm-0 align-items-center">
                             <a href="job-single.html"></a>
                             <div class="job-listing-logo">
-                                <img src="images/job_logo_2.jpg" alt="Free Website Template by Free-Template.co" class="img-fluid">
+                                <img src="images/job_logo_2.jpg" alt="Free Website Template by Free-Template.co"
+                                     class="img-fluid">
                             </div>
 
                             <div class="job-listing-about d-sm-flex custom-width w-100 justify-content-between mx-4">
@@ -282,7 +286,8 @@
                         <li class="job-listing d-block d-sm-flex pb-3 pb-sm-0 align-items-center">
                             <a href="job-single.html"></a>
                             <div class="job-listing-logo">
-                                <img src="images/job_logo_3.jpg" alt="Free Website Template by Free-Template.co" class="img-fluid">
+                                <img src="images/job_logo_3.jpg" alt="Free Website Template by Free-Template.co"
+                                     class="img-fluid">
                             </div>
 
                             <div class="job-listing-about d-sm-flex custom-width w-100 justify-content-between mx-4">
@@ -302,7 +307,8 @@
                         <li class="job-listing d-block d-sm-flex pb-3 pb-sm-0 align-items-center">
                             <a href="job-single.html"></a>
                             <div class="job-listing-logo">
-                                <img src="images/job_logo_4.jpg" alt="Free Website Template by Free-Template.co" class="img-fluid">
+                                <img src="images/job_logo_4.jpg" alt="Free Website Template by Free-Template.co"
+                                     class="img-fluid">
                             </div>
 
                             <div class="job-listing-about d-sm-flex custom-width w-100 justify-content-between mx-4">
@@ -322,7 +328,8 @@
                         <li class="job-listing d-block d-sm-flex pb-3 pb-sm-0 align-items-center">
                             <a href="job-single.html"></a>
                             <div class="job-listing-logo">
-                                <img src="images/job_logo_5.jpg" alt="Free Website Template by Free-Template.co" class="img-fluid">
+                                <img src="images/job_logo_5.jpg" alt="Free Website Template by Free-Template.co"
+                                     class="img-fluid">
                             </div>
 
                             <div class="job-listing-about d-sm-flex custom-width w-100 justify-content-between mx-4">
@@ -341,7 +348,8 @@
                         <li class="job-listing d-block d-sm-flex pb-3 pb-sm-0 align-items-center">
                             <a href="job-single.html"></a>
                             <div class="job-listing-logo">
-                                <img src="images/job_logo_1.jpg" alt="Free Website Template by Free-Template.co" class="img-fluid">
+                                <img src="images/job_logo_1.jpg" alt="Free Website Template by Free-Template.co"
+                                     class="img-fluid">
                             </div>
 
                             <div class="job-listing-about d-sm-flex custom-width w-100 justify-content-between mx-4">
@@ -361,7 +369,8 @@
                         <li class="job-listing d-block d-sm-flex pb-3 pb-sm-0 align-items-center">
                             <a href="job-single.html"></a>
                             <div class="job-listing-logo">
-                                <img src="images/job_logo_2.jpg" alt="Free Website Template by Free-Template.co" class="img-fluid">
+                                <img src="images/job_logo_2.jpg" alt="Free Website Template by Free-Template.co"
+                                     class="img-fluid">
                             </div>
 
                             <div class="job-listing-about d-sm-flex custom-width w-100 justify-content-between mx-4">
@@ -404,118 +413,22 @@
                 </div>
             </section>
 
-            <section class="py-5 bg-image overlay-primary fixed overlay" style="background-image: url('images/hero_1.jpg');">
-                <div class="container">
-                    <div class="row align-items-center">
-                        <div class="col-md-8">
-                            <h2 class="text-white">Looking For A Job?</h2>
-                            <p class="mb-0 text-white lead">Lorem ipsum dolor sit amet consectetur adipisicing elit tempora adipisci
-                                impedit.</p>
-                        </div>
-                        <div class="col-md-3 ml-auto">
-                            <a href="#" class="btn btn-warning btn-block btn-lg">Sign Up</a>
-                        </div>
-                    </div>
-                </div>
-            </section>
 
-
-            <section class="site-section py-4">
-                <div class="container">
-
-                    <div class="row align-items-center">
-                        <div class="col-12 text-center mt-4 mb-5">
-                            <div class="row justify-content-center">
-                                <div class="col-md-7">
-                                    <h2 class="section-title mb-2">Company We've Helped</h2>
-                                    <p class="lead">Porro error reiciendis commodi beatae omnis similique voluptate rerum ipsam fugit
-                                        mollitia ipsum facilis expedita tempora suscipit iste</p>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="col-6 col-lg-3 col-md-6 text-center">
-                            <img src="images/logo_mailchimp.svg" alt="Image" class="img-fluid logo-1">
-                        </div>
-                        <div class="col-6 col-lg-3 col-md-6 text-center">
-                            <img src="images/logo_paypal.svg" alt="Image" class="img-fluid logo-2">
-                        </div>
-                        <div class="col-6 col-lg-3 col-md-6 text-center">
-                            <img src="images/logo_stripe.svg" alt="Image" class="img-fluid logo-3">
-                        </div>
-                        <div class="col-6 col-lg-3 col-md-6 text-center">
-                            <img src="images/logo_visa.svg" alt="Image" class="img-fluid logo-4">
-                        </div>
-
-                        <div class="col-6 col-lg-3 col-md-6 text-center">
-                            <img src="images/logo_apple.svg" alt="Image" class="img-fluid logo-5">
-                        </div>
-                        <div class="col-6 col-lg-3 col-md-6 text-center">
-                            <img src="images/logo_tinder.svg" alt="Image" class="img-fluid logo-6">
-                        </div>
-                        <div class="col-6 col-lg-3 col-md-6 text-center">
-                            <img src="images/logo_sony.svg" alt="Image" class="img-fluid logo-7">
-                        </div>
-                        <div class="col-6 col-lg-3 col-md-6 text-center">
-                            <img src="images/logo_airbnb.svg" alt="Image" class="img-fluid logo-8">
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-
-            <section class="bg-light pt-5 testimony-full">
-
-                <div class="owl-carousel single-carousel">
-
-
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-lg-6 align-self-center text-center text-lg-left">
-                                <blockquote>
-                                    <p>&ldquo;Soluta quasi cum delectus eum facilis recusandae nesciunt molestias accusantium libero dolores
-                                        repellat id in dolorem laborum ad modi qui at quas dolorum voluptatem voluptatum repudiandae.&rdquo;
-                                    </p>
-                                    <p><cite> &mdash; Corey Woods, @Dribbble</cite></p>
-                                </blockquote>
-                            </div>
-                            <div class="col-lg-6 align-self-end text-center text-lg-right">
-                                <img src="images/person_transparent_2.png" alt="Image" class="img-fluid mb-0">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-lg-6 align-self-center text-center text-lg-left">
-                                <blockquote>
-                                    <p>&ldquo;Soluta quasi cum delectus eum facilis recusandae nesciunt molestias accusantium libero dolores
-                                        repellat id in dolorem laborum ad modi qui at quas dolorum voluptatem voluptatum repudiandae.&rdquo;
-                                    </p>
-                                    <p><cite> &mdash; Chris Peters, @Google</cite></p>
-                                </blockquote>
-                            </div>
-                            <div class="col-lg-6 align-self-end text-center text-lg-right">
-                                <img src="images/person_transparent.png" alt="Image" class="img-fluid mb-0">
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-            </section>
-
-            <section class="pt-5 bg-image overlay-primary fixed overlay" style="background-image: url('images/hero_1.jpg');">
+            <section class="pt-5 bg-image overlay-primary fixed overlay"
+                     style="background-image: url('images/hero_1.jpg');">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-6 align-self-center text-center text-md-left mb-5 mb-md-0">
                             <h2 class="text-white">Get The Mobile Apps</h2>
-                            <p class="mb-5 lead text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit tempora adipisci
+                            <p class="mb-5 lead text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit tempora
+                                adipisci
                                 impedit.</p>
                             <p class="mb-0">
-                                <a href="#" class="btn btn-dark btn-md px-4 border-width-2"><span class="icon-apple mr-3"></span>App
+                                <a href="#" class="btn btn-dark btn-md px-4 border-width-2"><span
+                                        class="icon-apple mr-3"></span>App
                                     Store</a>
-                                <a href="#" class="btn btn-dark btn-md px-4 border-width-2"><span class="icon-android mr-3"></span>Play
+                                <a href="#" class="btn btn-dark btn-md px-4 border-width-2"><span
+                                        class="icon-android mr-3"></span>Play
                                     Store</a>
                             </p>
                         </div>
@@ -578,9 +491,10 @@
                             <p class="copyright"><small>
                                     <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                                     Copyright &copy;
-                                    <script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made
-                                    with <i class="icon-heart text-danger" aria-hidden="true"></i> by <a href="https://colorlib.com"
-                                                                                                         target="_blank">Colorlib</a>
+                                    <script>document.write(new Date().getFullYear());</script> All rights reserved | This
+                                    template is made
+                                    with <i class="icon-heart text-danger" aria-hidden="true"></i> by <a
+                                        href="https://colorlib.com" target="_blank">Colorlib</a>
                                     <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                                 </small></p>
                         </div>

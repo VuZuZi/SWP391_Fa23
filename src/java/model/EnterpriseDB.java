@@ -132,6 +132,21 @@ public class EnterpriseDB implements DatabaseInfo {
         return  res;
     }
     
+    public static Enterprise getIdbyName(String enterName){
+        Enterprise res = null;
+        try(Connection con = DatabaseInfo.getConnect()){
+            PreparedStatement ps = con.prepareStatement("select * from Enterprise where EnterpriseName = ?");
+            ps.setString(1, enterName);
+            ResultSet rs = ps.executeQuery();
+            if(rs.next()){
+                res = new Enterprise(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4));
+            }
+        }catch(Exception e){
+            
+        }
+        return  res;
+    }
+    
     public static Enterprise getEnterAccforjob(String enterID){
         Enterprise res = null;
         try(Connection con = DatabaseInfo.getConnect()){
@@ -167,5 +182,7 @@ public class EnterpriseDB implements DatabaseInfo {
         }
         return res; 
     }
+    
+    
     
 }

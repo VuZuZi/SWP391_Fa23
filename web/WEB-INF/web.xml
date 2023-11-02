@@ -127,6 +127,10 @@
         <servlet-name>UpdateJob</servlet-name>
         <servlet-class>controler.UpdateJob</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Statistics</servlet-name>
+        <servlet-class>controler.Statistics</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>SignUpServlet</servlet-name>
         <url-pattern>/SignUpServlet</url-pattern>
@@ -246,6 +250,10 @@
     <servlet-mapping>
         <servlet-name>UpdateJob</servlet-name>
         <url-pattern>/UpdateJob</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Statistics</servlet-name>
+        <url-pattern>/Statistics</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
