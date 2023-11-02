@@ -4,7 +4,13 @@
           driverClassName="com.microsoft.sqlserver.jdbc.SQLServerDriver" 
           name="jdbc/mydb" 
           type="javax.sql.DataSource" 
+<<<<<<< HEAD
           url="jdbc:sqlserver://localhost:1433;databaseName=JbC;" 
           username="sa" 
           password="12345"/>
+=======
+          url="jdbc:sqlserver://localhost:1433;databaseName=JC;" 
+          username="theanhntp22" 
+          password="theanhntp22"/>
+>>>>>>> 5b736af (push cv and review)
 </Context>

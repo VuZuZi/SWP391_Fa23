@@ -44,6 +44,10 @@
         <servlet-class>controler.RejectJob</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>DeleteJob</servlet-name>
+        <servlet-class>controler.DeleteJob</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>ViewProfile</servlet-name>
         <servlet-class>controler.ViewProfile</servlet-class>
     </servlet>
@@ -170,6 +174,10 @@
     <servlet-mapping>
         <servlet-name>RejectJob</servlet-name>
         <url-pattern>/RejectJob</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteJob</servlet-name>
+        <url-pattern>/DeleteJob</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ViewProfile</servlet-name>

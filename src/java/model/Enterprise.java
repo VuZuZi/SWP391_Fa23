@@ -14,7 +14,6 @@ import java.util.logging.Logger;
  * @author ASUS
  */
 public class Enterprise {
-
     private String EnterpriseID;
     private String EnterpriseAccount;
     private String EnterpriseName;

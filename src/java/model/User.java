@@ -56,10 +56,6 @@ public class User {
         this.UserSkills = UserSkills;
     }
     
-    
-    
-    
-
     public User(String UserID, String UserAccount, String UserName, String UserPassword, String Phone, String Gender, Date UserDOB, String UserSkills, int isAdmin) {
         this.UserID = UserID;
         this.UserAccount = UserAccount;

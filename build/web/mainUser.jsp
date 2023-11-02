@@ -228,10 +228,7 @@
                                                             <button type="submit" class="btn btn-block btn-danger btn-md">Delete</button>
                                                         </div>
                                                     </div>
-                                                    
-
                                                 </div>
-
                                             </form>
                                         </div>
                                     </div>
