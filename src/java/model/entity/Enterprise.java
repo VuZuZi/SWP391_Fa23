@@ -113,9 +113,9 @@ public class Enterprise {
     
     public String newEnterID(){
         if(EnterpriseDB.getListEnterprise().isEmpty())
-        {return "Enterprise100";}
-        ArrayList<model.Enterprise> listEnterprise  = EnterpriseDB.getListEnterprise();
-        for( model.Enterprise enterprise : listEnterprise){
+            return "Enterprise100";
+        ArrayList<Enterprise> listEnterprise  = EnterpriseDB.getListEnterprise();
+        for( Enterprise enterprise : listEnterprise){
             String numID = enterprise.getEnterpriseID().substring(10);
             String nextID = "Enterprise"+ (Integer.parseInt(numID)+1);
             if( !isDupplicatedID(nextID)){
@@ -126,15 +126,15 @@ public class Enterprise {
     }
     
     public boolean isDupplicatedID(String id){
-        ArrayList<model.Enterprise> listEnterprise = EnterpriseDB.getListEnterprise();
-        for( model.Enterprise enterprise : listEnterprise){
+        ArrayList<Enterprise> listEnterprise = EnterpriseDB.getListEnterprise();
+        for( Enterprise enterprise : listEnterprise){
             if(enterprise.getEnterpriseID().equals(id)) return true;
         }
         return false;
     }
     public boolean isDupplicatedAccount() {
-        ArrayList<model.Enterprise> listEnterprise =  EnterpriseDB.getListEnterprise();
-        for (model.Enterprise enterprise : listEnterprise) {
+        ArrayList<Enterprise> listEnterprise =  EnterpriseDB.getListEnterprise();
+        for (Enterprise enterprise : listEnterprise) {
             if (enterprise.getEnterpriseAccount().equals(this.EnterpriseAccount)) return true;
         }
         return false;
@@ -144,7 +144,7 @@ public class Enterprise {
         return EnterpriseDB.addNewEnter(this);
     }
     
-    public model.Enterprise login(String acc , String pass){
+    public Enterprise login(String acc , String pass){
         return EnterpriseDB.login(acc, pass);
     }
 }

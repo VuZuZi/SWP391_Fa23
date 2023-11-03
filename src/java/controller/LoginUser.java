@@ -87,8 +87,6 @@ public class LoginUser extends HttpServlet {
        
         //end remember mel
         Users u = db.getUser(uName);
-//        HttpSession session = request.getSession();
-//        session.setAttribute("idU", u.getUserID());
         System.out.println(u);
         if(u.getUserPassword().equals(pass)==false){
             
@@ -96,13 +94,14 @@ public class LoginUser extends HttpServlet {
         }
         else{
              UserDB dao = new UserDB();
+             HttpSession session = request.getSession();
+             session.setAttribute("user",u);    
+            System.out.println("loginDone");
              List<Job> list = dao.getJob();
              System.out.println(list);
              System.out.println(u);
-                request.setAttribute("list", list);
-//        request.setAttribute("notic", "Login fail. Username or password is wrong!");
-//        request.setAttribute("link", "login.jsp");
-//        request.setAttribute("subLink", "Relogin");
+             request.setAttribute("list", list);
+
         request.getRequestDispatcher("main.jsp").forward(request, response);
         }
    }

@@ -9,3 +9,11 @@
 #commentUpdate {
     
 }
+#report_tag{
+     opacity: 0;
+     pointer-events: none;
+}
+#report_tag.showReport{
+    opacity: 1;
+    pointer-events: all;
+}

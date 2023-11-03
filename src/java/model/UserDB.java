@@ -8,13 +8,15 @@ import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.servlet.http.HttpSession;
+import java.lang.*;
+
 
 /**
  *
@@ -39,7 +41,7 @@ public class UserDB  {
     public List<Job> getJob() {
         List<Job> res = new ArrayList<>();
         try (Connection con = DatabaseInfoo.getConnect()) {
-            PreparedStatement ps = con.prepareStatement("select * from Job ");
+            PreparedStatement ps = con.prepareStatement("select * from job where Status = 1");
             rs= ps.executeQuery();
             while (rs.next()) {
                 res.add(new Job(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5),rs.getString(6), rs.getString(7), rs.getString(8)));
@@ -57,14 +59,14 @@ public class UserDB  {
     public List<commentJob> getComment(String idJob){
         List<commentJob> res = new ArrayList<>();
             try (Connection con = DatabaseInfoo.getConnect()) {
-                    String sql = "select * from Comment as c,Users as u where JobID=? and c.UserID = u.UserID";
+                    String sql = "select u.FullName, c.descrip ,j.JobID , u.UserID, c.id from Comment as c, Users as u,Job as j where j.JobID=? and c.UserID = u.UserID and j.JobID = c.postId order by c.id desc";
                     
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, idJob);
             rs= ps.executeQuery();
             while (rs.next()) {
-                //String idC, String nameUse, String contentC, String dateC, String enterId, String userId, String jobId
-                commentJob commet = new commentJob(rs.getString(1),rs.getString(9), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6));
+                //String fullName, String postId, String descrip
+                commentJob commet = new commentJob(rs.getInt(5),rs.getString(4),rs.getString(1),rs.getString(3),rs.getString(2));
                 res.add(commet);
                 System.out.println(commet.toString());
                 
@@ -143,6 +145,54 @@ public class UserDB  {
         }
         return null;
     }
-    
+    public void  comment (String fullname, String jodID , String des){
+    String query ="insert into Comment values(?,?,?)";
+        try  (Connection con = DatabaseInfoo.getConnect()){
+          PreparedStatement   ps = con.prepareStatement(query);
+          ps.setString(1, fullname);
+          ps.setString(2, jodID);
+          ps.setString(3, des);
+          ps.executeUpdate();
+        } catch (Exception e) {
+        }
+    }
+    public void deleteComment(String id){
+//        int idSend = Integer.parseInt(id);
+         String query = "  DELETE FROM comment WHERE id = ?";
+         try(Connection con = DatabaseInfoo.getConnect()){
+             PreparedStatement   ps = con.prepareStatement(query);
+//             ps.setInt(1, idSend);
+             ps.setString(1, id);
+             ps.executeUpdate();
+         }   catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+    public void updateComment (String id,String desUp){
+//        int idU = Integer.parseInt(id);
+         String query = "  update comment set descrip = ? where id = ?";
+         try(Connection con = DatabaseInfoo.getConnect()){
+             PreparedStatement   ps = con.prepareStatement(query);
+             ps.setString(1, desUp);
+             ps.setString(2, id);
+//             ps.setInt(2, idU);
+             ps.executeUpdate();
+         }   catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+    public void userSendReport(String idJ,String idU,String title,String des){
+        String query = "insert into report(JobID,ReportedUserID,TitleRe,DesReport,TimeSend) values (?,?,?,?,GETDATE());";
+         try(Connection con = DatabaseInfoo.getConnect()){
+             PreparedStatement   ps = con.prepareStatement(query);
+             ps.setString(1, idJ);
+             ps.setString(2, idU);
+             ps.setString(3, title);
+             ps.setString(4, des);
+             ps.executeUpdate();
+         }   catch(Exception e){
+            e.printStackTrace();
+        }
+    }
     
 }

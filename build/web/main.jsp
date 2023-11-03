@@ -1,5 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<c:set var="userAccount" value="${sessionScope.userAccount}" />
 <!doctype html>
 <html lang="en">
   <head>
@@ -55,7 +56,7 @@
               <li><a href="index.html" class="nav-link active">Home</a></li>
               <li><a href="about.html">About</a></li>
               <li class="has-children">
-                <a href="job-listings.html">Job Listings</a>
+                <a href="job-listings.html">Job</a>
                 <ul class="dropdown">
                   <li><a href="job-single.html">Job Single</a></li>
                   <li><a href="post-job.html">Post a Job</a></li>
@@ -87,7 +88,7 @@
               <a href="#" class="btn btn-outline-white border-width-2 d-none d-lg-inline-block"><span class="mr-2 icon-add"></span>Post a job</a>
               <div class="dropdown d-none d-lg-inline-block">
                 <button class="btn btn-primary border-width-2  dropdown-toggle" type="button" id="signUp" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Account
+                  ${sessionScope.user.userName}
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                   <a class="dropdown-item" href="#">Log out</a>

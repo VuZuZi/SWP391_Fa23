@@ -1,10 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Context path="/SWP_Project">
-<Resource auth="Container" 
-          driverClassName="com.microsoft.sqlserver.jdbc.SQLServerDriver" 
-          name="jdbc/mydb" 
-          type="javax.sql.DataSource" 
-          url="jdbc:sqlserver://DESKTOP-LOT0O4E:1433;databaseName=JC;encrypt=true;trustServerCertificate=true;"
-          username="sa" 
-          password="123456"/>
+<Context path="/p3">
+  <Resource auth="Container" driverClassName="com.microsoft.sqlserver.jdbc.SQLServerDriver" name="jdbc/mydb" password="123456" type="javax.sql.DataSource" url="jdbc:sqlserver://DESKTOP-LOT0O4E:1433;databaseName=JC;encrypt=true;trustServerCertificate=true;" username="sa"/>
 </Context>

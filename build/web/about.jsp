@@ -1,5 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set var="userAccount" value="${sessionScope.userAccount}" />
 
 <!DOCTYPE html>
 <html>
@@ -7,23 +8,7 @@
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Page Title</title>
-<!--    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <meta name="author" content="Free-Template.co" />
-    <link rel="shortcut icon" href="ftco-32x32.png">
-    <link rel='stylesheet' href='css/jobDetail.css'>
-    <link rel="stylesheet" href="css/custom-bs.css">
-    <link rel="stylesheet" href="css/jquery.fancybox.min.css">
-    <link rel="stylesheet" href="css/bootstrap-select.min.css">
-    <link rel="stylesheet" href="fonts/icomoon/style.css">
-    <link rel="stylesheet" href="fonts/line-icons/style.css">
-    <link rel="stylesheet" href="css/owl.carousel.min.css">
-    <link rel="stylesheet" href="css/animate.min.css">
-     <link rel="stylesheet" href="css/style.css">   
-    <script src='main.js'></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />-->
-
-          <title>JobBoard &mdash; Website Template by Colorlib</title>
+    <title>JobBoard &mdash; Website Template by Colorlib</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="" />
@@ -249,7 +234,6 @@
                                 <div class="user-info col-3 ml-3">
                                     <h5 class="mb-0">User Name</h5>
                                     <small>${jb.dateOpen}</small>
-                                    console.log("s");
                                 </div>
                                 <div class="user-info col-3 ml-3">
                                     <h5 class="mb-0" style="color: blue;">
@@ -266,7 +250,7 @@
                           <h3>${jb.title}</h3>
                             <p class="card-text" href="">${jb.description}</p>
                             <h4>${jb.skills}</h4>
-                       
+                           
                         </div>
                         <div class="card-footer">
                             <div class="row mt-3">
@@ -274,45 +258,47 @@
                                   <button class="btn btn-primary"><i class="fa-brands fa-facebook-messenger"></i></button>
                                     <button class="btn btn-primary"><i class="fa-solid fa-comment"  id="comment_button"></i></button>
                                     <button class="btn btn-primary"><i class="fa-solid fa-share"></i></button>
+                                    <button id="report" class="btn" style="color : #fff;background-color: red"><i class="fa-solid fa-triangle-exclamation" id="reportBt"></i></button>
+
                                     <!-- <button class="btn btn-secondary">Share</button> -->
 
                                 </div>
                                 <div class="col-3"></div>
                                 <div class="col-3">date-close</div>
                             </div>
-<<<<<<< HEAD
-                            
-                                <div class=" " id="tag">
-                                    
-                                <div id="commet_tag" class="row">
+                            <div class=" " id="tag">
+                                
+                                <form id="commet_tag" class="row" method="post" action="comment">
+                                     <input type="hidden" value="${sessionScope.user.userID}" name="name">
+                                     <input type="hidden" value="${jb.jobID}" name="jodid">
                                     <div class="row input-group">
                                         <div class="col-10 offset-1" style="display: inline-block">
-                                            <input type="text" id="commentButton" placeholder="New comment" class="form-control" oninput="checkInput()">
+                                            <input name="des" type="text" id="commentButton" placeholder="New comment" class="form-control" oninput="checkInput()">
                                         </div>
                                         <div class="col-1">
                                             <button id="buttonComment" class="btn btn-secondary"><i onclick="cmt()" id="postComment" class="fa-solid fa-paper-plane"></i></button>
                                         </div>
                                     </div>
-                                </div>
-                                      
-                                    
-                                    <div id="report_tag" class="row">
+                                </form>
+
+                                
+                                    <form id="report_tag" class="row" action="report" method="post">
+                                        <input type="hidden" value="${sessionScope.user.userID}" name="uid">
+                                        <input type="hidden" name="idJ" value="${jb.jobID}">
                                         <div class="col-10 offset-1">
-                                            <input type="text" id="reportTitle" placeholder="Title Report" class="form-control" oninput="checkInputReport()" >
-                                            <input type="text" id="reportDes" placeholder="Description Report" class="form-control" oninput="checkInputReport()" >
-                                        </div>
+                                        <input type="text" id="reportTitle" placeholder="Title Report" class="form-control" oninput="checkInputReport()" name ="title">
+                                        <input type="text" id="reportDes" placeholder="Description Report" class="form-control" oninput="checkInputReport()"  name="des">
+                                    </div>
                                         <div class="col-1" >
-                                            <button type="" href="#" class="btn report_sent" id="buttonReport">
-                                                <i class="fa-regular fa-paper-plane" id="iReport"></i>
-                                            </button>
-                                            <button class="btn btn-primary" id="closeReport">
-                                                <i class="fa-solid fa-xmark"></i>
-                                            </button>
-                                                </div>
-                                            </div>
+                                            <button type="" class="btn report_sent" id="buttonReport"  style="display: none" onclick="sendReport()">
+                                            <i class="fa-regular fa-paper-plane" id="iReport"></i>
+                                        </button>
+                                            <button type="button" class="btn btn-primary" id="closeReport">
+                                            <i class="fa-solid fa-xmark"></i>
+                                        </button>
+                                    </div>
+                                </form>
                                         </div>
-                                    
-                            
                                         <style>
                                             #report_tag{
                                                 opacity: 0;
@@ -331,39 +317,52 @@
                                                 pointer-events: none;
                                             }
                                          </style>
-  
                                     
                                 
                             
-=======
-                            <div class="row mt-3">
-                                <div class="input-group col-10">
-                                    <input type="text" id="commentButton" placeholder="New comment" class="form-control" oninput="checkInput()" >
-                                </div>
-                                <div class="col-2">
-                                    <button id="buttonComment" class="btn btn-secondary"><i onclick="cmt()" id="postComment" class="fa-solid fa-paper-plane"></i></button>
-                                </div>
-                            </div>
->>>>>>> parent of af62b35 (add button report)
                             <div class="col-12">
                                <ul class="list-group list-group-flush" id="list2">
 
-                          <c:forEach items="${list}" var="x">
-                                    <li class="list-group-item">
-                                        <strong>${x.nameUse}</strong>  ${x.contentC}
-                                    </li>
-                                </c:forEach> 
+                                            <c:forEach items="${list}" var="x">
+                                                <li class="list-group-item">
+                                                    <strong>${x.fullName}</strong>
+                                                    <p id="commentText${x.id}"> ${x.descrip}</p>
+                                                    
+                                                    <input type="text" id="commentInput${x.id}" value="${x.descrip}" style="display: none">
+                                                    <c:if test="${x.userId == sessionScope.user.userID}">
+                                                        <div class="d-flex justify-content-end align-items-center">
+<!--================update=================-->              
 
-<!--                                <ul class="list-group list-group-flush" id="list2">
-                                    <li class="list-group-item">
-                                        <strong>User_1:</strong> Comment 1
-                                    </li>
-                                    <li class="list-group-item">
-                                        <strong>User_2:</strong> Comment 2
-                                    </li>
-                                    <li class="list-group-item">
-                                        <strong>User_3:</strong> Comment 3
-                                    </li>-->
+                                                            <form action="updateComment" method="post">
+                                                                <input type="hidden" value="${jb.jobID}" name="jobid">
+                                                                <input type="hidden" value="${x.id}" name="idC">
+                                                                <input type="hidden" id="send" name="updateC">
+                    <!--============send update========-->                                            
+                                                                <button id="saveButton${x.id}" class="btn" style="display: none; color: #fff; background-color: green" onclick="saveComment(${x.id})">Save</button>
+                                                            </form>
+                                                                
+                                                                <button id="editButton${x.id}" class="btn btn-primary" onclick="enableEdit(${x.id})">
+                                                                    <i class="fa-regular fa-pen-to-square"></i>
+                                                                </button>   
+                                                            
+                                                            
+                                                            <form action="delete" method="post" onsubmit="return confirmDelete()">
+<!--==============Delete comment ===========-->   
+                                                                <input type="hidden" value="${jb.jobID}" name="jobid">
+                                                                <input type="hidden" value="${x.id}" name="idC">
+                                                                <button type="submit" id="commet${x.id}" class="btn" style="color : #fff;background-color: red"><i class="fa-solid fa-trash-can"></i></button>        
+                                                                <button type="button" id="cancelButton${x.id}" class="btn" style="display: none; color: #fff; background-color: red" onclick="cancelEdit(${x.id})">Cancel </button>
+
+                                                            </form>
+                                                        </div>
+                                                        
+                                                    </c:if>
+
+                                                </li>
+
+                                            </c:forEach> 
+
+
                                 </ul>
                             </div>
                         </div>
@@ -540,8 +539,62 @@
 
     <!-- SCRIPTS -->
     <script>
-<<<<<<< HEAD
+//        nhấn nút update
+ function enableEdit(id) {
+//     alert("commentText"+id)
+        var commentText = document.getElementById("commentText"+id).textContent;
+        document.getElementById("commentInput"+id).value = commentText;
+        document.getElementById("commentInput"+id).style.display = "block";
+        document.getElementById("commentText"+id).style.display = "none";
+        document.getElementById("editButton"+id).style.display = "none";
+                document.getElementById("commet"+id).style.display = "none";
+        document.getElementById("saveButton"+id).style.display = "block";
+        document.getElementById("cancelButton"+id).style.display = "block";
+    }
+       // Hàm này được gọi khi bạn nhấn vào nút "Hủy"
+    function cancelEdit(id) {
+        document.getElementById("commentInput"+id).style.display = "none";
+        document.getElementById("commentText"+id).style.display = "block";
+        document.getElementById("editButton"+id).style.display = "block";
+                        document.getElementById("commet"+id).style.display = "block";
+        document.getElementById("saveButton"+id).style.display = "none";
+        document.getElementById("cancelButton"+id).style.display = "none";
+    }
+    function saveComment(id) {
+         var commentInput = document.getElementById("commentInput" + id).value;
+        document.getElementById("send").value = commentInput;
+//    
+//    // Lấy giá trị từ commentInput và gán cho updateC
+//        updateC.value = commentInput.value;
+//        alert(updateC.value)
+        alert("Update success")
+        document.getElementById("commentInput"+id).style.display = "none";
+        document.getElementById("commentText"+id).style.display = "block";
+        document.getElementById("editButton"+id).style.display = "block";
+        document.getElementById("commet"+id).style.display = "block";
+        document.getElementById("saveButton"+id).style.display = "none";
+        document.getElementById("cancelButton"+id).style.display = "none";
+    }
         
+        function sendReport(){
+        var result = confirm("Send report the Post for admin?");
+        if (!result) {
+            alert("don't send")
+    } else {
+    alert("Done send")
+    return null;
+    }
+        return result;
+        }
+        
+        
+        function confirmDelete() {
+        // Sử dụng hàm confirm để hiển thị hộp thoại xác nhận
+        var result = confirm("Bạn có chắc chắn muốn xóa bình luận này?");
+
+        // Nếu người dùng nhấn "OK", form sẽ được gửi đến servlet
+        return result;
+        }
         const btn_open = document.getElementById('report')
         const btn_close = document.getElementById('closeReport');
         const model_report = document.getElementById('report_tag');
@@ -554,20 +607,6 @@
     model_comment.classList.remove('close');
     model_report.classList.remove('showReport');
 });
-
-//gửi report
-        buttonReport.addEventListener('click', function (event) {
-            const reportTitle = document.getElementById('reportTitle').value;
-            const reportDes = document.getElementById('reportDes').value;
-
-            if (reportTitle != "" && reportDes != "") {
-                var report = confirm("Are you sure sent report");
-                if(report == true){
-                    
-                    alert('u');
-                }
-            }
-        });
         
         function checkInputReport(){
             var inputTitle = document.getElementById("reportTitle");
@@ -577,6 +616,7 @@
             
             if (inputTitle.value.trim() != '' && inputDes.value.trim() != '') {
                 // N?u ? input c? d? li?u, thay ??i m?u n?t
+                document.getElementById("buttonReport").style.display = "block";
                iReport.style.backgroundColor = 'red';
                buttonRe.style.backgroundColor = 'red';
                iReport.style.color = 'white';
@@ -587,8 +627,6 @@
                 iReport.style.color = '';
             }
         }
-=======
->>>>>>> parent of af62b35 (add button report)
         function checkInput(){
           var inputElement = document.getElementById("commentButton");
           var buttonElement = document.getElementById("postComment");
@@ -641,21 +679,6 @@
   }
 
       </script>
-      
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 </body>
 </html>
