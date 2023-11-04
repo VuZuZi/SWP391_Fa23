@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <title>JobC &mdash; Interview Page</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+        <link rel="stylesheet" href="css/custom-bs.css">
+        <link rel="stylesheet" href="css/jquery.fancybox.min.css">
+        <link rel="stylesheet" href="css/bootstrap-select.min.css">
+        <link rel="stylesheet" href="fonts/icomoon/style.css">
+        <link rel="stylesheet" href="fonts/line-icons/style.css">
+        <link rel="stylesheet" href="css/owl.carousel.min.css">
+        <link rel="stylesheet" href="css/animate.min.css">
+        <link rel="stylesheet" href="css/quill.snow.css">
+        <link rel="stylesheet" href="css/style_1.css">
+        <link rel="stylesheet" href="js/jquery-3.2.1.min.js">
+        <link rel="stylesheet" href="js/video_call.js">
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+        <script type="text/javascript" src="https://cdn.stringee.com/sdk/web/latest/stringee-web-sdk.min.js"></script>
+        <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+        <script type="text/javascript" src="js/video_call.js"></script>
+
+
+        <!-- MAIN CSS -->
+        <link rel="stylesheet" href="css/style.css">
+        <style>
+            .token-container {
+                position: relative;
+                width: 90%;
+                max-width: 525px;
+                margin: 20px auto;
+                border: 1px solid #ccc;
+                padding: 10px;
+                border-radius: 8px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            }
+
+            .token {
+                font-family: monospace;
+                margin-bottom: 10px;
+                word-wrap: break-word;
+                white-space: pre-wrap;
+            }
+
+            .copy-icon {
+                position: absolute;
+                top: 10px;
+                right: 10px;
+                cursor: pointer;
+            }
+
+            .copy-button {
+                display: none;
+            }
+            #screenVideo {
+            width: 100%;
+            max-width: 800px;
+            border-radius: 20px;
+            
+        }
+        </style>
+    </head>
+
+    <body id="top">
+
+        <div id="overlayer"></div>
+        <div class="loader">
+            <div class="spinner-border text-primary" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+
+
+        <div class="site-wrap">
+
+            <div class="site-mobile-menu site-navbar-target">
+                <div class="site-mobile-menu-header">
+                    <div class="site-mobile-menu-close mt-3">
+                        <span class="icon-close2 js-menu-toggle"></span>
+                    </div>
+                </div>
+                <div class="site-mobile-menu-body"></div>
+            </div> <!-- .site-mobile-menu -->
+
+
+            <!-- NAVBAR -->
+            <header class="site-navbar mt-3">
+                <div class="container-fluid">
+                    <div class="row align-items-center">
+                        <div class="site-logo col-6"><a href="mainUser.jsp">JobC</a></div>
+
+                        <nav class="mx-auto site-navigation">
+                            <ul class="site-menu js-clone-nav d-none d-xl-block ml-0 pl-0">
+                                <li><a href="mainUser.jsp" class="nav-link">Home</a></li>
+
+                            </ul>
+                        </nav>
+
+                    </div>
+                </div>
+            </header>
+
+            <!-- HOME -->
+            <section class="section-hero overlay inner-page bg-image" style="background-image: url('images/hero_1.jpg');"
+                     id="home-section">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-7">
+                            <h1 class="text-white font-weight-bold">Welcome to Interview System</h1>
+                            <div class="custom-breadcrumbs">
+                                <a href="mainUser.jsp">Home</a> <span class="mx-2 slash">/</span>
+                                <span class="text-white"><strong>Interview</strong></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section >
+            </section>
+
+            <div class="d-flex justify-content-center flex-column align-items-center">
+                <img src="https://i.pinimg.com/736x/19/76/ba/1976bab97a6603b6742bba55fe1c1e2b.jpg" alt="alt"/>
+            </div>
+
+            <div class="container">
+                <div class="d-flex justify-content-center">
+                    <div class="d-flex justify-content-center flex-column align-items-center">
+                        <h5>Enterprise:</h5>
+                        <div class="token-container">
+                            <div class="copy-icon" onclick="copyToClipboard('enterpriseAccessToken')">&#128203;</div>
+                            <p id="enterpriseAccessToken" class="token">eyJjdHkiOiJzdHJpbmdlZS1hcGk7dj0xIiwidHlwIjoiSldUIiwiYWxnIjoiSFMyNTYifQ.eyJqdGkiOiJTSy4wLjBTSW9OOUJCbHlpVmtXcWxLMVJnczF6RWY4UVMyU1owLTE2OTg4ODk2MTciLCJpc3MiOiJTSy4wLjBTSW9OOUJCbHlpVmtXcWxLMVJnczF6RWY4UVMyU1owIiwiZXhwIjoxNzAxNDgxNjE3LCJ1c2VySWQiOiJFbnRlcnByaXNlIn0.JNEzXCRxd1zCT1aedxjGlX7yw-iP4eUBzImXC0UD_IM</p>
+                        </div>
+                    </div>
+
+                    <div class="d-flex justify-content-center flex-column align-items-center">
+                        <h5>User:</h5>
+                        <div class="token-container">
+                            <div class="copy-icon" onclick="copyToClipboard('userAccessToken')">&#128203;</div>
+                            <p id="userAccessToken" class="token">eyJjdHkiOiJzdHJpbmdlZS1hcGk7dj0xIiwidHlwIjoiSldUIiwiYWxnIjoiSFMyNTYifQ.eyJqdGkiOiJTSy4wLjBTSW9OOUJCbHlpVmtXcWxLMVJnczF6RWY4UVMyU1owLTE2OTg4ODk2NTciLCJpc3MiOiJTSy4wLjBTSW9OOUJCbHlpVmtXcWxLMVJnczF6RWY4UVMyU1owIiwiZXhwIjoxNzAxNDgxNjU3LCJ1c2VySWQiOiJVc2VyIn0.iMfDZ78jK5ldHZ_9kbDtcnm7jnqjkMfeaw5A2IdTooo</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="d-flex justify-content-center flex-column align-items-center">
+                <textarea id="accessTokenArea" rows="6" cols="50" style="height: 80px; width: 1000px; resize: none;" placeholder="Enter your access token here:"></textarea>
+                <br>
+                <button id="loginBtn">Join room</button>
+                <span class="text-center" style="color: red">Status: <span id="loggedUserId">Have not joined yet!</span></span>
+            </div>
+
+
+            <div class="d-flex justify-content-center flex-column align-items-center">
+                <div>
+                    <br/> <br/>
+                    Call to:
+                    <input id="callTo" type="text" name="toUsername" style="width: 200px;" placeholder="Enter your partner ID:">
+
+                    <button disabled="" id="videoCallBtn" onclick="testMakeCall(true)">Video call</button>
+                    <button disabled="" id="hangupBtn" onclick="testHangupCall()">End call</button>
+
+                    <button disabled="" id="muteBtn" onclick="mute()">Mute</button>
+                    <button disabled="" id="enableVideoBtn" onclick="enableVideo()">Enable/Disable video</button>
+                    <button id="startScreenShare">Start Screen Share</button>
+                </div>
+
+                <div>
+                    Call status: <span id="callStatus" style="color: red">Not started</span>
+                </div>
+
+                <div id="incoming-call-div">
+                    <br />
+                    <button id="answerBtn" onclick="testAnswerCall()">Answer</button>
+                    <button id="rejectBtn" onclick="testRejectCall()">Reject</button>
+                </div>
+
+                <div>
+                    <video id="localVideo" playsinline autoplay muted style="width: 600px; background: white; border-radius: 20px"></video>
+                    <video id="remoteVideo" playsinline autoplay style="width: 600px; background: white; border-radius: 20px"></video>
+                    
+
+                </div>
+                <div class="d-flex justify-content-center flex-column align-items-center">
+                    <video id="screenVideo" playsinline autoplay style="display: none;"></video>
+                </div>
+            </div>
+            <br>
+
+
+
+
+            <footer class="site-footer">
+                <a href="#top" class="smoothscroll scroll-top">
+                    <span class="icon-keyboard_arrow_up"></span>
+                </a>
+
+                <div class="container">
+                    <div class="row mb-5">
+                        <div class="col-6 col-md-3 mb-4 mb-md-0">
+                            <h3>Search Trending</h3>
+                            <ul class="list-unstyled">
+                                <li><a href="#">Web Design</a></li>
+                                <li><a href="#">Graphic Design</a></li>
+                                <li><a href="#">Web Developers</a></li>
+                                <li><a href="#">Python</a></li>
+                                <li><a href="#">HTML5</a></li>
+                                <li><a href="#">CSS3</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-6 col-md-3 mb-4 mb-md-0">
+                            <h3>Company</h3>
+                            <ul class="list-unstyled">
+                                <li><a href="#">About Us</a></li>
+                                <li><a href="#">Career</a></li>
+                                <li><a href="#">Blog</a></li>
+                                <li><a href="#">Resources</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-6 col-md-3 mb-4 mb-md-0">
+                            <h3>Support</h3>
+                            <ul class="list-unstyled">
+                                <li><a href="#">Support</a></li>
+                                <li><a href="#">Privacy</a></li>
+                                <li><a href="#">Terms of Service</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-6 col-md-3 mb-4 mb-md-0">
+                            <h3>Contact Us</h3>
+                            <div class="footer-social">
+                                <a href="#"><span class="icon-facebook"></span></a>
+                                <a href="#"><span class="icon-twitter"></span></a>
+                                <a href="#"><span class="icon-instagram"></span></a>
+                                <a href="#"><span class="icon-linkedin"></span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row text-center">
+                        <div class="col-12">
+                            <p class="copyright"><small>
+                                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                                    Copyright &copy;
+                                    <script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made
+                                    with <i class="icon-heart text-danger" aria-hidden="true"></i> by <a href="https://colorlib.com"
+                                                                                                         target="_blank">Colorlib</a>
+                                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                                </small></p>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+
+        </div>
+
+        <!-- SCRIPTS -->
+        <script src="js/jquery.min.js"></script>
+        <script src="js/bootstrap.bundle.min.js"></script>
+        <script src="js/isotope.pkgd.min.js"></script>
+        <script src="js/stickyfill.min.js"></script>
+        <script src="js/jquery.fancybox.min.js"></script>
+        <script src="js/jquery.easing.1.3.js"></script>
+
+        <script src="js/jquery.waypoints.min.js"></script>
+        <script src="js/jquery.animateNumber.min.js"></script>
+        <script src="js/owl.carousel.min.js"></script>
+        <script src="js/quill.min.js"></script>
+
+
+        <script src="js/bootstrap-select.min.js"></script>
+
+        <script src="js/custom.js"></script>
+
+
+        <script>
+                                        function copyToClipboard(elementId) {
+                                            var copyText = document.getElementById(elementId);
+                                            var textArea = document.createElement("textarea");
+                                            textArea.value = copyText.textContent;
+                                            document.body.appendChild(textArea);
+                                            textArea.select();
+                                            document.execCommand('copy');
+                                            document.body.removeChild(textArea);
+                                            alert("Token copied to clipboard!");
+                                        }
+        </script>
+
+        <script>
+            document.getElementById('startScreenShare').addEventListener('click', startScreenShare);
+
+async function startScreenShare() {
+    try {
+        const stream = await navigator.mediaDevices.getDisplayMedia({ video: true });
+        const screenVideo = document.getElementById('screenVideo');
+        screenVideo.srcObject = stream;
+        screenVideo.style.display = 'block';
+        screenVideo.play(); // Add this line to start playing the video as soon as there is data
+    } catch (error) {
+        console.error('Error accessing screen:', error);
+    }
+}
+
+        </script>
+    </body>
+</html>
