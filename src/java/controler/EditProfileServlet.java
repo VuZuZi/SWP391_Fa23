@@ -36,7 +36,7 @@ public class EditProfileServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet EditProfileServlet</title>");            
+            out.println("<title>Servlet EditProfileServlet</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet EditProfileServlet at " + request.getContextPath() + "</h1>");
@@ -57,7 +57,7 @@ public class EditProfileServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.getRequestDispatcher("EditProfile.jsp").forward(request, response);
+        request.getRequestDispatcher("EnterProfile.jsp").forward(request, response);
     }
 
     /**
@@ -71,24 +71,25 @@ public class EditProfileServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
         String entername = request.getParameter("name-input").trim();
         String enterphone = request.getParameter("phone-input").trim();
         String enteraddress = request.getParameter("address-input").trim();
         String desc = request.getParameter("desc-input").trim();
         String taxcode = request.getParameter("tax-input").trim();
- 
-        
+
         HttpSession session = request.getSession();
         Enterprise e = (Enterprise) session.getAttribute("Enterprise");
         String enterpriseId = e.getEnterpriseID();
-         
-        String[] inputArray = {entername,enterphone,enteraddress,desc,taxcode};
-        int id = -1;
+
         Enterprise enter = new Enterprise(enterpriseId, entername, enterphone, taxcode, enteraddress, desc);
-        id = enter.addDataEnter();
-        
-        request.getRequestDispatcher("mainEnter.jsp").forward(request, response);
+        enter.addDataEnter();
+
+        Enterprise completenter = e.getEnterbyId();
+        System.out.println(completenter.getEnterpriseID());
+
+        request.setAttribute("enterinfo", completenter);
+        request.getRequestDispatcher("EnterProfile.jsp").forward(request, response);
     }
 
     /**
