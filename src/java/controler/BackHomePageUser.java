@@ -4,21 +4,23 @@
  */
 package controler;
 
-import static controler.PostJobServlet.formatDate;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import model.Job;
+import model.JobDB;
 import model.User;
 
 /**
  *
  * @author ASUS
  */
-public class EditProfileUser extends HttpServlet {
+public class BackHomePageUser extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -37,10 +39,10 @@ public class EditProfileUser extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet EditProfileUser</title>");
+            out.println("<title>Servlet BackHomePageUser</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet EditProfileUser at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet BackHomePageUser at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -58,7 +60,12 @@ public class EditProfileUser extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.getRequestDispatcher("UserProfile.jsp").forward(request, response);
+        HttpSession session = request.getSession();
+        User u = (User) session.getAttribute("User");
+        request.getSession().setAttribute("User", u);
+        ArrayList<Job> jobss = JobDB.getlistJobAccept();
+        request.setAttribute("jobss", jobss);
+        request.getRequestDispatcher("mainUser.jsp").forward(request, response);
     }
 
     /**
@@ -72,26 +79,8 @@ public class EditProfileUser extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String name = request.getParameter("name-input").trim();
-        String phone = request.getParameter("phone-input").trim();
-        String gender = request.getParameter("gen-input").trim();
-        String skill = request.getParameter("skill-input").trim();
-        String date = request.getParameter("date-input").trim();
+        processRequest(request, response);
 
-        HttpSession session = request.getSession();
-        User u = (User) session.getAttribute("User");
-        String userID = u.getUserID();
-
-        String[] inputArray = {name, phone, gender, skill, date};
-        java.sql.Date dob = formatDate(date);
-
-        User us = new User(userID, name, phone, gender, dob, skill);
-        us.addDataUser();
-
-        User completeUser = u.getUserId();
-        request.setAttribute("userinfo", completeUser);
-
-        request.getRequestDispatcher("UserProfile.jsp").forward(request, response);
     }
 
     /**

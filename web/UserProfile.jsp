@@ -10,7 +10,7 @@
 <html lang="en">
 
     <head>
-        <title>JobBoard &mdash; Website Template by Colorlib</title>
+        <title>JobC</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -86,15 +86,11 @@
 
                         <nav class="mx-auto site-navigation">
                             <ul class="site-menu js-clone-nav d-none d-xl-block ml-0 pl-0">
-                                <li><a href="index.html" class="nav-link active">Home</a></li>
-                                <li><a href="about.html">About</a></li>
+                                <li><a href="BackHomePageUser" class="nav-link active">Home</a></li>
                                 <li><a href="blog.html">Create CV</a></li>
                                 <li><a href="blog.html">View CV</a></li>
                                 <li><a href="blog.html">Interview</a></li>
                                 <li><a href="blog.html">Job Applied</a></li>
-                                <li class="d-lg-none"><a href="post-job.html"><span class="mr-2">+</span> Post a Job</a>
-                                </li>
-                                <li class="d-lg-none"><a href="login.html">Log In</a></li>
                             </ul>
                         </nav>
 
@@ -108,8 +104,8 @@
                                         <span class="icon-text mx-2 text-capitalize">User</span>
                                     </div>
                                     <div class="dropdown-menu mt-2" aria-labelledby="dropdownMenuButton">
-                                        <a class="dropdown-item" href="#">Edit a profile</a>
-                                        <a class="dropdown-item" href="#">Log out</a>
+                                        <a class="dropdown-item" href="ViewProfileUser">Profile</a>
+                                        <a class="dropdown-item" href="LogOutServlet">Log out</a>
 
                                     </div>
                                 </div>
@@ -130,7 +126,7 @@
                         <div class="col-md-7">
                             <h1 class="text-white font-weight-bold">Profile</h1>
                             <div class="custom-breadcrumbs">
-                                <a href="#">Home</a> <span class="mx-2 slash">/</span>
+                                <a href="BackHomePageUser">Home</a> <span class="mx-2 slash">/</span>
                                 <span class="text-white"><strong>Profile</strong></span>
                             </div>
                         </div>
@@ -153,39 +149,37 @@
                     </div>
                     <div class="row mb-5">
                         <div class="col-lg-12">
-                            <form action="#" class="p-4 p-md-5 border rounded" method="post">
+                            <form action="EditProfileUser" class="p-4 p-md-5 border rounded" method="post">
                                 <h3 class="text-black mb-5 border-bottom pb-2 text-capitalize">Profile</h3>
                                 <div class="form-group">
                                     <label for="name" class="text-capitalize">Name</label>
-                                    <input type="text" class="form-control" id="name" placeholder="Enter your name"
-                                           value="${userinfo.getUserName()}" readonly>
+                                    <input name="name-input" type="text" class="form-control" id="name" placeholder="Enter your name"
+                                           value="${userinfo.getUserName()}" >
                                 </div>
                                 <div class="form-group">
                                     <label for="phone" class="text-capitalize">Phone</label>
-                                    <input type="text" class="form-control" id="phone" placeholder="Enter your phone"
-                                           value="${userinfo.getPhone()}" readonly>
+                                    <input name="phone-input" type="text" class="form-control" id="phone" placeholder="Enter your phone"
+                                           value="${userinfo.getPhone()}" >
                                 </div>
                                 <div class="form-group">
                                     <label for="place" class="text-capitalize">Gender</label>
-                                    <input type="text" class="form-control" id="place" placeholder="Enter your address"
-                                           value="${userinfo.getGender()}" readonly>
+                                    <input name="gen-input" type="text" class="form-control" id="place" placeholder="Enter your address"
+                                           value="${userinfo.getGender()}" >
                                 </div>
                                 <div class="form-group">
                                     <label for="place" class="text-capitalize">Date Of Birth</label>
-                                    <input type="text" class="form-control" id="place" placeholder="Enter your address"
-                                           value="${userinfo.getUserDOB()}" readonly>
+                                    <input name="date-input" type="text" class="form-control" id="place" placeholder="Enter your address"
+                                           value="${userinfo.getUserDOB()}" >
                                 </div>
 
                                 <div class="form-group">
                                     <label for="job-title" class="text-capitalize">Skills</label>
-                                    <input type="text" class="form-control" id="taxcode" placeholder="Enter your taxcode"
-                                           value="${userinfo.getUserSkills()}" readonly>
+                                    <input name="skill-input" type="text" class="form-control" id="taxcode" placeholder="Enter your taxcode"
+                                           value="${userinfo.getUserSkills()}" >
                                 </div>
                                 <div class="row mb-5 justify-content-end">
                                     <div class="col-lg-3 col-md-3">
-                                        <a href="EditProfileUs" class="btn btn-block btn-primary btn-md text-white">Edit
-                                            the
-                                            profile</a>
+                                        <button href="EditProfileUs" class="btn btn-block btn-primary btn-md text-white">Update Profile</button>
                                     </div>
                                     <div class="col-lg-3 col-md-3">
                                         <a href="ChangepassUser" class="btn btn-block btn-secondary btn-md text-white">Change

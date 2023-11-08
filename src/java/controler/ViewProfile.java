@@ -63,7 +63,6 @@ public class ViewProfile extends HttpServlet {
         String  enterpriseID = e.getEnterpriseID();
         Enterprise completeEnter = e.getEnterbyId();
         request.setAttribute("enterinfo", completeEnter);
-        System.out.println(completeEnter);
         request.getRequestDispatcher("EnterProfile.jsp").forward(request, response);
     }
 

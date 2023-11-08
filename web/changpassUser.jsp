@@ -10,7 +10,7 @@
 <html lang="en">
 
     <head>
-        <title>JobBoard &mdash; Website Template by Colorlib</title>
+        <title>JobBC</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -86,14 +86,11 @@
 
                         <nav class="mx-auto site-navigation">
                             <ul class="site-menu js-clone-nav d-none d-xl-block ml-0 pl-0">
-                                <li><a href="index.html" class="nav-link active">Home</a></li>
-                                <li><a href="about.html">About</a></li>
+                                <li><a href="BackHomePageUser" class="nav-link active">Home</a></li>
                                 <li><a href="blog.html">Create CV</a></li>
                                 <li><a href="blog.html">View CV</a></li>
                                 <li><a href="blog.html">Interview</a></li>
                                 <li><a href="blog.html">Job Applied</a></li>
-                                <li class="d-lg-none"><a href="post-job.html"><span class="mr-2">+</span> Post a Job</a></li>
-                                <li class="d-lg-none"><a href="login.html">Log In</a></li>
                             </ul>
                         </nav>
 
@@ -110,7 +107,7 @@
                                               Account
                                             </button> -->
                                     <div class="dropdown-menu mt-2" aria-labelledby="dropdownMenuButton">
-                                        <a class="dropdown-item" href="ViewProfile">Profile</a>
+                                        <a class="dropdown-item" href="ViewProfileUser">Profile</a>
                                         <a class="dropdown-item" href="LogOutServlet">Log out</a>
                                     </div>
 
@@ -130,10 +127,10 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-7">
-                            <h1 class="text-white font-weight-bold">Sign Up/Login</h1>
+                            <h1 class="text-white font-weight-bold">Home/Profile/Change Password</h1>
                             <div class="custom-breadcrumbs">
-                                <a href="#">Home</a> <span class="mx-2 slash">/</span>
-                                <a href="#">Profile</a> <span class="mx-2 slash">/</span>
+                                <a href="BackHomePageUser">Home</a> <span class="mx-2 slash">/</span>
+                                <a href="ViewProfileUser">Profile</a> <span class="mx-2 slash">/</span>
                                 <span class="text-white"><strong>Change Password</strong></span>
                             </div>
                         </div>

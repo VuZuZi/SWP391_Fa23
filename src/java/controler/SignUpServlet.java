@@ -61,7 +61,7 @@ public class SignUpServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.getRequestDispatcher("signup.jsp").forward(request, response);
+        request.getRequestDispatcher("SignUp.jsp").forward(request, response);
     }
 
     /**
@@ -84,11 +84,11 @@ public class SignUpServlet extends HttpServlet {
         String[] inputArray = {email, pass, role};
         if (isEmptyInput(inputArray)) {
             request.setAttribute("inputError", "Must fill all input!");
-            request.getRequestDispatcher("signup.jsp").forward(request, response);
+            request.getRequestDispatcher("SignUp.jsp").forward(request, response);
             return;
         } else if (!isConfirmedPassword(pass, confirm)) {
             request.setAttribute("inputError", "Confirm incorrect password!");
-            request.getRequestDispatcher("signup.jsp").forward(request, response);
+            request.getRequestDispatcher("SignUp.jsp").forward(request, response);
             return;
         }
 
@@ -97,7 +97,7 @@ public class SignUpServlet extends HttpServlet {
             User u = new User(email, pass);
             if (u.isDupplicatedAccount()) {
                 request.setAttribute("inputError", "Email is used. Try another one!");
-                request.getRequestDispatcher("signup.jsp").forward(request, response);
+                request.getRequestDispatcher("SignUp.jsp").forward(request, response);
                 return;
             }
 //            request.setAttribute("userdont", u);
@@ -106,7 +106,7 @@ public class SignUpServlet extends HttpServlet {
             Enterprise e = new Enterprise(email, pass);
             if (e.isDupplicatedAccount()) {
                 request.setAttribute("inputError", "Email is used. Try another one!");
-                request.getRequestDispatcher("signup.jsp").forward(request, response);
+                request.getRequestDispatcher("SignUp.jsp").forward(request, response);
                 return;
             }
 //            request.setAttribute("enterdont", e);
