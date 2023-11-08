@@ -79,77 +79,13 @@
         <servlet-name>SearchUser</servlet-name>
         <servlet-class>controler.SearchUser</servlet-class>
     </servlet>
-    <!--    <servlet>
-        <servlet-name>SearchIndex</servlet-name>
-        <servlet-class>controler.SearchIndex</servlet-class>
-    </servlet>-->
     <servlet>
-        <servlet-name>EditProfileUser</servlet-name>
-        <servlet-class>controler.EditProfileUser</servlet-class>
+        <servlet-name>SendCVServlet</servlet-name>
+        <servlet-class>controler.SendCVServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>ViewProfileUser</servlet-name>
-        <servlet-class>controler.ViewProfileUser</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>ChangepassUser</servlet-name>
-        <servlet-class>controler.ChangepassUser</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>ViewJobDetailAdmin</servlet-name>
-        <servlet-class>controler.ViewJobDetailAdmin</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>ViewJobDetaiEnter</servlet-name>
-        <servlet-class>controler.ViewJobDetaiEnter</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>ViewJobDetailUser</servlet-name>
-        <servlet-class>controler.ViewJobDetailUser</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>ViewJobDetailIndex</servlet-name>
-        <servlet-class>controler.ViewJobDetailIndex</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>PostJobNotice</servlet-name>
-        <servlet-class>controler.PostJobNotice</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>BackHomePage</servlet-name>
-        <servlet-class>controler.BackHomePage</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>ViewPostedJob</servlet-name>
-        <servlet-class>controler.ViewPostedJob</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>RejectJobReal</servlet-name>
-        <servlet-class>controler.RejectJobReal</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>ViewEachJobEnter</servlet-name>
-        <servlet-class>controler.ViewEachJobEnter</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>UpdateJob</servlet-name>
-        <servlet-class>controler.UpdateJob</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>Statistics</servlet-name>
-        <servlet-class>controler.Statistics</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>NewServlet</servlet-name>
-        <servlet-class>controller.NewServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>getinfouser</servlet-name>
-        <servlet-class>controller.getinfouser</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>BackHomePageUser</servlet-name>
-        <servlet-class>controler.BackHomePageUser</servlet-class>
+        <servlet-name>CreateAccountServlet</servlet-name>
+        <servlet-class>controler.CreateAccountServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>SignUpServlet</servlet-name>
@@ -219,93 +155,13 @@
         <servlet-name>SearchUser</servlet-name>
         <url-pattern>/SearchUser</url-pattern>
     </servlet-mapping>
-    <servlet>
-        <servlet-name>CreateAccountServlet</servlet-name>
-        <servlet-class>controller.CreateAccountServlet</servlet-class>
-    </servlet>
+    <servlet-mapping>
+        <servlet-name>SendCVServlet</servlet-name>
+        <url-pattern>/SendCVServlet</url-pattern>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>CreateAccountServlet</servlet-name>
         <url-pattern>/CreateAccountServlet</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>SearchIndex</servlet-name>
-        <url-pattern>/SearchIndex</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>EditProfileUser</servlet-name>
-        <url-pattern>/EditProfileUser</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>ViewProfileUser</servlet-name>
-        <url-pattern>/ViewProfileUser</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>ChangepassUser</servlet-name>
-        <url-pattern>/ChangepassUser</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>ViewJobDetailAdmin</servlet-name>
-        <url-pattern>/ViewJobDetailAdmin</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>ViewJobDetaiEnter</servlet-name>
-        <url-pattern>/ViewJobDetaiEnter</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>ViewJobDetailUser</servlet-name>
-        <url-pattern>/ViewJobDetailUser</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>ViewJobDetailIndex</servlet-name>
-        <url-pattern>/ViewJobDetailIndex</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>PostJobNotice</servlet-name>
-        <url-pattern>/PostJobNotice</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>BackHomePage</servlet-name>
-        <url-pattern>/BackHomePage</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>ViewPostedJob</servlet-name>
-        <url-pattern>/ViewPostedJob</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>RejectJobReal</servlet-name>
-        <url-pattern>/RejectJobReal</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>ViewEachJobEnter</servlet-name>
-        <url-pattern>/ViewEachJobEnter</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>UpdateJob</servlet-name>
-        <url-pattern>/UpdateJob</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>Statistics</servlet-name>
-        <url-pattern>/Statistics</url-pattern>
-    </servlet-mapping>
-    <servlet>
-        <servlet-name>GetUserAccounts</servlet-name>
-        <servlet-class>model.GetUserAccounts</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>GetUserAccounts</servlet-name>
-        <url-pattern>/GetUserAccounts</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>NewServlet</servlet-name>
-        <url-pattern>/NewServlet</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>getinfouser</servlet-name>
-        <url-pattern>/getinfouser</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>BackHomePageUser</servlet-name>
-        <url-pattern>/BackHomePageUser</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -127,7 +127,7 @@
                                             </label>
                                         </div>
                                         <div class="col-lg-6 text-center">
-                                            <a class="form-check-label" href="/">
+                                            <a class="form-check-label" href="ForgotPasswordServlet">
                                                 Forgot Password
                                             </a>
                                         </div>
