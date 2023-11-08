@@ -253,4 +253,8 @@ public class User {
     public User getUserId(){
         return UserDB.getUserID(this.UserID);
     }
+    
+    public int changePass(){
+        return  UserDB.updatePassword(this);
+    }
 }

@@ -15,8 +15,8 @@ import javax.mail.internet.*;
 public class EmailUtil {
 
     public static void sendActivationEmail(String toEmail, String activationCode) {
-        final String username = "panhquang93@gmail.com"; // Thay thế bằng địa chỉ email của bạn
-        final String password = "dnyq dzwx zogm jcun"; // Thay thế bằng mật khẩu của bạn
+        final String username = "anhnttde170203@fpt.edu.vn"; // Thay thế bằng địa chỉ email của bạn
+        final String password = "gdvg zpds yumf scbh"; // Thay thế bằng mật khẩu của bạn
 
         // Cấu hình thông tin máy chủ email
         Properties props = new Properties();
@@ -51,8 +51,8 @@ public class EmailUtil {
     }
     
     public static void SendMailAccep(String toEmails){
-        final String username = "panhquang93@gmail.com"; // Thay thế bằng địa chỉ email của bạn
-        final String password = "dnyq dzwx zogm jcun"; // Thay thế bằng mật khẩu của bạn
+        final String username = "anhnttde170203@fpt.edu.vn"; // Thay thế bằng địa chỉ email của bạn
+        final String password = "gdvg zpds yumf scbh"; // Thay thế bằng mật khẩu của bạn
         
         // Cấu hình thông tin máy chủ email
         Properties props = new Properties();
@@ -88,8 +88,8 @@ public class EmailUtil {
         }
     }
     public static void SendEmailReject(String toEmails){
-        final String username = "panhquang93@gmail.com"; // Thay thế bằng địa chỉ email của bạn
-        final String password = "dnyq dzwx zogm jcun"; // Thay thế bằng mật khẩu của bạn
+        final String username = "anhnttde170203@fpt.edu.vn"; // Thay thế bằng địa chỉ email của bạn
+        final String password = "gdvg zpds yumf scbh"; // Thay thế bằng mật khẩu của bạn
         
         // Cấu hình thông tin máy chủ email
         Properties props = new Properties();

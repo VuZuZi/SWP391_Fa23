@@ -60,12 +60,7 @@ public class BackHomePage extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        HttpSession session = request.getSession();
-        Enterprise e = (Enterprise) session.getAttribute("Enterprise");
-        request.getSession().setAttribute("Enterprise", e);
-        ArrayList<Job> jobss = JobDB.getlistJobAccept();
-        request.setAttribute("jobss", jobss);
-        request.getRequestDispatcher("mainEnter.jsp").forward(request, response);
+        processRequest(request, response);
     }
 
     /**

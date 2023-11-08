@@ -76,6 +76,28 @@ public class EnterpriseDB implements DatabaseInfo {
         return null;
     }
 
+    public static int updatePassword(Enterprise enter){
+        int res = -1;
+        try (Connection con = DatabaseInfo.getConnect()) {
+            MessageDigest md = MessageDigest.getInstance("SHA-256");
+
+            byte[] passwordBytes = enter.getEnterprisePassword().getBytes();
+            byte[] hashedPass = md.digest(passwordBytes);
+
+            StringBuilder hexHash = new StringBuilder();
+            for (byte b : hashedPass) {
+                hexHash.append(String.format("%02x", b));
+            }
+            PreparedStatement ps = con.prepareStatement("update enterprise set passenter=? where enterpriseaccount=?");            
+            ps.setString(2, enter.getEnterpriseAccount());
+            ps.setString(1, hexHash.toString());
+            res = ps.executeUpdate();
+        } catch (Exception e) {
+            Logger.getLogger(EnterpriseDB.class.getName()).log(Level.SEVERE, null, e);
+        }
+        return res;                
+    }
+    
     public static Enterprise login(String acc, String pass) throws NoSuchAlgorithmException {
         Enterprise e = getEnter(acc);
         if (e != null) {

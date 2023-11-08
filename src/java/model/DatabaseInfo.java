@@ -12,9 +12,9 @@ import javax.sql.DataSource;
 
 public interface DatabaseInfo {
     public static String driverName="com.microsoft.sqlserver.jdbc.SQLServerDriver";
-    public static String dbURL="jdbc:sqlserver://localhost:1433;databaseName=JbC;";
-    public static String userDB="sa";
-    public static String passDB="12345";
+    public static String dbURL="jdbc:sqlserver://localhost:1433;databaseName=JC";
+    public static String userDB="theanhntp22";
+    public static String passDB="theanhntp22";
     public static Connection getConnect(){
         try {
             Context initContext = new InitialContext();

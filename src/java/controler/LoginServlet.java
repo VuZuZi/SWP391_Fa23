@@ -123,6 +123,7 @@ public class LoginServlet extends HttpServlet {
             Enterprise e = new Enterprise().login(uName, pass);
             if (e != null) {
                 
+                System.out.println(jobss);
                 request.getSession().setAttribute("Enterprise", e);
                 request.getRequestDispatcher("mainEnter.jsp").forward(request, response);
                 return;

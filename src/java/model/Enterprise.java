@@ -208,6 +208,10 @@ public class Enterprise {
         return EnterpriseDB.getIdbyName(name);
     }
 
+    public int changePass(){
+        return EnterpriseDB.updatePassword(this);
+    }
+    
     @Override
     public String toString() {
         return "Enterprise{" + "EnterpriseID=" + EnterpriseID + ", EnterpriseAccount=" + EnterpriseAccount + ", EnterpriseName=" + EnterpriseName + ", EnterprisePassword=" + EnterprisePassword + ", Phone=" + Phone + ", Taxcode=" + Taxcode + ", Place=" + Place + ", EnterpriseDesc=" + EnterpriseDesc + '}';
