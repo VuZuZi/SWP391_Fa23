@@ -165,6 +165,29 @@ public class UserDB implements DatabaseInfo {
         return true;
     }
 
+    public static int updatePassword(User userDetail){
+        int res = -1;
+        try (Connection con = DatabaseInfo.getConnect()) {
+            MessageDigest md = MessageDigest.getInstance("SHA-256");
+
+            byte[] passwordBytes = userDetail.getUserPassword().getBytes();
+            byte[] hashedPass = md.digest(passwordBytes);
+
+            StringBuilder hexHash = new StringBuilder();
+            for (byte b : hashedPass) {
+                hexHash.append(String.format("%02x", b));
+            }
+
+            PreparedStatement ps = con.prepareStatement("update users set password=? where useraccount=?");            
+            ps.setString(2, userDetail.getUserAccount());
+            ps.setString(1, hexHash.toString());
+            res = ps.executeUpdate();
+        } catch (Exception e) {
+            Logger.getLogger(UserDB.class.getName()).log(Level.SEVERE, null, e);
+        }
+        return res;                
+    }
+    
     public static User getUser(String account) {
         User res = new User();
         try (Connection con = DatabaseInfo.getConnect()) {
@@ -204,6 +227,7 @@ public class UserDB implements DatabaseInfo {
         return null;
     }
 
+    
     public static int addDate(User addUser) {
         int res = -1;
         try (Connection con = DatabaseInfo.getConnect()) {
