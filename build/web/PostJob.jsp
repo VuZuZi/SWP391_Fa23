@@ -9,7 +9,7 @@ Author     : ASUS
 <html lang="en">
 
     <head>
-        <title>JobBoard &mdash; Website Template by Colorlib</title>
+        <title>JobC</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -54,41 +54,31 @@ Author     : ASUS
             <header class="site-navbar mt-3">
                 <div class="container-fluid">
                     <div class="row align-items-center">
-                        <div class="site-logo col-6"><a href="mainEnter">JobBoard</a></div>
+                        <div class="site-logo col-6"><a href="mainEnter">JobC</a></div>
 
                         <nav class="mx-auto site-navigation">
                             <ul class="site-menu js-clone-nav d-none d-xl-block ml-0 pl-0">
-                                <li><a href="index.html" class="nav-link active">Home</a></li>
-                                <li><a href="about.html">About</a></li>
-                                <li class="has-children">
-                                    <a href="job-listings.html" class="active">Job Listings</a>
-                                    <ul class="dropdown">
-                                        <li><a href="job-single.html">Job Single</a></li>
-                                        <li><a href="post-job.html" class="active">Post a Job</a></li>
-                                    </ul>
-                                </li>
-                                <li class="has-children">
-                                    <a href="services.html">Pages</a>
-                                    <ul class="dropdown">
-                                        <li><a href="services.html">Services</a></li>
-                                        <li><a href="service-single.html">Service Single</a></li>
-                                        <li><a href="blog-single.html">Blog Single</a></li>
-                                        <li><a href="portfolio.html">Portfolio</a></li>
-                                        <li><a href="portfolio-single.html">Portfolio Single</a></li>
-                                        <li><a href="testimonials.html">Testimonials</a></li>
-                                        <li><a href="faq.html">Frequently Ask Questions</a></li>
-                                        <li><a href="gallery.html">Gallery</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="blog.html">Blog</a></li>
-                                <li><a href="contact.html">Contact</a></li>
-                                <li class="d-lg-none"><a href="post-job.html"><span class="mr-2">+</span> Post a Job</a></li>
-                                <li class="d-lg-none"><a href="login.html">Log In</a></li>
+                                <li><a href="BackHomePage" class="nav-link active">Home</a></li>
+                                <li><a href="PostJobServlet">Post Job</a></li>
+                                <li><a href="video_call_1.html">Interview</a></li>
+                                <li><a href="ViewPostedJob">Posted Job</a></li>
                             </ul>
                         </nav>
 
                         <div class="right-cta-menu text-right d-flex aligin-items-center col-6">
                             <div class="ml-auto">
+                                <div class="dropdown d-none d-lg-inline-block">
+
+                                    <div class=" mx-2" style="color: white; font-size: 20px;" type="button" id="signUp"
+                                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <i class="fa-regular fa-user"></i>
+                                        <span class="icon-text mx-2 text-capitalize">Enterprise</span>
+                                    </div>
+                                    <div class="dropdown-menu mt-2" aria-labelledby="dropdownMenuButton">
+                                        <a class="dropdown-item" href="ViewProfile ">Profile</a>
+                                        <a class="dropdown-item" href="LogOutServlet">Log out</a>
+                                    </div>
+                                </div>
                             </div>
                             <a href="#" class="site-menu-toggle js-menu-toggle d-inline-block d-xl-none mt-lg-2 ml-3"><span
                                     class="icon-menu h3 m-0 p-0 mt-2"></span></a>
@@ -106,8 +96,7 @@ Author     : ASUS
                         <div class="col-md-7">
                             <h1 class="text-white font-weight-bold">Post A Job</h1>
                             <div class="custom-breadcrumbs">
-                                <a href="#">Home</a> <span class="mx-2 slash">/</span>
-                                <a href="#">Job</a> <span class="mx-2 slash">/</span>
+                                <a href="BackHomePage">Home</a> <span class="mx-2 slash">/</span>
                                 <span class="text-white"><strong>Post a Job</strong></span>
                             </div>
                         </div>
@@ -126,9 +115,6 @@ Author     : ASUS
                                     <h2>Post A Job</h2>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-lg-2">
-                            <a href="#" class="btn btn-block btn-primary btn-md">Post Job</a>
                         </div>
                     </div>
                     <div class="row mb-5">

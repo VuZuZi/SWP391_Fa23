@@ -147,6 +147,10 @@
         <servlet-name>getinfouser</servlet-name>
         <servlet-class>controller.getinfouser</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>BackHomePageUser</servlet-name>
+        <servlet-class>controler.BackHomePageUser</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>SignUpServlet</servlet-name>
         <url-pattern>/SignUpServlet</url-pattern>
@@ -281,9 +285,8 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>Statistics</servlet-name>
-        <url-pattern>/Statistics</url-pattern>    
+        <url-pattern>/Statistics</url-pattern>
     </servlet-mapping>
-        
     <servlet>
         <servlet-name>GetUserAccounts</servlet-name>
         <servlet-class>model.GetUserAccounts</servlet-class>
@@ -300,11 +303,13 @@
         <servlet-name>getinfouser</servlet-name>
         <url-pattern>/getinfouser</url-pattern>
     </servlet-mapping>
-    
+    <servlet-mapping>
+        <servlet-name>BackHomePageUser</servlet-name>
+        <url-pattern>/BackHomePageUser</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
         </session-timeout>
     </session-config>
-       
 </web-app>

@@ -11,7 +11,7 @@
 <html lang="en">
 
     <head>
-        <title>JobBoard &mdash; Website Template by Colorlib</title>
+        <title>JobC</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -86,11 +86,10 @@
 
                         <nav class="mx-auto site-navigation">
                             <ul class="site-menu js-clone-nav d-none d-xl-block ml-0 pl-0">
-                                <li><a href="index.html" class="nav-link active">Home</a></li>
-                                <li><a href="about.html">About</a></li>
-                                <li><a href="about.html">Post Job</a></li>
-                                <li><a href="about.html">Interview</a></li>
-                                <li><a href="about.html">Posted Job</a></li>
+                                <li><a href="BackHomePage" class="nav-link active">Home</a></li>
+                                <li><a href="PostJobServlet">Post Job</a></li>
+                                <li><a href="video_call_1.html">Interview</a></li>
+                                <li><a href="ViewPostedJob">Posted Job</a></li>
                             </ul>
                         </nav>
 
@@ -105,9 +104,7 @@
                                     <i class="fa-regular fa-user"></i>
                                     <span class="icon-text mx-2 text-capitalize">Enterprise</span>
                                 </div>
-                                <!-- <button class="btn btn-primary border-width-2  dropdown-toggle" >
-                                Account
-                              </button> -->
+                               
                                 <div class="dropdown-menu mt-2" aria-labelledby="dropdownMenuButton">
                                     <a class="dropdown-item" href="#">Edit a profile</a>
                                     <a class="dropdown-item" href="LogOutServlet">Log out</a>
@@ -127,7 +124,7 @@
                         <div class="col-md-7">
                             <h1 class="text-white font-weight-bold">Enterprise Profile</h1>
                             <div class="custom-breadcrumbs">
-                                <a href="#">Home</a> <span class="mx-2 slash">/</span>
+                                <a href="BackHomePage">Home</a> <span class="mx-2 slash">/</span>
                                 <span class="text-white"><strong>Enterprise Profile</strong></span>
                             </div>
                         </div>
@@ -150,40 +147,38 @@
                     </div>
                     <div class="row mb-5">
                         <div class="col-lg-12">
-                            <form action="PostJobServlet" class="p-4 p-md-5 border rounded" method="post">
+                            <form action="EditProfileServlet" class="p-4 p-md-5 border rounded" method="post">
                                 <h3 class="text-black mb-5 border-bottom pb-2 text-capitalize">Profile</h3>
                                 <div class="form-group">
                                     <label for="name" class="text-capitalize">Name</label>
-                                    <input type="text" class="form-control" id="name" placeholder="Enter your name"
-                                           value="${enterinfo.getEnterpriseName()}" readonly>
+                                    <input name="name-input" type="text" class="form-control" id="name" placeholder="Enter your name"
+                                           value="${enterinfo.getEnterpriseName()}" >
                                 </div>
                                 <div class="form-group">
                                     <label for="phone" class="text-capitalize">Phone</label>
-                                    <input type="text" class="form-control" id="phone" placeholder="Enter your phone"
-                                           value="${enterinfo.getPhone()}" readonly>
+                                    <input name="phone-input" type="text" class="form-control" id="phone" placeholder="Enter your phone"
+                                           value="${enterinfo.getPhone()}" >
                                 </div>
                                 <div class="form-group">
                                     <label for="place" class="text-capitalize">Address</label>
-                                    <input type="text" class="form-control" id="place" placeholder="Enter your address"
-                                           value="${enterinfo.getPlace()}" readonly>
+                                    <input name="address-input" type="text" class="form-control" id="place" placeholder="Enter your address"
+                                           value="${enterinfo.getPlace()}" >
                                 </div>
                                 <div class="form-group">
                                     <label for="description">Description</label>
-                                    <textarea rows="4" readonly name="job_description"
+                                    <textarea rows="4"  name="desc-input"
                                               class="form-control">${enterinfo.getEnterpriseDesc()}</textarea>
                                     <!-- <div class="editor" id="editor-1" name="job_description" readonly> -->
                                     <!-- </div> -->
                                 </div>
                                 <div class="form-group">
                                     <label for="job-title" class="text-capitalize">Taxcode</label>
-                                    <input type="number" class="form-control" id="taxcode" placeholder="Enter your taxcode"
-                                           value="${enterinfo.getTaxcode()}" readonly>
+                                    <input name="tax-input" type="number" class="form-control" id="taxcode" placeholder="Enter your taxcode"
+                                           value="${enterinfo.getTaxcode()}" >
                                 </div>
                                 <div class="row mb-5 justify-content-end">
                                     <div class="col-lg-3 col-md-3">
-                                        <a href="EditProfileServlet" class="btn btn-block btn-primary btn-md text-white">Edit
-                                            the
-                                            profile</a>
+                                        <button type="submit" class="btn btn-block btn-primary btn-md text-white">Update Profile</button>
                                     </div>
                                     <div class="col-lg-3 col-md-3">
                                         <a href="ChangepassServlet" class="btn btn-block btn-secondary btn-md text-white">Change

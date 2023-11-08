@@ -9,7 +9,7 @@
 <html lang="en">
 
     <head>
-        <title>JobBoard &mdash; Website Template by Colorlib</title>
+        <title>JobC</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -85,14 +85,11 @@
 
                         <nav class="mx-auto site-navigation">
                             <ul class="site-menu js-clone-nav d-none d-xl-block ml-0 pl-0">
-                                <li><a href="index.html" class="nav-link">Home</a></li>
-                                <li><a href="about.html">About</a></li>
-                                <li><a href="#">Post Job</a></li>
-                                <li><a href="#">Interview</a></li>
-                                <li><a href="#">Posted Job</a></li>
-                                <li class="d-lg-none"><a href="post-job.html"><span class="mr-2">+</span> Post a Job</a>
-                                </li>
-                                <li class="d-lg-none"><a href="login.html">Log In</a></li>
+                                <li><a href="BackHomePage" class="nav-link active">Home</a></li>
+                                <li><a href="PostJobServlet">Post Job</a></li>
+                                <li><a href="video_call_1.html">Interview</a></li>
+                                <li><a href="ViewPostedJob">Posted Job</a></li>
+
                             </ul>
                         </nav>
 
@@ -132,10 +129,10 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-7">
-                            <h1 class="text-white font-weight-bold">Sign Up/Login</h1>
+                            <h1 class="text-white font-weight-bold">Home/Profile/Change Password</h1>
                             <div class="custom-breadcrumbs">
-                                <a href="#">Home</a> <span class="mx-2 slash">/</span>
-                                <a href="#">Profile</a> <span class="mx-2 slash">/</span>
+                                <a href="BackHomePage">Home</a> <span class="mx-2 slash">/</span>
+                                <a href="ViewProfile">Profile</a> <span class="mx-2 slash">/</span>
                                 <span class="text-white"><strong>Change Password</strong></span>
                             </div>
                         </div>
