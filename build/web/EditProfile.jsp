@@ -3,7 +3,9 @@
     Created on : Oct 8, 2023, 3:10:28 AM
     Author     : ASUS
 --%>
-
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@page import="model.Job"%>
+<%@page import="model.Enterprise"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!doctype html>
 <html lang="en">
@@ -137,7 +139,7 @@
                                 <h3 class="text-black mb-5 border-bottom pb-2 text-capitalize">edit the profile</h3>
                                 <div class="form-group">
                                     <label for="name" class="text-capitalize">Name</label>
-                                    <input type="text" class="form-control" id="name" name="name-input" placeholder="Enter your name" value="Enterprise Name">
+                                    <input type="text" class="form-control" id="name" name="name-input" placeholder="Enter your name" value="${enterinfor.getEnterpriseName()}">
                                 </div>
                                 <div class="form-group">
                                     <label for="phone" class="text-capitalize">Phone</label>
